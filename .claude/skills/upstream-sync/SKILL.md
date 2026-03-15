@@ -14,13 +14,14 @@ You help keep this fork of `laravel/vue-starter-kit` in sync with upstream by tr
 - **Fork Data classes**: `app/Data/` — this fork uses `spatie/laravel-data` instead of FormRequests
 - **Generated types**: `resources/js/types/generated.d.ts` — auto-generated from Data classes via `spatie/laravel-typescript-transformer`
 
-## ⚠️ CRITICAL: PR Creation Commands
+## ⚠️ Repository Configuration
 
-**NEVER create a PR without specifying the repository explicitly!**
+**The repository has been configured with `gh repo set-default Plytas/vue-starter-kit`**
 
-- **Fork PRs**: ALWAYS use `gh pr create --repo Plytas/vue-starter-kit`
-- **Downstream PRs**: ALWAYS use `gh pr create --repo <org>/<repo>` with the specific downstream repo
-- **NEVER** use just `gh pr create` without `--repo` flag - it may default to upstream!
+This means:
+- **Fork PRs**: Can use `gh pr create` (defaults to fork) OR be explicit with `--repo Plytas/vue-starter-kit`
+- **Downstream PRs**: MUST use `gh pr create --repo <org>/<repo>` with the specific downstream repo
+- **Upstream PRs**: Would need `--repo laravel/vue-starter-kit` (should never happen in normal workflow)
 
 ## General Guidelines
 
@@ -142,7 +143,7 @@ Invoked via `/us-backport <pr-numbers>` where pr-numbers is a space-separated li
     npx vue-tsc --noEmit
     ```
     If any fail: attempt to fix. If unfixable, document in PR body.
-    j. Create PR via `gh pr create --repo Plytas/vue-starter-kit` with body containing:
+    j. Create PR via `gh pr create` (defaults to fork) with body containing:
     - Link to upstream PR: `Backports laravel/vue-starter-kit#<number>`
     - Confidence level
     - Summary of adaptations made (if any)
