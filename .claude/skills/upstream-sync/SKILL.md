@@ -14,6 +14,18 @@ You help keep this fork of `laravel/vue-starter-kit` in sync with upstream by tr
 - **Fork Data classes**: `app/Data/` — this fork uses `spatie/laravel-data` instead of FormRequests
 - **Generated types**: `resources/js/types/generated.d.ts` — auto-generated from Data classes via `spatie/laravel-typescript-transformer`
 
+## ⚠️ CRITICAL: PR Creation Commands
+
+**NEVER create a PR without specifying the repository explicitly!**
+
+- **Fork PRs**: ALWAYS use `gh pr create --repo Plytas/vue-starter-kit`
+- **Downstream PRs**: ALWAYS use `gh pr create --repo <org>/<repo>` with the specific downstream repo
+- **NEVER** use just `gh pr create` without `--repo` flag - it may default to upstream!
+
+## General Guidelines
+
+- **Always output PR URLs**: Whenever you create a PR (fork or downstream), immediately output the PR URL to the user so they can access it directly.
+
 ## State File Schema
 
 The state file at `.starter-kit/upstream-sync.json` has this structure:
@@ -130,12 +142,13 @@ Invoked via `/us-backport <pr-numbers>` where pr-numbers is a space-separated li
     npx vue-tsc --noEmit
     ```
     If any fail: attempt to fix. If unfixable, document in PR body.
-    j. Create PR via `gh pr create` with body containing:
+    j. Create PR via `gh pr create --repo Plytas/vue-starter-kit` with body containing:
     - Link to upstream PR: `Backports laravel/vue-starter-kit#<number>`
     - Confidence level
     - Summary of adaptations made (if any)
     - Checklist: `- [ ] Migration needed? - [ ] Tests updated? - [ ] Frontend changes verified?`
     - If low confidence: explicit warning about what needs manual review
+    - **Output the PR URL to the user immediately after creation**
       k. Update state: set status to `backported`, record `forkPr` details, `adaptationNotes`, `confidence`.
 4. Release lock.
 5. Show summary of all backported PRs with links.
@@ -188,11 +201,12 @@ This propagates a backported change to a downstream repo.
 4. Read the backported diff from the fork PR.
 5. Analyze the downstream repo's structure and divergence.
 6. Intelligently apply the change, adapting to the downstream repo's patterns.
-7. Create branch, commit, and open PR via `gh pr create` with:
+7. Create branch, commit, and open PR via `gh pr create --repo <owner>/<downstream-repo>` with:
     - Reference to upstream PR and fork PR
     - Adaptation notes
     - If partial adaptation: include detailed explanation of what needs manual work
-8. Update state: add to `downstreamPrs`.
+    - **Output the PR URL to the user immediately after creation**
+8. Update state: add to `downstreamPrs` using the `record-propagation` script.
 9. Release lock.
 
 ## Dry Run Mode
