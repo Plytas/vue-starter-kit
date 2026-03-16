@@ -25,6 +25,9 @@ jobs:
           tools: composer:v2
           coverage: xdebug
 
+      - name: SQLite
+        run: touch ./database/database.sqlite
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
