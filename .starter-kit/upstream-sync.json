@@ -191,7 +191,33 @@
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/2",
             "adaptationNotes": "Adds throttle:6,1 to password confirmation and password update routes. Security improvement. Direct 1:1 backport - no adaptation needed.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/159"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/159",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 2,
+                    "status": "open",
+                    "propagatedAt": "2026-03-15T18:00:00Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/2"
+                },
+                "joy": {
+                    "number": 2,
+                    "status": "open",
+                    "propagatedAt": "2026-03-15T18:00:00Z",
+                    "url": "https://github.com/Plytas/joy/pull/2"
+                },
+                "katsch": {
+                    "number": 285,
+                    "status": "open",
+                    "propagatedAt": "2026-03-15T18:00:00Z",
+                    "url": "https://github.com/Plytas/katsch/pull/285"
+                },
+                "katsch-gw2": {
+                    "number": 242,
+                    "status": "open",
+                    "propagatedAt": "2026-03-15T18:00:00Z",
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/242"
+                }
+            }
         },
         "160": {
             "status": "pending",
