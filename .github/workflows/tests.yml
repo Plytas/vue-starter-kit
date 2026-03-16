@@ -21,15 +21,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: 8.5
           tools: composer:v2
           coverage: xdebug
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
@@ -41,13 +38,13 @@ jobs:
         run: php artisan key:generate
 
       - name: Install Node Dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Validate typescript
-        run: npm run type:check
+        run: bun run type:check
 
       - name: Build Assets
-        run: npm run build
+        run: bun run build
 
       - name: Tests
-        run: ./vendor/bin/phpunit
+        run: php artisan test --parallel
