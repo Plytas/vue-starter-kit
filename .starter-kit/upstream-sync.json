@@ -195,25 +195,25 @@
             "downstreamPrs": {
                 "idle-rpg": {
                     "number": 2,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-15T18:00:00Z",
                     "url": "https://github.com/Plytas/idle-rpg/pull/2"
                 },
                 "joy": {
                     "number": 2,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-15T18:00:00Z",
                     "url": "https://github.com/Plytas/joy/pull/2"
                 },
                 "katsch": {
                     "number": 285,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-15T18:00:00Z",
                     "url": "https://github.com/Plytas/katsch/pull/285"
                 },
                 "katsch-gw2": {
                     "number": 242,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-15T18:00:00Z",
                     "url": "https://github.com/Plytas/katsch-gw2/pull/242"
                 }
