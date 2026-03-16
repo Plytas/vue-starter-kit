@@ -1,0 +1,79 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * List all downstream repositories and their propagation status
+ *
+ * Usage: ./list-downstream-repos
+ */
+
+// Load state file
+$stateFile = __DIR__ . '/../upstream-sync.json';
+if (!file_exists($stateFile)) {
+    echo "Error: State file not found: {$stateFile}\n";
+    exit(1);
+}
+
+$state = json_decode(file_get_contents($stateFile), true);
+if (!$state) {
+    echo "Error: Failed to parse state file\n";
+    exit(1);
+}
+
+if (empty($state['downstreamRepos'])) {
+    echo "No downstream repositories configured.\n";
+    echo "\nAdd one with: ./add-downstream-repo <repo-id> <path>\n";
+    exit(0);
+}
+
+echo "Downstream Repositories\n";
+echo str_repeat("=", 80) . "\n\n";
+
+foreach ($state['downstreamRepos'] as $repo) {
+    echo "ID: {$repo['id']}\n";
+    echo "Path: {$repo['path']}\n";
+    echo "Status: {$repo['status']}\n";
+
+    // Count propagations to this repo
+    $propagationCount = 0;
+    $openPRs = [];
+    $mergedPRs = [];
+
+    foreach ($state['prs'] as $prNumber => $pr) {
+        if (isset($pr['downstreamPrs'][$repo['id']])) {
+            $propagationCount++;
+            $downstreamPr = $pr['downstreamPrs'][$repo['id']];
+
+            if ($downstreamPr['status'] === 'open') {
+                $openPRs[] = [
+                    'upstream' => $prNumber,
+                    'downstream' => $downstreamPr['number'],
+                    'url' => $downstreamPr['url'] ?? null
+                ];
+            } else {
+                $mergedPRs[] = [
+                    'upstream' => $prNumber,
+                    'downstream' => $downstreamPr['number'],
+                    'url' => $downstreamPr['url'] ?? null
+                ];
+            }
+        }
+    }
+
+    echo "Propagations: {$propagationCount} total\n";
+    echo "  - Open PRs: " . count($openPRs) . "\n";
+    echo "  - Merged PRs: " . count($mergedPRs) . "\n";
+
+    if (!empty($openPRs)) {
+        echo "\nOpen PRs:\n";
+        foreach ($openPRs as $pr) {
+            echo "  - Upstream #{$pr['upstream']} → Downstream #{$pr['downstream']}";
+            if ($pr['url']) {
+                echo " ({$pr['url']})";
+            }
+            echo "\n";
+        }
+    }
+
+    echo "\n" . str_repeat("-", 80) . "\n\n";
+}

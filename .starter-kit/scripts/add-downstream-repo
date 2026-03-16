@@ -1,0 +1,67 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Add a downstream repository to upstream-sync.json
+ *
+ * Usage: ./add-downstream-repo <repo-id> <path>
+ * Example: ./add-downstream-repo idle-rpg /Users/vytas/Code/idle-rpg
+ */
+
+if ($argc < 3) {
+    echo "Usage: {$argv[0]} <repo-id> <path>\n";
+    echo "Example: {$argv[0]} idle-rpg /Users/vytas/Code/idle-rpg\n";
+    exit(1);
+}
+
+$repoId = $argv[1];
+$repoPath = $argv[2];
+
+// Validate path exists and is a git repo
+if (!is_dir($repoPath)) {
+    echo "Error: Path does not exist: {$repoPath}\n";
+    exit(1);
+}
+
+$gitDir = shell_exec("git -C " . escapeshellarg($repoPath) . " rev-parse --git-dir 2>&1");
+if (strpos($gitDir, '.git') === false) {
+    echo "Error: Path is not a git repository: {$repoPath}\n";
+    exit(1);
+}
+
+// Load state file
+$stateFile = __DIR__ . '/../upstream-sync.json';
+if (!file_exists($stateFile)) {
+    echo "Error: State file not found: {$stateFile}\n";
+    exit(1);
+}
+
+$state = json_decode(file_get_contents($stateFile), true);
+if (!$state) {
+    echo "Error: Failed to parse state file\n";
+    exit(1);
+}
+
+// Check if repo already exists
+foreach ($state['downstreamRepos'] as $repo) {
+    if ($repo['id'] === $repoId) {
+        echo "Error: Downstream repo '{$repoId}' already exists\n";
+        exit(1);
+    }
+}
+
+// Add the new downstream repo
+$state['downstreamRepos'][] = [
+    'id' => $repoId,
+    'path' => $repoPath,
+    'status' => 'active'
+];
+
+// Sort by ID for consistency
+usort($state['downstreamRepos'], fn($a, $b) => strcmp($a['id'], $b['id']));
+
+// Save state file
+file_put_contents($stateFile, json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
+
+echo "✓ Added downstream repo '{$repoId}' at {$repoPath}\n";
+echo "✓ State file updated: {$stateFile}\n";
