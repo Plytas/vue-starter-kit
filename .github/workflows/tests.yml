@@ -40,11 +40,11 @@ jobs:
       - name: Install Node Dependencies
         run: bun install --frozen-lockfile
 
-      - name: Validate typescript
-        run: bun run type:check
-
       - name: Build Assets
         run: bun run build
+
+      - name: Validate typescript
+        run: bun run type:check
 
       - name: Tests
         run: php artisan test --parallel
