@@ -48,3 +48,6 @@ jobs:
 
       - name: Tests
         run: php artisan test --parallel
+
+      - name: Phpstan
+        run: ./vendor/bin/phpstan analyse --memory-limit=2G --ansi
