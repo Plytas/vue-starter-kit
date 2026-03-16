@@ -1,4 +1,5 @@
 ---
+name: us-triage
 description: Check for new upstream PRs and triage them for backporting
 ---
 

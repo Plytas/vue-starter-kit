@@ -1,4 +1,5 @@
 ---
+name: us-status
 description: Show upstream sync status — pending, backported, and skipped PRs
 ---
 

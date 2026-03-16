@@ -1,4 +1,5 @@
 ---
+name: us-propagate
 description: Propagate a backported PR to a downstream project repo
 ---
 
