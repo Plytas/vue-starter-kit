@@ -40,6 +40,9 @@ jobs:
       - name: Install Node Dependencies
         run: bun install --frozen-lockfile
 
+      - name: generate
+        run: php artisan typescript:transform
+
       - name: Build Assets
         run: bun run build
 
