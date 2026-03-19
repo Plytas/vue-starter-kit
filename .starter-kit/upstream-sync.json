@@ -225,9 +225,41 @@
             "upstreamMergedAt": "2025-07-24T17:50:07Z",
             "backportedAt": "2026-03-16T00:00:00Z",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/3",
-            "adaptationNotes": "Direct 1:1 backport. Replaced markEmailAsVerified() with $request->fulfill() for cleaner, more idiomatic Laravel code.",
+            "adaptationNotes": "Direct 1:1 backport. Replaced markEmailAsVerified() with $request->fulfill() for cleaner, more idiomatic Laravel code. Includes CI workflow updates.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/160"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/160",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 3,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-19T00:00:00Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/3"
+                },
+                "joy": {
+                    "number": 3,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-19T00:00:00Z",
+                    "url": "https://github.com/Plytas/joy/pull/3"
+                },
+                "joymobile": {
+                    "number": 1,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-19T00:00:00Z",
+                    "url": "https://github.com/Plytas/joymobile/pull/1"
+                },
+                "katsch": {
+                    "number": 286,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-19T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch/pull/286"
+                },
+                "katsch-gw2": {
+                    "number": 243,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-19T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/243"
+                }
+            }
         },
         "162": {
             "status": "skipped",
