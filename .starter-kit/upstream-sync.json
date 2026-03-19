@@ -220,10 +220,12 @@
             }
         },
         "160": {
-            "status": "pending",
+            "status": "backported",
             "title": "Refactor `VerifyEmailController` to use `fulfill()`",
             "upstreamMergedAt": "2025-07-24T17:50:07Z",
-            "adaptationNotes": "Simple refactor - replace markEmailAsVerified() with $request->fulfill(). No Data class adaptation needed.",
+            "backportedAt": "2026-03-16T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/3",
+            "adaptationNotes": "Direct 1:1 backport. Replaced markEmailAsVerified() with $request->fulfill() for cleaner, more idiomatic Laravel code.",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/160"
         },

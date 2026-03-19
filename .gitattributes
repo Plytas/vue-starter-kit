@@ -12,3 +12,5 @@ README.md export-ignore
 .claude/ export-ignore
 .starter-kit/ export-ignore
 agents/ export-ignore
+composer.lock export-ignore
+bun.lock export-ignore
