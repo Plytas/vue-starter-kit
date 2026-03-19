@@ -5,16 +5,10 @@ import AuthLayout from '@/layouts/AuthLayout.vue';
 import { logout } from '@/routes';
 import { send } from '@/routes/verification';
 import { VerifyEmailPrompts } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
+import { Head, Form } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
 defineProps<VerifyEmailPrompts>();
-
-const form = useForm({});
-
-const submit = () => {
-	form.submit(send());
-};
 </script>
 
 <template>
@@ -25,13 +19,15 @@ const submit = () => {
 			A new verification link has been sent to the email address you provided during registration.
 		</div>
 
-		<form @submit.prevent="submit" class="space-y-6 text-center">
-			<Button :disabled="form.processing" variant="secondary">
-				<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-				Resend verification email
-			</Button>
+		<Form method="post" :action="send()" v-slot="{ processing }">
+			<div class="space-y-6 text-center">
+				<Button type="submit" :disabled="processing" variant="secondary">
+					<LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
+					Resend verification email
+				</Button>
 
-			<TextLink :href="logout()" method="post" as="button" class="mx-auto block text-sm"> Log out </TextLink>
-		</form>
+				<TextLink :href="logout()" method="post" as="button" class="mx-auto block text-sm"> Log out </TextLink>
+			</div>
+		</Form>
 	</AuthLayout>
 </template>

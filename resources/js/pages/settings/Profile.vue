@@ -11,7 +11,8 @@ import { update } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import type { BreadcrumbItem } from '@/types';
 import type { ProfileProps, ProfileUpdateRequest, User } from '@/types/generated';
-import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
+import { Form, Head, Link, usePage } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
 defineProps<ProfileProps>();
 
@@ -25,16 +26,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 const page = usePage();
 const user = page.props.auth.user as User;
 
-const form = useForm<ProfileUpdateRequest>({
-	name: user.name,
-	email: user.email,
-});
-
-const submit = () => {
-	form.submit(update(), {
-		preserveScroll: true,
-	});
-};
+const recentlySuccessful = ref(false);
 </script>
 
 <template>
@@ -45,58 +37,69 @@ const submit = () => {
 			<div class="flex flex-col space-y-6">
 				<HeadingSmall title="Profile information" description="Update your name and email address" />
 
-				<form @submit.prevent="submit" class="space-y-6">
-					<div class="grid gap-2">
-						<Label for="name">Name</Label>
-						<Input id="name" class="mt-1 block w-full" v-model="form.name" required autocomplete="name" placeholder="Full name" />
-						<InputError class="mt-2" :message="form.errors.name" />
-					</div>
+				<Form method="put" :action="update()" :options="{ preserveScroll: true }" @success="recentlySuccessful = true" v-slot="{ errors, processing }">
+					<div class="space-y-6">
+						<div class="grid gap-2">
+							<Label for="name">Name</Label>
+							<Input
+								id="name"
+								name="name"
+								class="mt-1 block w-full"
+								:default-value="user.name"
+								required
+								autocomplete="name"
+								placeholder="Full name"
+							/>
+							<InputError class="mt-2" :message="errors.name" />
+						</div>
 
-					<div class="grid gap-2">
-						<Label for="email">Email address</Label>
-						<Input
-							id="email"
-							type="email"
-							class="mt-1 block w-full"
-							v-model="form.email"
-							required
-							autocomplete="username"
-							placeholder="Email address"
-						/>
-						<InputError class="mt-2" :message="form.errors.email" />
-					</div>
+						<div class="grid gap-2">
+							<Label for="email">Email address</Label>
+							<Input
+								id="email"
+								type="email"
+								name="email"
+								class="mt-1 block w-full"
+								:default-value="user.email"
+								required
+								autocomplete="username"
+								placeholder="Email address"
+							/>
+							<InputError class="mt-2" :message="errors.email" />
+						</div>
 
-					<div v-if="mustVerifyEmail && !user.email_verified_at">
-						<p class="-mt-4 text-sm text-muted-foreground">
-							Your email address is unverified.
-							<Link
-								:href="send()"
-								method="post"
-								as="button"
-								class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+						<div v-if="mustVerifyEmail && !user.email_verified_at">
+							<p class="-mt-4 text-sm text-muted-foreground">
+								Your email address is unverified.
+								<Link
+									:href="send()"
+									method="post"
+									as="button"
+									class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+								>
+									Click here to resend the verification email.
+								</Link>
+							</p>
+
+							<div v-if="status === 'verification-link-sent'" class="mt-2 text-sm font-medium text-green-600">
+								A new verification link has been sent to your email address.
+							</div>
+						</div>
+
+						<div class="flex items-center gap-4">
+							<Button :disabled="processing">Save</Button>
+
+							<Transition
+								enter-active-class="transition ease-in-out"
+								enter-from-class="opacity-0"
+								leave-active-class="transition ease-in-out"
+								leave-to-class="opacity-0"
 							>
-								Click here to resend the verification email.
-							</Link>
-						</p>
-
-						<div v-if="status === 'verification-link-sent'" class="mt-2 text-sm font-medium text-green-600">
-							A new verification link has been sent to your email address.
+								<p v-show="recentlySuccessful" class="text-sm text-neutral-600">Saved.</p>
+							</Transition>
 						</div>
 					</div>
-
-					<div class="flex items-center gap-4">
-						<Button :disabled="form.processing">Save</Button>
-
-						<Transition
-							enter-active-class="transition ease-in-out"
-							enter-from-class="opacity-0"
-							leave-active-class="transition ease-in-out"
-							leave-to-class="opacity-0"
-						>
-							<p v-show="form.recentlySuccessful" class="text-sm text-neutral-600">Saved.</p>
-						</Transition>
-					</div>
-				</form>
+				</Form>
 			</div>
 
 			<DeleteUser />

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useForm } from '@inertiajs/vue3';
-import { nextTick } from 'vue';
+import { Form } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
 // Components
 import HeadingSmall from '@/components/HeadingSmall.vue';
@@ -19,32 +19,18 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { destroy } from '@/routes/profile';
-import { DeleteUserRequest } from '@/types/generated';
 
-const form = useForm<DeleteUserRequest>({
-	password: '',
-});
+const passwordInput = ref<HTMLInputElement | null>(null);
+const isOpen = ref(false);
 
-const deleteUser = (e: Event) => {
-	e.preventDefault();
-
-	form.submit(destroy(), {
-		preserveScroll: true,
-		onSuccess: () => closeModal(),
-		onError: () => {
-			nextTick(() => {
-				const formElement = e.target as HTMLFormElement;
-				const passwordInput = formElement.password as HTMLInputElement;
-				passwordInput.focus();
-			});
-		},
-		onFinish: () => form.reset(),
-	});
+const handleError = () => {
+	if (passwordInput.value) {
+		passwordInput.value.focus();
+	}
 };
 
 const closeModal = () => {
-	form.clearErrors();
-	form.reset();
+	isOpen.value = false;
 };
 </script>
 
@@ -56,12 +42,12 @@ const closeModal = () => {
 				<p class="font-medium">Warning</p>
 				<p class="text-sm">Please proceed with caution, this cannot be undone.</p>
 			</div>
-			<Dialog>
+			<Dialog v-model:open="isOpen">
 				<DialogTrigger as-child>
 					<Button variant="destructive">Delete account</Button>
 				</DialogTrigger>
 				<DialogContent>
-					<form class="space-y-6" @submit="deleteUser">
+					<Form method="delete" :action="destroy()" :options="{ preserveScroll: true }" @success="closeModal" @error="handleError" v-slot="{ errors, processing }">
 						<DialogHeader class="space-y-3">
 							<DialogTitle>Are you sure you want to delete your account?</DialogTitle>
 							<DialogDescription>
@@ -72,18 +58,18 @@ const closeModal = () => {
 
 						<div class="grid gap-2">
 							<Label for="password" class="sr-only">Password</Label>
-							<Input id="password" type="password" name="password" v-model="form.password" placeholder="Password" />
-							<InputError :message="form.errors.password" />
+							<Input id="password" ref="passwordInput" type="password" name="password" placeholder="Password" />
+							<InputError :message="errors.password" />
 						</div>
 
 						<DialogFooter class="gap-2">
 							<DialogClose as-child>
-								<Button variant="secondary" @click="closeModal"> Cancel </Button>
+								<Button type="button" variant="secondary" @click="closeModal"> Cancel </Button>
 							</DialogClose>
 
-							<Button type="submit" variant="destructive" :disabled="form.processing"> Delete account </Button>
+							<Button type="submit" variant="destructive" :disabled="processing"> Delete account </Button>
 						</DialogFooter>
-					</form>
+					</Form>
 				</DialogContent>
 			</Dialog>
 		</div>
