@@ -7,11 +7,19 @@ import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { email } from '@/routes/password';
-import { ForgotPasswordProps } from '@/types/generated';
-import { Head, Form } from '@inertiajs/vue3';
+import { ForgotPasswordProps, PasswordResetLinkRequest } from '@/types/generated';
+import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
 defineProps<ForgotPasswordProps>();
+
+const form = useForm<PasswordResetLinkRequest>({
+	email: '',
+});
+
+const submit = () => {
+	form.submit(email());
+};
 </script>
 
 <template>
@@ -23,20 +31,20 @@ defineProps<ForgotPasswordProps>();
 		</div>
 
 		<div class="space-y-6">
-			<Form method="post" :action="email()" v-slot="{ errors, processing }">
+			<form @submit.prevent="submit">
 				<div class="grid gap-2">
 					<Label for="email">Email address</Label>
-					<Input id="email" type="email" name="email" autocomplete="off" autofocus placeholder="email@example.com" />
-					<InputError :message="errors.email" />
+					<Input id="email" type="email" name="email" autocomplete="off" v-model="form.email" autofocus placeholder="email@example.com" />
+					<InputError :message="form.errors.email" />
 				</div>
 
 				<div class="my-6 flex items-center justify-start">
-					<Button type="submit" class="w-full" :disabled="processing">
-						<LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
+					<Button class="w-full" :disabled="form.processing">
+						<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
 						Email password reset link
 					</Button>
 				</div>
-			</Form>
+			</form>
 
 			<div class="space-x-1 text-center text-sm text-muted-foreground">
 				<span>Or, return to</span>

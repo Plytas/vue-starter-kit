@@ -12,37 +12,38 @@ import { register } from '@/routes';
 import { authentication_options, login } from '@/routes/passkeys';
 import { request } from '@/routes/password';
 import { LoginProps, LoginRequest } from '@/types/generated';
-import { Form, Head } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import { startAuthentication, WebAuthnAbortService } from '@simplewebauthn/browser';
 import { LoaderCircle } from 'lucide-vue-next';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted } from 'vue';
 
 defineProps<LoginProps>();
 
-const passkeyStatus = ref('');
+const passkeyForm = useForm('passkey', {});
+
+const loginForm = useForm<LoginRequest>('login', {
+	email: '',
+	password: '',
+	remember: false,
+});
+
+const submit = () => {
+	loginForm.submit(store(), {
+		onFinish: () => loginForm.reset('password'),
+	});
+};
 
 const loginUsingPasskey = async () => {
 	try {
 		const options = await (await fetch(authentication_options().url)).json();
 		const passkey = await startAuthentication({ optionsJSON: options });
 
-		const formData = new FormData();
-		formData.append('start_authentication_response', JSON.stringify(passkey));
-
-		const response = await fetch(login().url, {
-			method: 'POST',
-			body: formData,
-			headers: {
-				'X-Requested-With': 'XMLHttpRequest',
-			},
-		});
-
-		if (!response.ok) {
-			passkeyStatus.value = 'Passkey authentication failed';
-		}
-	} catch (e) {
-		passkeyStatus.value = 'Passkey authentication cancelled';
-	}
+		passkeyForm
+			.transform(() => ({
+				start_authentication_response: JSON.stringify(passkey),
+			}))
+			.submit(login());
+	} catch (e) {}
 };
 
 onMounted(loginUsingPasskey);
@@ -59,7 +60,8 @@ onBeforeUnmount(() => {
 			{{ status }}
 		</div>
 
-		<Button type="submit" class="mt-4 w-full" :tabindex="4" @click="loginUsingPasskey">
+		<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="loginForm.processing" @click="loginUsingPasskey">
+			<LoaderCircle v-if="loginForm.processing" class="h-4 w-4 animate-spin" />
 			Sign in using passkey
 		</Button>
 
@@ -71,59 +73,57 @@ onBeforeUnmount(() => {
 			<Separator class="shrink" />
 		</div>
 
-		<Form method="post" :action="store()" :reset-on-success="['password']" v-slot="{ errors, processing }">
-			<div class="flex flex-col gap-6">
-				<div class="grid gap-6">
-					<div class="grid gap-2">
-						<Label for="email">Email address</Label>
-						<Input
-							id="email"
-							type="email"
-							name="email"
-							required
-							autofocus
-							:tabindex="1"
-							autocomplete="email webauthn"
-							placeholder="email@example.com"
-						/>
-						<InputError :message="errors.email" />
-					</div>
+		<form @submit.prevent="submit" class="flex flex-col gap-6">
+			<div class="grid gap-6">
+				<div class="grid gap-2">
+					<Label for="email">Email address</Label>
+					<Input
+						id="email"
+						type="email"
+						required
+						autofocus
+						:tabindex="1"
+						autocomplete="email webauthn"
+						v-model="loginForm.email"
+						placeholder="email@example.com"
+					/>
+					<InputError :message="loginForm.errors.email" />
+				</div>
 
-					<div class="grid gap-2">
-						<div class="flex items-center justify-between">
-							<Label for="password">Password</Label>
-							<TextLink v-if="canResetPassword" :href="request()" class="text-sm" :tabindex="5"> Forgot password? </TextLink>
-						</div>
-						<Input
-							id="password"
-							type="password"
-							name="password"
-							required
-							:tabindex="2"
-							autocomplete="current-password"
-							placeholder="Password"
-						/>
-						<InputError :message="errors.password" />
-					</div>
-
+				<div class="grid gap-2">
 					<div class="flex items-center justify-between">
-						<Label for="remember" class="flex items-center space-x-3">
-							<Checkbox id="remember" name="remember" :tabindex="3" />
-							<span>Remember me</span>
-						</Label>
+						<Label for="password">Password</Label>
+						<TextLink v-if="canResetPassword" :href="request()" class="text-sm" :tabindex="5"> Forgot password? </TextLink>
 					</div>
-
-					<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="processing">
-						<LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
-						Log in
-					</Button>
+					<Input
+						id="password"
+						type="password"
+						required
+						:tabindex="2"
+						autocomplete="current-password"
+						v-model="loginForm.password"
+						placeholder="Password"
+					/>
+					<InputError :message="loginForm.errors.password" />
 				</div>
 
-				<div class="text-center text-sm text-muted-foreground">
-					Don't have an account?
-					<TextLink :href="register()" :tabindex="5">Sign up</TextLink>
+				<div class="flex items-center justify-between">
+					<Label for="remember" class="flex items-center space-x-3">
+						<Checkbox id="remember" v-model="loginForm.remember" :tabindex="3" />
+						<span>Remember me</span>
+					</Label>
 				</div>
+
+				<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="loginForm.processing">
+					<LoaderCircle v-if="loginForm.processing" class="h-4 w-4 animate-spin" />
+					Log in
+				</Button>
 			</div>
-		</Form>
+
+			<div class="text-center text-sm text-muted-foreground">
+				Don't have an account?
+				<TextLink :href="register()" :tabindex="5">Sign up</TextLink>
+			</div>
+		</form>
 	</AuthBase>
 </template>
