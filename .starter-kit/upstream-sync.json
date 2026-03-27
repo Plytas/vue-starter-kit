@@ -312,7 +312,30 @@
             "adaptationNotes": "Migrated from useForm to Form component. Updated all auth pages (Login, Register, ForgotPassword, ResetPassword, ConfirmPassword, VerifyEmail), settings pages (Profile, Password), and DeleteUser component. Upgraded @inertiajs/vue3 to ^2.1.0. Uses v-slot pattern for form state, preserves fork's Data class patterns and Wayfinder routing.",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/173",
-            "downstreamPrs": {}
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 4,
+                    "status": "open",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/4"
+                },
+                "joy": {
+                    "status": "skipped",
+                    "reason": "already on ^2.3.18, newer than ^2.1.0"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "already on ^2.2.8, newer than ^2.1.0"
+                },
+                "katsch": {
+                    "status": "skipped",
+                    "reason": "already on ^2.2.0, newer than ^2.1.0"
+                },
+                "katsch-gw2": {
+                    "status": "skipped",
+                    "reason": "already on ^2.1.11, newer than ^2.1.0"
+                }
+            }
         },
         "175": {
             "status": "skipped",
