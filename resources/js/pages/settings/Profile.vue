@@ -10,7 +10,7 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { update } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import type { BreadcrumbItem } from '@/types';
-import type { ProfileProps, ProfileUpdateRequest, User } from '@/types/generated';
+import type { ProfileProps, ProfileUpdateRequest } from '@/types/generated';
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
 defineProps<ProfileProps>();
@@ -23,7 +23,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const page = usePage();
-const user = page.props.auth.user as User;
+const user = page.props.auth.user!;
 
 const form = useForm<ProfileUpdateRequest>({
 	name: user.name,
