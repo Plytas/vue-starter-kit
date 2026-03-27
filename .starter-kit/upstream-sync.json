@@ -367,10 +367,12 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/179"
         },
         "180": {
-            "status": "pending",
+            "status": "backported",
             "title": "Remove obsolete page props cast",
             "upstreamMergedAt": "2025-08-22T13:36:20Z",
-            "adaptationNotes": "Remove 'as User' type casts since types are inferred from page props. Simple cleanup.",
+            "backportedAt": "2026-03-27T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/5",
+            "adaptationNotes": "Replaced 'as User' casts with '!' non-null assertions. Fork types auth.user as User | null (upstream has User), so cast was suppressing nullability. Non-null assertion is correct since these components only render on authenticated routes.",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/180"
         },
