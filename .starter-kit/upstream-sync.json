@@ -297,10 +297,13 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/166"
         },
         "170": {
-            "status": "pending",
+            "status": "backported",
             "title": "Remove TSX from components.json",
             "upstreamMergedAt": "2025-08-14T15:45:00Z",
-            "reason": "conflicting \u2014 PR removes tsx, but fork (and #166) added it. Fork's current state with tsx is correct.",
+            "backportedAt": "2026-03-27T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/6",
+            "adaptationNotes": "Removed invalid `tsx` key. The shadcn-vue schema uses `typescript` (not `tsx`), which defaults to true — no explicit value needed.",
+            "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/170"
         },
         "173": {
