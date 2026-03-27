@@ -374,7 +374,37 @@
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/5",
             "adaptationNotes": "Replaced 'as User' casts with '!' non-null assertions. Fork types auth.user as User | null (upstream has User), so cast was suppressing nullability. Non-null assertion is correct since these components only render on authenticated routes.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/180"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/180",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 5,
+                    "status": "open",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/5"
+                },
+                "joy": {
+                    "number": 5,
+                    "status": "open",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/joy/pull/5"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "no NavUser.vue or Profile.vue in joymobile"
+                },
+                "katsch": {
+                    "number": 287,
+                    "status": "open",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch/pull/287"
+                },
+                "katsch-gw2": {
+                    "number": 244,
+                    "status": "open",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/244"
+                }
+            }
         },
         "182": {
             "status": "pending",
