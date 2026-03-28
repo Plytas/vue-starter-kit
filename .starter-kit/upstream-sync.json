@@ -485,7 +485,38 @@
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/8",
             "adaptationNotes": "Applied to the 2 files using @/actions/... imports (Login.vue, ConfirmPassword.vue). Other files use fork-specific @/routes/... pattern which wasn't changed by this PR.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/183"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/183",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 7,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T20:51:29Z",
+                    "mergedAt": "2026-03-28T20:53:25Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/7"
+                },
+                "joy": {
+                    "number": 7,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T20:51:29Z",
+                    "mergedAt": "2026-03-28T20:53:25Z",
+                    "url": "https://github.com/Plytas/joy/pull/7"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "no auth pages using @/actions/... imports"
+                },
+                "katsch": {
+                    "number": 291,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T20:51:29Z",
+                    "mergedAt": "2026-03-28T20:53:25Z",
+                    "url": "https://github.com/Plytas/katsch/pull/291"
+                },
+                "katsch-gw2": {
+                    "status": "skipped",
+                    "reason": "no auth pages using @/actions/... imports"
+                }
+            }
         },
         "184": {
             "status": "pending",
