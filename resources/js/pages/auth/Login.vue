@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { store } from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
+import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
 import InputError from '@/components/InputError.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
@@ -28,7 +28,7 @@ const loginForm = useForm<LoginRequest>('login', {
 });
 
 const submit = () => {
-	loginForm.submit(store(), {
+	loginForm.submit(AuthenticatedSessionController.store(), {
 		onFinish: () => loginForm.reset('password'),
 	});
 };

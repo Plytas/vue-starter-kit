@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { store } from '@/actions/App/Http/Controllers/Auth/ConfirmablePasswordController';
+import ConfirmablePasswordController from '@/actions/App/Http/Controllers/Auth/ConfirmablePasswordController';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,7 +14,7 @@ const form = useForm<ConfirmPasswordRequest>({
 });
 
 const submit = () => {
-	form.submit(store(), {
+	form.submit(ConfirmablePasswordController.store(), {
 		onFinish: () => {
 			form.reset();
 		},
