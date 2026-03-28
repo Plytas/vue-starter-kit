@@ -304,7 +304,33 @@
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/6",
             "adaptationNotes": "Removed invalid `tsx` key. The shadcn-vue schema uses `typescript` (not `tsx`), which defaults to true — no explicit value needed.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/170"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/170",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "skipped",
+                    "reason": "already uses typescript: true, no tsx key present"
+                },
+                "joy": {
+                    "status": "skipped",
+                    "reason": "already uses typescript: true, no tsx key present"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "already uses typescript: true, no tsx key present"
+                },
+                "katsch": {
+                    "number": 288,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch/pull/288"
+                },
+                "katsch-gw2": {
+                    "number": 245,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-27T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/245"
+                }
+            }
         },
         "173": {
             "status": "backported",
@@ -410,11 +436,13 @@
             }
         },
         "182": {
-            "status": "pending",
+            "status": "backported",
             "title": "test: Add missing feature tests to ensure 100% coverage in starter kit",
             "upstreamMergedAt": "2025-08-25T13:56:10Z",
-            "adaptationNotes": "Adds missing test coverage for auth flows. Review and adapt tests for fork's Data class architecture.",
-            "confidence": "medium",
+            "backportedAt": "2026-03-28T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/7",
+            "adaptationNotes": "Adapted PHPUnit class-based tests to Pest functions. Used unverified() factory pattern. Tests-only change, no production code.",
+            "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/182"
         },
         "183": {

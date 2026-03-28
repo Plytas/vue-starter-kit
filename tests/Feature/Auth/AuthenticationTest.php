@@ -39,3 +39,27 @@ test('users can logout', function (): void {
 	$this->assertGuest();
 	$response->assertRedirect('/');
 });
+
+test('users are rate limited', function (): void {
+	$user = User::factory()->create();
+
+	for ($i = 0; $i < 5; $i++) {
+		$this->post('/login', [
+			'email' => $user->email,
+			'password' => 'wrong-password',
+		])->assertRedirect()->assertSessionHasErrors([
+			'email' => 'These credentials do not match our records.',
+		]);
+	}
+
+	$response = $this->post('/login', [
+		'email' => $user->email,
+		'password' => 'wrong-password',
+	]);
+
+	$response->assertSessionHasErrors('email');
+
+	$errors = session('errors');
+
+	expect($errors->first('email'))->toContain('Too many login attempts');
+});
