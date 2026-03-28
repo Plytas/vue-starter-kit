@@ -3,6 +3,14 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
+test('password update page is displayed', function (): void {
+	$user = User::factory()->create();
+
+	$response = $this->actingAs($user)->get('/settings/password');
+
+	$response->assertStatus(200);
+});
+
 test('password can be updated', function (): void {
 	$user = User::factory()->create();
 
