@@ -302,7 +302,7 @@
             "upstreamMergedAt": "2025-08-14T15:45:00Z",
             "backportedAt": "2026-03-27T00:00:00Z",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/6",
-            "adaptationNotes": "Removed invalid `tsx` key. The shadcn-vue schema uses `typescript` (not `tsx`), which defaults to true — no explicit value needed.",
+            "adaptationNotes": "Removed invalid `tsx` key. The shadcn-vue schema uses `typescript` (not `tsx`), which defaults to true \u2014 no explicit value needed.",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/170",
             "downstreamPrs": {
@@ -462,7 +462,7 @@
                 },
                 "joymobile": {
                     "status": "skipped",
-                    "reason": "no standard auth test structure — only has LoginPageTest.php"
+                    "reason": "no standard auth test structure \u2014 only has LoginPageTest.php"
                 },
                 "katsch": {
                     "number": 290,
@@ -473,7 +473,7 @@
                 },
                 "katsch-gw2": {
                     "status": "skipped",
-                    "reason": "no auth tests directory — only has settings tests"
+                    "reason": "no auth tests directory \u2014 only has settings tests"
                 }
             }
         },
@@ -519,12 +519,44 @@
             }
         },
         "184": {
-            "status": "pending",
+            "status": "backported",
             "title": "Use Named Routes for Tests",
             "upstreamMergedAt": "2025-08-27T15:05:55Z",
-            "adaptationNotes": "Adds route names to POST endpoints and updates tests to use route() helper instead of hard-coded URLs. Best practice.",
+            "backportedAt": "2026-03-28T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/9",
+            "adaptationNotes": "Adds route names to POST endpoints (login.store, password.confirm.store) and updates all tests to use route() helper instead of hard-coded URLs. Adapted downstream repos to preserve their custom test logic (joy's registration_enabled tests, katsch's strict_types, katsch-gw2's different redirect behavior).",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/184"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/184",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 8,
+                    "status": "open",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/8"
+                },
+                "joy": {
+                    "number": 8,
+                    "status": "open",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "url": "https://github.com/Plytas/joy/pull/8"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "completely different auth architecture, no standard auth tests"
+                },
+                "katsch": {
+                    "number": 292,
+                    "status": "open",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch/pull/292"
+                },
+                "katsch-gw2": {
+                    "number": 247,
+                    "status": "open",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/247"
+                }
+            }
         },
         "185": {
             "status": "pending",
