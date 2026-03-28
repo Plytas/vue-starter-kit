@@ -1,7 +1,7 @@
 <?php
 
 test('returns a successful response', function (): void {
-	$response = $this->get('/');
+	$response = $this->get(route('home'));
 
 	$response->assertStatus(200);
 });

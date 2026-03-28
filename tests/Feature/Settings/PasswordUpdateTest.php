@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 test('password update page is displayed', function (): void {
 	$user = User::factory()->create();
 
-	$response = $this->actingAs($user)->get('/settings/password');
+	$response = $this->actingAs($user)->get(route('password.edit'));
 
 	$response->assertStatus(200);
 });
@@ -16,8 +16,8 @@ test('password can be updated', function (): void {
 
 	$response = $this
 		->actingAs($user)
-		->from('/settings/password')
-		->put('/settings/password', [
+		->from(route('password.edit'))
+		->put(route('password.update'), [
 			'current_password' => 'password',
 			'password' => 'new-password',
 			'password_confirmation' => 'new-password',
@@ -25,7 +25,7 @@ test('password can be updated', function (): void {
 
 	$response
 		->assertSessionHasNoErrors()
-		->assertRedirect('/settings/password');
+		->assertRedirect(route('password.edit'));
 
 	expect(Hash::check('new-password', $user->refresh()->password))->toBeTrue();
 });
@@ -35,8 +35,8 @@ test('correct password must be provided to update password', function (): void {
 
 	$response = $this
 		->actingAs($user)
-		->from('/settings/password')
-		->put('/settings/password', [
+		->from(route('password.edit'))
+		->put(route('password.update'), [
 			'current_password' => 'wrong-password',
 			'password' => 'new-password',
 			'password_confirmation' => 'new-password',
@@ -44,5 +44,5 @@ test('correct password must be provided to update password', function (): void {
 
 	$response
 		->assertSessionHasErrors('current_password')
-		->assertRedirect('/settings/password');
+		->assertRedirect(route('password.edit'));
 });
