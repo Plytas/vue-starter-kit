@@ -150,7 +150,7 @@ Invoked via `/us-backport <pr-numbers>` where pr-numbers is a space-separated li
     - Checklist: `- [ ] Migration needed? - [ ] Tests updated? - [ ] Frontend changes verified?`
     - If low confidence: explicit warning about what needs manual review
     - **Output the PR URL to the user immediately after creation**
-      k. Update state: set status to `backported`, record `forkPr` details, `adaptationNotes`, `confidence`.
+      k. Capture the current timestamp by running `date -u +"%Y-%m-%dT%H:%M:%SZ"`. Update state: set status to `backported`, set `backportedAt` to that timestamp, record `forkPR` details, `adaptationNotes`, `confidence`.
 4. Release lock.
 5. Show summary of all backported PRs with links.
 
