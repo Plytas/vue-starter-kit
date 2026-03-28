@@ -530,15 +530,17 @@
             "downstreamPrs": {
                 "idle-rpg": {
                     "number": 8,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-28T00:00:00Z",
-                    "url": "https://github.com/Plytas/idle-rpg/pull/8"
+                    "url": "https://github.com/Plytas/idle-rpg/pull/8",
+                    "mergedAt": "2026-03-28T00:00:00Z"
                 },
                 "joy": {
                     "number": 8,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-28T00:00:00Z",
-                    "url": "https://github.com/Plytas/joy/pull/8"
+                    "url": "https://github.com/Plytas/joy/pull/8",
+                    "mergedAt": "2026-03-28T00:00:00Z"
                 },
                 "joymobile": {
                     "status": "skipped",
@@ -546,15 +548,17 @@
                 },
                 "katsch": {
                     "number": 292,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-28T00:00:00Z",
-                    "url": "https://github.com/Plytas/katsch/pull/292"
+                    "url": "https://github.com/Plytas/katsch/pull/292",
+                    "mergedAt": "2026-03-28T00:00:00Z"
                 },
                 "katsch-gw2": {
                     "number": 247,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-28T00:00:00Z",
-                    "url": "https://github.com/Plytas/katsch-gw2/pull/247"
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/247",
+                    "mergedAt": "2026-03-28T00:00:00Z"
                 }
             }
         },
