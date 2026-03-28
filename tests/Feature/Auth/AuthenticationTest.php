@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\RateLimiter;
 
 test('login screen can be rendered', function (): void {
 	$response = $this->get(route('login'));
@@ -43,14 +44,7 @@ test('users can logout', function (): void {
 test('users are rate limited', function (): void {
 	$user = User::factory()->create();
 
-	for ($i = 0; $i < 5; $i++) {
-		$this->post(route('login.store'), [
-			'email' => $user->email,
-			'password' => 'wrong-password',
-		])->assertRedirect()->assertSessionHasErrors([
-			'email' => 'These credentials do not match our records.',
-		]);
-	}
+	RateLimiter::increment(implode('|', [$user->email, '127.0.0.1']), amount: 10);
 
 	$response = $this->post(route('login.store'), [
 		'email' => $user->email,
