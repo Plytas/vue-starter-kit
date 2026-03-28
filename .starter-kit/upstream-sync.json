@@ -344,8 +344,9 @@
             "downstreamPrs": {
                 "idle-rpg": {
                     "number": 4,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-27T00:00:00Z",
+                    "mergedAt": "2026-03-27T10:42:23Z",
                     "url": "https://github.com/Plytas/idle-rpg/pull/4"
                 },
                 "joy": {
@@ -443,13 +444,46 @@
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/7",
             "adaptationNotes": "Adapted PHPUnit class-based tests to Pest functions. Used unverified() factory pattern. Tests-only change, no production code.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/182"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/182",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 6,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "mergedAt": "2026-03-28T17:22:49Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/6"
+                },
+                "joy": {
+                    "number": 6,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "mergedAt": "2026-03-28T17:23:08Z",
+                    "url": "https://github.com/Plytas/joy/pull/6"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "no standard auth test structure — only has LoginPageTest.php"
+                },
+                "katsch": {
+                    "number": 290,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T00:00:00Z",
+                    "mergedAt": "2026-03-28T17:23:19Z",
+                    "url": "https://github.com/Plytas/katsch/pull/290"
+                },
+                "katsch-gw2": {
+                    "status": "skipped",
+                    "reason": "no auth tests directory — only has settings tests"
+                }
+            }
         },
         "183": {
-            "status": "pending",
+            "status": "backported",
             "title": "Import full Wayfinder controllers for clarity",
             "upstreamMergedAt": "2025-08-26T13:14:20Z",
-            "adaptationNotes": "Change from destructured imports to namespace imports (e.g., ProfileController.destroy instead of destroy). Improves code clarity.",
+            "backportedAt": "2026-03-28T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/8",
+            "adaptationNotes": "Applied to the 2 files using @/actions/... imports (Login.vue, ConfirmPassword.vue). Other files use fork-specific @/routes/... pattern which wasn't changed by this PR.",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/183"
         },
