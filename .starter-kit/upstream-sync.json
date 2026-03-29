@@ -571,12 +571,45 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/185"
         },
         "186": {
-            "status": "pending",
+            "status": "backported",
             "title": "Test Improvements",
             "upstreamMergedAt": "2025-09-02T15:43:37Z",
+            "backportedAt": "2026-03-28T21:23:32Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/10",
             "adaptationNotes": "Improves test quality: uses RateLimiter::increment for rate limit tests, adds Event::fake() assertions, uses factory()->unverified() pattern.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/186"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/186",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "number": 9,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T21:28:52Z",
+                    "mergedAt": "2026-03-28T21:47:15Z",
+                    "url": "https://github.com/Plytas/idle-rpg/pull/9"
+                },
+                "joy": {
+                    "number": 9,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T21:28:52Z",
+                    "mergedAt": "2026-03-28T21:47:23Z",
+                    "url": "https://github.com/Plytas/joy/pull/9"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "no standard auth tests \u2014 only has LoginPageTest.php"
+                },
+                "katsch": {
+                    "number": 293,
+                    "status": "merged",
+                    "propagatedAt": "2026-03-28T21:28:52Z",
+                    "mergedAt": "2026-03-28T21:47:32Z",
+                    "url": "https://github.com/Plytas/katsch/pull/293"
+                },
+                "katsch-gw2": {
+                    "status": "skipped",
+                    "reason": "no auth tests directory"
+                }
+            }
         },
         "187": {
             "status": "pending",
