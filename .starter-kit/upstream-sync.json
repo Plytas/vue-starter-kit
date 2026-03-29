@@ -563,10 +563,12 @@
             }
         },
         "185": {
-            "status": "pending",
+            "status": "backported",
             "title": "Fix active state logic for sidebar menu items",
             "upstreamMergedAt": "2025-09-02T16:23:19Z",
-            "adaptationNotes": "Adds urlIsActive() and toUrl() helpers to lib/utils.ts for better URL handling in navigation. Improves active state detection.",
+            "backportedAt": "2026-03-29T00:00:00Z",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/11",
+            "adaptationNotes": "Added urlIsActive() helper to utils.ts (simplified — no toUrl() needed since NavItem.href is string in this fork). Updated NavMain.vue and settings/Layout.vue to use it. Skipped toUrl(), AppHeader, and NavFooter changes (not needed — href is always string).",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/185"
         },
