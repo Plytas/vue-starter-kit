@@ -2,6 +2,7 @@
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { urlIsActive } from '@/lib/utils';
 import type { NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 
@@ -40,7 +41,7 @@ const currentPath = page.url;
 						v-for="item in sidebarNavItems"
 						:key="item.href"
 						variant="ghost"
-						:class="['w-full justify-start', { 'bg-muted': currentPath === item.href }]"
+						:class="['w-full justify-start', { 'bg-muted': urlIsActive(item.href, currentPath) }]"
 						as-child
 					>
 						<Link :href="item.href">{{ item.title }}</Link>
