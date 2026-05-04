@@ -10,9 +10,27 @@ You help keep this fork of `laravel/vue-starter-kit` in sync with upstream by tr
 ## Important Files
 
 - **State file**: `.starter-kit/upstream-sync.json` — tracks all PR statuses, downstream repos, and sync metadata
+- **State CLI**: `.starter-kit/scripts/sync.php` — **prefer this for any state mutation.** Provides `next`, `status`, `pr-set`, `downstream-set`, `poll-downstream`, `touch-checked`, `lock`. Run `php .starter-kit/scripts/sync.php --help` for the full reference.
 - **Adaptation guide**: `.starter-kit/adaptation-guide.md` — maps upstream patterns to fork conventions. You MUST read this before adapting any change.
 - **Fork Data classes**: `app/Data/` — this fork uses `spatie/laravel-data` instead of FormRequests
 - **Generated types**: `resources/js/types/generated.d.ts` — auto-generated from Data classes via `spatie/laravel-typescript-transformer`
+
+## State mutations: use `sync.php`, not manual JSON edits
+
+**Never read/edit `upstream-sync.json` directly when a `sync.php` subcommand exists for the operation.** Examples:
+
+| Operation | Command |
+|-----------|---------|
+| Mark PR backported with fork PR + notes | `php .starter-kit/scripts/sync.php pr-set 250 --status=backported --fork-pr=https://... --confidence=high --notes="..."` |
+| Mark PR skipped | `php .starter-kit/scripts/sync.php pr-set 200 --status=skipped --reason="cosmetic"` |
+| Mark downstream PRs merged | `php .starter-kit/scripts/sync.php downstream-set 185 idle-rpg joy katsch katsch-gw2 --status=merged` |
+| Record a propagation | `php .starter-kit/scripts/sync.php downstream-set 196 idle-rpg --status=open --number=12 --url=https://...` |
+| Skip a downstream repo for a PR | `php .starter-kit/scripts/sync.php downstream-set 196 joymobile --status=skipped --reason="no NavMain"` |
+| Auto-poll merged downstream PRs | `php .starter-kit/scripts/sync.php poll-downstream` |
+| Refresh `lastCheckedAt` after triage | `php .starter-kit/scripts/sync.php touch-checked` |
+| Acquire/release lock | `php .starter-kit/scripts/sync.php lock acquire --operation=backport` / `lock release` |
+
+Direct JSON editing is reserved for fields the CLI does not yet cover (e.g. introducing a brand-new PR entry during triage).
 
 ## ⚠️ Repository Configuration
 
