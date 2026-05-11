@@ -2,7 +2,39 @@
 
 This directory contains executable PHP scripts for managing the upstream sync state.
 
-## Scripts
+## Primary entry point: `sync.php`
+
+`sync.php` is the unified CLI for state-file mutations and the `/us-next` resolver. Prefer it over the older single-purpose scripts below.
+
+```bash
+php sync.php next [--execute]              # Resolve next workflow step
+php sync.php status                        # Summary of pending/backported/awaiting
+php sync.php poll-downstream [--pr=N]      # Update merged downstream PRs from GitHub
+php sync.php downstream-set <pr> <repo>... --status=merged [--number=N --url=URL]
+php sync.php downstream-set <pr> <repo> --status=skipped --reason="..."
+php sync.php pr-set <pr> [--status=...] [--fork-pr=URL] [--confidence=...] [--notes=...]
+php sync.php touch-checked                 # Set lastCheckedAt = now
+php sync.php lock acquire --operation=NAME # Acquire lock (auto-detects stale >30m)
+php sync.php lock release
+```
+
+Run `php sync.php --help` for the full reference.
+
+### `next` resolver (drives `/us-next`)
+
+Walks `upstream-sync.json` and picks the highest-priority action in this order:
+
+1. With `--execute`: auto-marks any merged downstream PRs.
+2. Propagate any backported PR (fork PR merged) missing downstream coverage.
+3. Report PRs awaiting fork-PR or downstream merges.
+4. Backport the lowest-numbered pending PR.
+5. Trigger triage when the queue is empty.
+
+The output ends with a `Next step:` line naming the slash command to run.
+
+---
+
+## Legacy single-purpose scripts
 
 ### `add-downstream-repo`
 

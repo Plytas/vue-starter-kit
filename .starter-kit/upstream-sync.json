@@ -180,6 +180,10 @@
                     "status": "merged",
                     "propagatedAt": "2026-03-15T17:28:05+00:00",
                     "url": "https://github.com/Plytas/katsch-gw2/pull/241"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "no LoginRequest::throttleKey() \u2014 joymobile uses QR-based auth, not email/password login"
                 }
             }
         },
@@ -216,6 +220,10 @@
                     "status": "merged",
                     "propagatedAt": "2026-03-15T18:00:00Z",
                     "url": "https://github.com/Plytas/katsch-gw2/pull/242"
+                },
+                "joymobile": {
+                    "status": "skipped",
+                    "reason": "no password confirmation/update routes \u2014 joymobile uses QR-based auth"
                 }
             }
         },
@@ -375,10 +383,10 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/175"
         },
         "176": {
-            "status": "pending",
+            "status": "in-progress",
             "title": "Add Two Factor Authentication for Vue Starter Kit",
             "upstreamMergedAt": "2025-09-10T13:55:18Z",
-            "adaptationNotes": "HIGH-RISK: Large PR (5253 lines). Adds Fortify-based 2FA. Must adapt all FormRequests to Data classes, integrate with existing auth architecture. Consider backporting after Login/Registration PRs.",
+            "adaptationNotes": "Backporting in 4 stages via solo orchestration. See scratchpad us-176-2fa-master-plan.",
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/176"
         },
@@ -568,20 +576,22 @@
             "upstreamMergedAt": "2025-09-02T16:23:19Z",
             "backportedAt": "2026-03-29T00:00:00Z",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/11",
-            "adaptationNotes": "Added urlIsActive() helper to utils.ts (simplified — no toUrl() needed since NavItem.href is string in this fork). Updated NavMain.vue and settings/Layout.vue to use it. Skipped toUrl(), AppHeader, and NavFooter changes (not needed — href is always string).",
+            "adaptationNotes": "Added urlIsActive() helper to utils.ts (simplified \u2014 no toUrl() needed since NavItem.href is string in this fork). Updated NavMain.vue and settings/Layout.vue to use it. Skipped toUrl(), AppHeader, and NavFooter changes (not needed \u2014 href is always string).",
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/185",
             "downstreamPrs": {
                 "idle-rpg": {
                     "number": 10,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-29T00:00:00Z",
+                    "mergedAt": "2026-05-04T00:00:00Z",
                     "url": "https://github.com/Plytas/idle-rpg/pull/10"
                 },
                 "joy": {
                     "number": 10,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-29T00:00:00Z",
+                    "mergedAt": "2026-05-04T00:00:00Z",
                     "url": "https://github.com/Plytas/joy/pull/10"
                 },
                 "joymobile": {
@@ -590,14 +600,16 @@
                 },
                 "katsch": {
                     "number": 294,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-29T00:00:00Z",
+                    "mergedAt": "2026-05-04T00:00:00Z",
                     "url": "https://github.com/Plytas/katsch/pull/294"
                 },
                 "katsch-gw2": {
                     "number": 248,
-                    "status": "open",
+                    "status": "merged",
                     "propagatedAt": "2026-03-29T00:00:00Z",
+                    "mergedAt": "2026-05-04T00:00:00Z",
                     "url": "https://github.com/Plytas/katsch-gw2/pull/248"
                 }
             }
