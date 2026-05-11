@@ -2,6 +2,7 @@
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { PinInput, PinInputGroup, PinInputSlot } from '@/components/ui/pin-input';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
 import { Head, useForm } from '@inertiajs/vue3';
@@ -36,14 +37,20 @@ const form = useForm({
     recovery_code: '',
 });
 
+const code = ref<number[]>([]);
+const codeValue = computed<string>(() => code.value.join(''));
+
 const toggleRecoveryMode = (): void => {
     showRecoveryInput.value = !showRecoveryInput.value;
+    code.value = [];
     form.clearErrors();
     form.reset();
 };
 
 const submit = () => {
+    form.code = codeValue.value;
     form.submit(store(), {
+        onError: () => { code.value = []; },
         onFinish: () => form.reset(),
     });
 };
@@ -57,17 +64,13 @@ const submit = () => {
             <form @submit.prevent="submit" class="space-y-4">
                 <template v-if="!showRecoveryInput">
                     <div class="flex flex-col items-center justify-center space-y-3 text-center">
-                        <Input
-                            v-model="form.code"
-                            type="text"
-                            inputmode="numeric"
-                            pattern="[0-9]*"
-                            placeholder="000000"
-                            maxlength="6"
-                            autofocus
-                            :disabled="form.processing"
-                            class="text-center tracking-widest"
-                        />
+                        <div class="flex w-full items-center justify-center">
+                            <PinInput id="otp" placeholder="○" v-model="code" type="number" otp>
+                                <PinInputGroup>
+                                    <PinInputSlot v-for="(id, index) in 6" :key="id" :index="index" :disabled="form.processing" autofocus />
+                                </PinInputGroup>
+                            </PinInput>
+                        </div>
                         <InputError :message="form.errors.code" />
                     </div>
                 </template>

@@ -4,7 +4,7 @@ This guide maps upstream `laravel/vue-starter-kit` patterns to this fork's conve
 
 ## Architecture Overview
 
-This fork replaces Laravel's `FormRequest` + ad-hoc array props pattern with **Spatie Laravel Data** (`spatie/laravel-data`) combined with **Spatie TypeScript Transformer** (`spatie/laravel-typescript-transformer`). Every Data class is automatically mirrored as a TypeScript type in `resources/js/types/generated.d.ts`. There are **zero** FormRequest classes in this fork — the `app/Http/Requests/` directory does not exist.
+This fork replaces Laravel's `FormRequest` + ad-hoc array props pattern with **Spatie Laravel Data** (`spatie/laravel-data`) combined with **Spatie TypeScript Transformer** (`spatie/laravel-typescript-transformer`). Every Data class is automatically mirrored as a TypeScript type in `resources/js/types/generated.d.ts`. There is **one** deliberate FormRequest exception — `app/Http/Requests/Settings/TwoFactorAuthenticationRequest` — which hosts `Laravel\Fortify\InteractsWithTwoFactorState` (see the "Documented Exceptions" subsection under Pattern 1). All other requests use Data classes.
 
 ---
 
@@ -68,6 +68,10 @@ class SomeRequest extends Data
 7. Replace `$this->ip()` with `Request::ip()` (static facade)
 8. Remove `authorize()` method — handle authorization in controller or middleware
 9. `password_confirmation` must be a constructor property (even without a validation rule) for the `confirmed` rule and TypeScript generation
+
+### Documented Exceptions
+
+- `app/Http/Requests/Settings/TwoFactorAuthenticationRequest` is the **only** FormRequest in this fork. It hosts `Laravel\Fortify\InteractsWithTwoFactorState`, which requires FormRequest internals (`session()`, `user()`) and performs DB + session mutations owned by Fortify. Inlining would risk silent divergence on Fortify upgrades.
 
 ### Existing Request Data Classes
 
@@ -272,7 +276,7 @@ Applied via attribute: `#[WithTransformer(UriTransformer::class)]`
 
 When adapting an upstream change, verify each of these:
 
-- [ ] New FormRequest? → Convert to Data class in `app/Data/`
+- [ ] New FormRequest? → Convert to Data class in `app/Data/` (exception: Fortify trait hosts — see Pattern 1 "Documented Exceptions")
 - [ ] `#[TypeScript]` attribute added to all new Data classes?
 - [ ] Constructor properties match form fields (including `password_confirmation`)?
 - [ ] Complex validation uses `ValidationContext` (not Laravel's `$request`)?

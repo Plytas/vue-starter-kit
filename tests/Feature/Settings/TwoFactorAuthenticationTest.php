@@ -1,0 +1,79 @@
+<?php
+
+use App\Models\User;
+use Inertia\Testing\AssertableInertia as Assert;
+use Laravel\Fortify\Features;
+
+test('two factor settings page can be rendered', function (): void {
+	if (! Features::canManageTwoFactorAuthentication()) {
+		$this->markTestSkipped('Two-factor authentication is not enabled.');
+	}
+
+	Features::twoFactorAuthentication([
+		'confirm' => true,
+		'confirmPassword' => true,
+	]);
+
+	$user = User::factory()->create()->fresh();
+
+	$this->actingAs($user)
+		->withSession(['auth.password_confirmed_at' => time()])
+		->get(route('two-factor.show'))
+		->assertInertia(fn (Assert $page) => $page
+			->component('settings/TwoFactor')
+			->where('twoFactorEnabled', false)
+			->where('requiresConfirmation', true)
+		);
+});
+
+test('two factor settings page requires password confirmation when enabled', function (): void {
+	if (! Features::canManageTwoFactorAuthentication()) {
+		$this->markTestSkipped('Two-factor authentication is not enabled.');
+	}
+
+	$user = User::factory()->create()->fresh();
+
+	Features::twoFactorAuthentication([
+		'confirm' => true,
+		'confirmPassword' => true,
+	]);
+
+	$response = $this->actingAs($user)->get(route('two-factor.show'));
+
+	$response->assertRedirect(route('password.confirm'));
+});
+
+test('two factor settings page does not require password confirmation when disabled', function (): void {
+	if (! Features::canManageTwoFactorAuthentication()) {
+		$this->markTestSkipped('Two-factor authentication is not enabled.');
+	}
+
+	Features::twoFactorAuthentication([
+		'confirm' => true,
+		'confirmPassword' => false,
+	]);
+
+	$user = User::factory()->create()->fresh();
+
+	$this->actingAs($user)
+		->get(route('two-factor.show'))
+		->assertOk()
+		->assertInertia(fn (Assert $page) => $page
+			->component('settings/TwoFactor')
+		);
+});
+
+test('two factor settings page returns forbidden when two factor is disabled', function (): void {
+	if (! Features::canManageTwoFactorAuthentication()) {
+		$this->markTestSkipped('Two-factor authentication is not enabled.');
+	}
+
+	config(['fortify.features' => []]);
+
+	$user = User::factory()->create()->fresh();
+
+	$this->actingAs($user)
+		->withSession(['auth.password_confirmed_at' => time()])
+		->get(route('two-factor.show'))
+		->assertForbidden();
+});
