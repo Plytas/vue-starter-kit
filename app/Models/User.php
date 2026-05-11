@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Casts\AsUri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Spatie\LaravelPasskeys\Models\Concerns\HasPasskeys;
 use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 
@@ -17,6 +18,7 @@ class User extends Authenticatable implements HasPasskeys
 	use HasFactory;
 	use Notifiable;
 	use InteractsWithPasskeys;
+	use TwoFactorAuthenticatable;
 
 	/**
 	 * @var list<string>

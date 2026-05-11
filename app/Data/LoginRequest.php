@@ -2,6 +2,7 @@
 
 namespace App\Data;
 
+use App\Models\User as UserModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Request;
@@ -21,11 +22,14 @@ class LoginRequest extends Data
 	{
 	}
 
-	public function authenticate(): void
+	public function validateCredentials(): UserModel
 	{
 		$this->ensureIsNotRateLimited();
 
-		if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+		/** @var UserModel|null $user */
+		$user = Auth::getProvider()->retrieveByCredentials(['email' => $this->email, 'password' => $this->password]);
+
+		if (! $user || ! Auth::getProvider()->validateCredentials($user, ['password' => $this->password])) {
 			RateLimiter::hit($this->throttleKey());
 
 			throw ValidationException::withMessages([
@@ -34,6 +38,8 @@ class LoginRequest extends Data
 		}
 
 		RateLimiter::clear($this->throttleKey());
+
+		return $user;
 	}
 
 	public function ensureIsNotRateLimited(): void

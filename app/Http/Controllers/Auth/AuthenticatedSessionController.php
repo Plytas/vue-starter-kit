@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Inertia\Response;
+use Laravel\Fortify\Features;
 
 class AuthenticatedSessionController
 {
@@ -25,7 +26,18 @@ class AuthenticatedSessionController
 
 	public function store(LoginRequest $request): RedirectResponse
 	{
-		$request->authenticate();
+		$user = $request->validateCredentials();
+
+		if (Features::enabled(Features::twoFactorAuthentication()) && $user->hasEnabledTwoFactorAuthentication()) {
+			Session::put([
+				'login.id' => $user->getKey(),
+				'login.remember' => $request->remember,
+			]);
+
+			return to_route('two-factor.login');
+		}
+
+		Auth::login($user, $request->remember);
 
 		Session::regenerate();
 
