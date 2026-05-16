@@ -1,0 +1,14 @@
+[install]
+# 7 days in seconds. Applies to newly resolved npm versions;
+# existing bun.lock entries are left as-is.
+minimumReleaseAge = 604800
+
+# Prevent Bun from resolving and downloading missing packages while
+# running scripts/imports. All deps must be declared.
+auto = "disable"
+
+# Bun verifies downloaded package integrity by default. Do not use --no-verify.
+# Do not set ignoreScripts=true here; it would also block packages
+# explicitly added to trustedDependencies (source-verified — see
+# scratchpad 230 round 3, bun PackageManagerOptions.zig:358-360 +
+# PackageInstaller.zig:1163-1172).
