@@ -749,11 +749,13 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/202"
         },
         "204": {
-            "status": "pending",
+            "status": "backported",
             "title": "Update composer.json",
             "upstreamMergedAt": "2025-10-09T13:27:01Z",
             "reason": "dependencies \u2014 matches laravel/laravel composer.json, fork may differ",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/204"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/204",
+            "backportedAt": "2026-05-17T16:47:39+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/15"
         },
         "205": {
             "status": "skipped",
@@ -941,7 +943,7 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/239"
         },
         "240": {
-            "status": "pending",
+            "status": "in-progress",
             "title": "Sync from base: drift:v12.11.1",
             "upstreamMergedAt": "2026-01-07T10:54:58Z",
             "adaptationNotes": "Config improvements: makes DB_SSLMODE configurable via env, fixes public disk URL trailing slash issue.",
@@ -978,12 +980,14 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/244"
         },
         "245": {
-            "status": "pending",
+            "status": "backported",
             "title": "Bump Inertia version",
             "upstreamMergedAt": "2026-01-07T18:02:05Z",
-            "adaptationNotes": "Updates @inertiajs/vue3 from ^2.0.11 to ^2.3.7. Includes Form component and other improvements.",
+            "adaptationNotes": "superseded by Inertia 3 jump (290aba0)",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/245"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/245",
+            "backportedAt": "2026-05-17T16:47:40+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/15"
         },
         "246": {
             "status": "pending",
@@ -1212,7 +1216,7 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/275"
         },
         "276": {
-            "status": "pending",
+            "status": "in-progress",
             "title": "Sync from base: drift:v12.11.2",
             "upstreamMergedAt": "2026-01-21T10:51:45Z",
             "adaptationNotes": "Laravel skeleton sync: GitHub Actions v6, queue --timeout=0, APP_URL default, migrations updates.",
@@ -1249,7 +1253,7 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/286"
         },
         "287": {
-            "status": "pending",
+            "status": "in-progress",
             "title": "Update from Maestro",
             "upstreamMergedAt": "2026-01-26T19:16:16Z",
             "reason": "maestro-auto \u2014 automated sync",
@@ -1426,7 +1430,7 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/314"
         },
         "316": {
-            "status": "pending",
+            "status": "in-progress",
             "title": "Update Starter Kits for changes in Laravel Skeleton",
             "upstreamMergedAt": "2026-03-10T17:30:15Z",
             "adaptationNotes": "Syncs changes from Laravel skeleton (drift). Review for config/dependency updates.",
@@ -1471,12 +1475,13 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/321"
         },
         "322": {
-            "status": "pending",
+            "status": "skipped",
             "title": "Fix SSR window reference error in current URL hooks",
             "upstreamMergedAt": "2026-03-11T16:02:28Z",
             "adaptationNotes": "IMPORTANT: Fixes SSR crash when useCurrentUrl accesses window. Critical for SSR.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/322"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/322",
+            "reason": "fork has no useCurrentUrl composable; fork-local window usage already SSR-guarded"
         },
         "323": {
             "status": "skipped",
@@ -1499,6 +1504,22 @@
             "upstreamMergedAt": "2026-03-12T18:13:57Z",
             "reason": "duplicate \u2014 WorkOS variant",
             "url": "https://github.com/laravel/vue-starter-kit/pull/325"
+        },
+        "328": {
+            "status": "in-progress",
+            "title": "Updates from Laravel Skeleton v12.12.2",
+            "upstreamMergedAt": "2026-03-10T00:00:00Z",
+            "adaptationNotes": "Skeleton v12.12.2 drift: logging username fallback to APP_NAME. Commit b634812.",
+            "confidence": "high",
+            "url": "https://github.com/laravel/vue-starter-kit/pull/328"
+        },
+        "330": {
+            "status": "in-progress",
+            "title": "Laravel 13",
+            "upstreamMergedAt": "2026-03-10T00:00:00Z",
+            "adaptationNotes": "Laravel 13 upgrade: composer bumps, cache.serializable_classes, session.serialization, User #[Hidden] attribute, migrations (bigInteger expiration, smallInteger attempts). Commits 6c2db5e, 1233a92, 5723d46.",
+            "confidence": "high",
+            "url": "https://github.com/laravel/vue-starter-kit/pull/330"
         }
     }
 }
