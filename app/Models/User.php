@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Casts\AsUri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +13,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Spatie\LaravelPasskeys\Models\Concerns\HasPasskeys;
 use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 
+#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements HasPasskeys
 {
 	/** @use HasFactory<UserFactory> */
@@ -19,14 +21,6 @@ class User extends Authenticatable implements HasPasskeys
 	use Notifiable;
 	use InteractsWithPasskeys;
 	use TwoFactorAuthenticatable;
-
-	/**
-	 * @var list<string>
-	 */
-	protected $hidden = [
-		'password',
-		'remember_token',
-	];
 
 	/**
 	 * @return array{avatar: 'Illuminate\Database\Eloquent\Casts\AsUri', email_verified_at: 'immutable_datetime', password: 'hashed', created_at: 'immutable_datetime'}
