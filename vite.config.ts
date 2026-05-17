@@ -1,3 +1,4 @@
+import inertia from '@inertiajs/vite';
 import { wayfinder } from '@laravel/vite-plugin-wayfinder';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
@@ -13,10 +14,10 @@ export default defineConfig({
 			launchEditor: 'phpstorm',
 		}),
 		laravel({
-			input: ['resources/js/app.ts'],
-			ssr: 'resources/js/ssr.ts',
+			input: ['resources/css/app.css', 'resources/js/app.ts'],
 			refresh: true,
 		}),
+		inertia(),
 		wayfinder(),
 		transformer(),
 		tailwindcss(),
