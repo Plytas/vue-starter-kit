@@ -3,6 +3,7 @@
 /node_modules
 /.bun/
 /public/build
+/public/fonts-manifest.dev.json
 /public/hot
 /public/storage
 /resources/js/actions
