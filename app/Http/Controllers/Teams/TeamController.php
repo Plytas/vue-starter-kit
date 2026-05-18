@@ -68,7 +68,7 @@ class TeamController
                 email: $member->email,
                 avatar: $member->avatar ?? null,
                 role: $member->pivot->role->value,
-                roleLabel: $member->pivot->role?->label(),
+                roleLabel: $member->pivot->role->label(),
             ))->all(),
             invitations: $team->invitations()
                 ->whereNull('accepted_at')
