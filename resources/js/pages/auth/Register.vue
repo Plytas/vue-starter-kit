@@ -7,9 +7,11 @@ import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
-import { RegisterRequest } from '@/types/generated';
+import { RegisterProps, RegisterRequest } from '@/types/generated';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
+
+defineProps<RegisterProps>();
 
 const form = useForm<RegisterRequest>({
 	name: '',
@@ -52,6 +54,7 @@ const submit = () => {
 						:tabindex="3"
 						autocomplete="new-password"
 						v-model="form.password"
+						:passwordrules="passwordRules"
 						placeholder="Password"
 					/>
 					<InputError :message="form.errors.password" />
@@ -66,6 +69,7 @@ const submit = () => {
 						:tabindex="4"
 						autocomplete="new-password"
 						v-model="form.password_confirmation"
+						:passwordrules="passwordRules"
 						placeholder="Confirm password"
 					/>
 					<InputError :message="form.errors.password_confirmation" />

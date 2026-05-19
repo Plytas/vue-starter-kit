@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import AlertError from '@/components/AlertError.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { PinInput, PinInputGroup, PinInputSlot } from '@/components/ui/pin-input';
+import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
 import { useForm } from '@inertiajs/vue3';
@@ -19,7 +21,8 @@ const props = defineProps<Props>();
 const isOpen = defineModel<boolean>('isOpen');
 
 const { copy, copied } = useClipboard();
-const { qrCodeSvg, manualSetupKey, clearSetupData, fetchSetupData } = useTwoFactorAuth();
+const { resolvedAppearance } = useAppearance();
+const { qrCodeSvg, manualSetupKey, errors, clearSetupData, fetchSetupData } = useTwoFactorAuth();
 
 const showVerificationStep = ref(false);
 const code = ref<number[]>([]);
@@ -105,6 +108,8 @@ watch(
 <template>
     <Dialog :open="isOpen" @update:open="isOpen = $event">
         <DialogContent class="sm:max-w-md">
+            <AlertError :errors="errors" />
+
             <DialogHeader class="flex items-center justify-center">
                 <div class="mb-3 w-auto rounded-full border border-border bg-card p-0.5 shadow-sm">
                     <div class="relative overflow-hidden rounded-full border border-border bg-muted p-2.5">
@@ -134,7 +139,13 @@ watch(
                                 <Loader2 class="size-6 animate-spin" />
                             </div>
                             <div v-else class="relative z-10 overflow-hidden border p-5">
-                                <div v-html="qrCodeSvg" class="flex aspect-square size-full items-center justify-center" />
+                                <div
+                                    v-html="qrCodeSvg"
+                                    class="flex aspect-square size-full items-center justify-center"
+                                    :style="{
+                                        filter: resolvedAppearance === 'dark' ? 'invert(1) brightness(1.5)' : undefined,
+                                    }"
+                                />
                             </div>
                         </div>
                     </div>

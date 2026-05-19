@@ -2,6 +2,46 @@
 
 use App\Models\User;
 
+test('profile page is accessible to unverified users', function (): void {
+	$user = User::factory()->unverified()->create();
+
+	$this->actingAs($user)->get(route('profile.edit'))->assertOk();
+});
+
+test('profile update is accessible to unverified users', function (): void {
+	$user = User::factory()->unverified()->create();
+
+	$response = $this
+		->actingAs($user)
+		->patch(route('profile.update'), [
+			'name' => $user->name,
+			'email' => $user->email,
+		]);
+
+	$response->assertSessionHasNoErrors();
+});
+
+test('settings password page redirects unverified users to verification notice', function (): void {
+	$user = User::factory()->unverified()->withoutTwoFactor()->create();
+
+	$this->actingAs($user)
+		->get(route('user-password.edit'))
+		->assertRedirect(route('verification.notice'));
+});
+
+test('profile destroy requires verified email', function (): void {
+	$user = User::factory()->unverified()->create();
+
+	$this->actingAs($user)
+		->delete(route('profile.destroy'), ['password' => 'password'])
+		->assertRedirect(route('verification.notice'));
+});
+
+test('fortify owns password reset route and fork owns settings password route', function (): void {
+	expect(route('password.update', absolute: false))->toBe('/reset-password');
+	expect(route('user-password.update', absolute: false))->toBe('/settings/password');
+});
+
 test('profile page is displayed', function (): void {
 	$user = User::factory()->create();
 

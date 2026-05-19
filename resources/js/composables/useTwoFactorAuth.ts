@@ -5,25 +5,39 @@ import { computed, ref } from 'vue';
 const qrCodeSvg = ref<string | null>(null);
 const manualSetupKey = ref<string | null>(null);
 const recoveryCodesList = ref<string[]>([]);
+const errors = ref<string[]>([]);
 
 const hasSetupData = computed<boolean>(() => qrCodeSvg.value !== null && manualSetupKey.value !== null);
 
 export const useTwoFactorAuth = () => {
-    const fetchQrCode = async (): Promise<void> => {
-        const { svg } = await useHttp<Record<string, never>, { svg: string; url: string }>().submit(qrCode());
+    const clearErrors = (): void => {
+        errors.value = [];
+    };
 
-        qrCodeSvg.value = svg;
+    const fetchQrCode = async (): Promise<void> => {
+        try {
+            const { svg } = await useHttp<Record<string, never>, { svg: string; url: string }>().submit(qrCode());
+
+            qrCodeSvg.value = svg;
+        } catch {
+            errors.value.push('Failed to fetch QR code');
+        }
     };
 
     const fetchSetupKey = async (): Promise<void> => {
-        const { secretKey: key } = await useHttp<Record<string, never>, { secretKey: string }>().submit(secretKey());
+        try {
+            const { secretKey: key } = await useHttp<Record<string, never>, { secretKey: string }>().submit(secretKey());
 
-        manualSetupKey.value = key;
+            manualSetupKey.value = key;
+        } catch {
+            errors.value.push('Failed to fetch a setup key');
+        }
     };
 
     const clearSetupData = (): void => {
         manualSetupKey.value = null;
         qrCodeSvg.value = null;
+        clearErrors();
     };
 
     const clearTwoFactorAuthData = (): void => {
@@ -33,32 +47,31 @@ export const useTwoFactorAuth = () => {
     };
 
     const fetchRecoveryCodes = async (): Promise<void> => {
+        clearErrors();
+
         try {
             recoveryCodesList.value = await useHttp<Record<string, never>, string[]>().submit(recoveryCodes());
-        } catch (error) {
-            console.error('Failed to fetch recovery codes:', error);
+        } catch {
+            errors.value.push('Failed to fetch recovery codes');
 
             recoveryCodesList.value = [];
         }
     };
 
     const fetchSetupData = async (): Promise<void> => {
-        try {
-            await Promise.all([fetchQrCode(), fetchSetupKey()]);
-        } catch (error) {
-            console.error('Failed to fetch setup data:', error);
+        clearErrors();
 
-            qrCodeSvg.value = null;
-            manualSetupKey.value = null;
-        }
+        await Promise.all([fetchQrCode(), fetchSetupKey()]);
     };
 
     return {
         qrCodeSvg,
         manualSetupKey,
         recoveryCodesList,
+        errors,
         hasSetupData,
         clearSetupData,
+        clearErrors,
         clearTwoFactorAuthData,
         fetchQrCode,
         fetchSetupKey,

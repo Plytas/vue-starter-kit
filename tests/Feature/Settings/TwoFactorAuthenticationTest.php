@@ -4,6 +4,13 @@ use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
 
+test('two factor columns are hidden from array serialization', function (): void {
+	$array = User::factory()->create()->toArray();
+
+	expect($array)->not->toHaveKey('two_factor_secret');
+	expect($array)->not->toHaveKey('two_factor_recovery_codes');
+});
+
 test('two factor settings page can be rendered', function (): void {
 	if (! Features::canManageTwoFactorAuthentication()) {
 		$this->markTestSkipped('Two-factor authentication is not enabled.');
@@ -14,7 +21,7 @@ test('two factor settings page can be rendered', function (): void {
 		'confirmPassword' => true,
 	]);
 
-	$user = User::factory()->create()->fresh();
+	$user = User::factory()->withoutTwoFactor()->create()->fresh();
 
 	$this->actingAs($user)
 		->withSession(['auth.password_confirmed_at' => time()])
