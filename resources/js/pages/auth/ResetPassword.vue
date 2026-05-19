@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/AuthLayout.vue';
-import { store } from '@/routes/password';
+import { update } from '@/routes/password';
 import { NewPasswordRequest, ResetPasswordProps } from '@/types/generated';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
@@ -19,7 +19,7 @@ const form = useForm<NewPasswordRequest>({
 });
 
 const submit = () => {
-	form.submit(store(), {
+	form.submit(update(), {
 		onFinish: () => {
 			form.reset('password', 'password_confirmation');
 		},
@@ -49,6 +49,7 @@ const submit = () => {
 						v-model="form.password"
 						class="mt-1 block w-full"
 						autofocus
+						:passwordrules="passwordRules"
 						placeholder="Password"
 					/>
 					<InputError :message="form.errors.password" />
@@ -63,6 +64,7 @@ const submit = () => {
 						autocomplete="new-password"
 						v-model="form.password_confirmation"
 						class="mt-1 block w-full"
+						:passwordrules="passwordRules"
 						placeholder="Confirm password"
 					/>
 					<InputError :message="form.errors.password_confirmation" />

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AlertError from '@/components/AlertError.vue';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
@@ -7,7 +8,7 @@ import { useForm } from '@inertiajs/vue3';
 import { Eye, EyeOff, LockKeyhole, RefreshCw } from 'lucide-vue-next';
 import { nextTick, onMounted, ref } from 'vue';
 
-const { recoveryCodesList, fetchRecoveryCodes } = useTwoFactorAuth();
+const { recoveryCodesList, errors, fetchRecoveryCodes } = useTwoFactorAuth();
 const isRecoveryCodesVisible = ref<boolean>(false);
 const recoveryCodeSectionRef = ref<HTMLDivElement | null>(null);
 
@@ -49,6 +50,8 @@ onMounted(async () => {
             </CardDescription>
         </CardHeader>
         <CardContent>
+            <AlertError :errors="errors" class="mb-3" />
+
             <div class="flex flex-col gap-3 select-none sm:flex-row sm:items-center sm:justify-between">
                 <Button @click="toggleRecoveryCodesVisibility" class="w-fit">
                     <component :is="isRecoveryCodesVisible ? EyeOff : Eye" class="size-4" />
