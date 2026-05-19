@@ -390,7 +390,44 @@
             "confidence": "medium",
             "url": "https://github.com/laravel/vue-starter-kit/pull/176",
             "backportedAt": "2026-05-19T20:53:26+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/12"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/12",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:52+00:00",
+                    "mergedAt": "2026-05-19T21:40:24+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:24+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:05+00:00",
+                    "mergedAt": "2026-05-19T21:40:24+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:05+00:00",
+                    "mergedAt": "2026-05-19T21:40:25+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:57+00:00",
+                    "mergedAt": "2026-05-19T21:40:25+00:00"
+                }
+            }
         },
         "178": {
             "status": "skipped",
@@ -680,7 +717,44 @@
             "backportedAt": "2026-05-19T20:53:25+00:00",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
             "confidence": "low",
-            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17)."
+            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17).",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:51+00:00",
+                    "mergedAt": "2026-05-19T21:40:26+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:26+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:26+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:27+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:57+00:00",
+                    "mergedAt": "2026-05-19T21:40:27+00:00"
+                }
+            }
         },
         "192": {
             "status": "pending",
@@ -758,7 +832,44 @@
             "backportedAt": "2026-05-19T20:53:25+00:00",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
             "confidence": "low",
-            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17)."
+            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17).",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:51+00:00",
+                    "mergedAt": "2026-05-19T21:40:28+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:28+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:28+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:29+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:56+00:00",
+                    "mergedAt": "2026-05-19T21:40:29+00:00"
+                }
+            }
         },
         "204": {
             "status": "backported",
@@ -784,7 +895,44 @@
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/206",
             "backportedAt": "2026-05-19T20:53:24+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:50+00:00",
+                    "mergedAt": "2026-05-19T21:40:30+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:44+00:00",
+                    "mergedAt": "2026-05-19T21:40:30+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:02+00:00",
+                    "mergedAt": "2026-05-19T21:40:30+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:02+00:00",
+                    "mergedAt": "2026-05-19T21:40:31+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:55+00:00",
+                    "mergedAt": "2026-05-19T21:40:31+00:00"
+                }
+            }
         },
         "207": {
             "status": "backported",
@@ -794,7 +942,44 @@
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/207",
             "backportedAt": "2026-05-19T20:53:24+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:50+00:00",
+                    "mergedAt": "2026-05-19T21:40:32+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:44+00:00",
+                    "mergedAt": "2026-05-19T21:40:32+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:02+00:00",
+                    "mergedAt": "2026-05-19T21:40:32+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:02+00:00",
+                    "mergedAt": "2026-05-19T21:40:33+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:56+00:00",
+                    "mergedAt": "2026-05-19T21:40:33+00:00"
+                }
+            }
         },
         "208": {
             "status": "backported",
@@ -804,7 +989,44 @@
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/208",
             "backportedAt": "2026-05-19T20:53:24+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:49+00:00",
+                    "mergedAt": "2026-05-19T21:40:34+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:44+00:00",
+                    "mergedAt": "2026-05-19T21:40:34+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:01+00:00",
+                    "mergedAt": "2026-05-19T21:40:34+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:01+00:00",
+                    "mergedAt": "2026-05-19T21:40:35+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:55+00:00",
+                    "mergedAt": "2026-05-19T21:40:35+00:00"
+                }
+            }
         },
         "209": {
             "status": "backported",
@@ -815,7 +1037,44 @@
             "backportedAt": "2026-05-19T20:53:24+00:00",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
             "confidence": "low",
-            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17)."
+            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17).",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:50+00:00",
+                    "mergedAt": "2026-05-19T21:40:36+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:44+00:00",
+                    "mergedAt": "2026-05-19T21:40:36+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:02+00:00",
+                    "mergedAt": "2026-05-19T21:40:36+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:02+00:00",
+                    "mergedAt": "2026-05-19T21:40:37+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:55+00:00",
+                    "mergedAt": "2026-05-19T21:40:37+00:00"
+                }
+            }
         },
         "210": {
             "status": "skipped",
@@ -834,7 +1093,44 @@
             "backportedAt": "2026-05-19T20:53:25+00:00",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
             "confidence": "low",
-            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17)."
+            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17).",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:51+00:00",
+                    "mergedAt": "2026-05-19T21:40:38+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:38+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:38+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:39+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:56+00:00",
+                    "mergedAt": "2026-05-19T21:40:39+00:00"
+                }
+            }
         },
         "213": {
             "status": "backported",
@@ -844,7 +1140,44 @@
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/213",
             "backportedAt": "2026-05-19T20:53:25+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:50+00:00",
+                    "mergedAt": "2026-05-19T21:40:40+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:44+00:00",
+                    "mergedAt": "2026-05-19T21:40:40+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:40+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:41+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:56+00:00",
+                    "mergedAt": "2026-05-19T21:40:41+00:00"
+                }
+            }
         },
         "217": {
             "status": "pending",
@@ -869,7 +1202,44 @@
             "backportedAt": "2026-05-19T20:53:25+00:00",
             "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
             "confidence": "low",
-            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17)."
+            "adaptationNotes": "Bundled into Chunk 4 Fortify migration (fork PR #17).",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:51+00:00",
+                    "mergedAt": "2026-05-19T21:40:41+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:42+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:42+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:04+00:00",
+                    "mergedAt": "2026-05-19T21:40:43+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:57+00:00",
+                    "mergedAt": "2026-05-19T21:40:43+00:00"
+                }
+            }
         },
         "221": {
             "status": "pending",
@@ -1058,7 +1428,44 @@
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/250",
             "backportedAt": "2026-05-19T20:53:25+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:50+00:00",
+                    "mergedAt": "2026-05-19T21:40:43+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:44+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:44+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:45+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:56+00:00",
+                    "mergedAt": "2026-05-19T21:40:45+00:00"
+                }
+            }
         },
         "251": {
             "status": "skipped",
@@ -1075,7 +1482,44 @@
             "confidence": "low",
             "url": "https://github.com/laravel/vue-starter-kit/pull/252",
             "backportedAt": "2026-05-19T20:53:25+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/17",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/16",
+                    "propagatedAt": "2026-05-19T21:04:51+00:00",
+                    "mergedAt": "2026-05-19T21:40:45+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 6,
+                    "url": "https://github.com/Plytas/joymobile/pull/6",
+                    "propagatedAt": "2026-05-19T21:13:45+00:00",
+                    "mergedAt": "2026-05-19T21:40:46+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 300,
+                    "url": "https://github.com/Plytas/katsch/pull/300",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:46+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 254,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/254",
+                    "propagatedAt": "2026-05-19T21:23:03+00:00",
+                    "mergedAt": "2026-05-19T21:40:46+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 16,
+                    "url": "https://github.com/Plytas/joy/pull/16",
+                    "propagatedAt": "2026-05-19T21:23:56+00:00",
+                    "mergedAt": "2026-05-19T21:40:47+00:00"
+                }
+            }
         },
         "253": {
             "status": "pending",
