@@ -1880,7 +1880,44 @@
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/310",
             "backportedAt": "2026-05-20T07:20:10+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/18"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/18",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 17,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/17",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 17,
+                    "url": "https://github.com/Plytas/joy/pull/17",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 7,
+                    "url": "https://github.com/Plytas/joymobile/pull/7",
+                    "propagatedAt": "2026-05-20T09:57:28+00:00",
+                    "mergedAt": "2026-05-20T09:57:28+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 301,
+                    "url": "https://github.com/Plytas/katsch/pull/301",
+                    "propagatedAt": "2026-05-20T09:57:28+00:00",
+                    "mergedAt": "2026-05-20T09:57:28+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 255,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/255",
+                    "propagatedAt": "2026-05-20T09:57:28+00:00",
+                    "mergedAt": "2026-05-20T09:57:28+00:00"
+                }
+            }
         },
         "311": {
             "status": "skipped",
@@ -1897,7 +1934,44 @@
             "confidence": "high",
             "url": "https://github.com/laravel/vue-starter-kit/pull/312",
             "backportedAt": "2026-05-20T07:20:09+00:00",
-            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/18"
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/18",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 17,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/17",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 17,
+                    "url": "https://github.com/Plytas/joy/pull/17",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 7,
+                    "url": "https://github.com/Plytas/joymobile/pull/7",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 301,
+                    "url": "https://github.com/Plytas/katsch/pull/301",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 255,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/255",
+                    "propagatedAt": "2026-05-20T09:57:27+00:00",
+                    "mergedAt": "2026-05-20T09:57:27+00:00"
+                }
+            }
         },
         "313": {
             "status": "skipped",
