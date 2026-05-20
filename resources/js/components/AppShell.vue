@@ -6,7 +6,9 @@ interface Props {
 	variant?: 'header' | 'sidebar';
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+	variant: 'sidebar',
+});
 
 const isOpen = usePage().props.sidebarOpen;
 </script>

@@ -7,7 +7,9 @@ interface Props {
 	class?: string;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+	variant: 'sidebar',
+});
 const className = computed(() => props.class);
 </script>
 

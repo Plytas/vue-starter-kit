@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 
 // Components
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
+import PasswordInput from '@/components/PasswordInput.vue';
 import { Button } from '@/components/ui/button';
 import {
 	Dialog,
@@ -16,10 +17,11 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { destroy } from '@/routes/profile';
 import { DeleteUserRequest } from '@/types/generated';
+
+const passwordInput = ref<{ focus: () => void } | null>(null);
 
 const form = useForm<DeleteUserRequest>({
 	password: '',
@@ -32,11 +34,7 @@ const deleteUser = (e: Event) => {
 		preserveScroll: true,
 		onSuccess: () => closeModal(),
 		onError: () => {
-			nextTick(() => {
-				const formElement = e.target as HTMLFormElement;
-				const passwordInput = formElement.password as HTMLInputElement;
-				passwordInput.focus();
-			});
+			nextTick(() => passwordInput.value?.focus());
 		},
 		onFinish: () => form.reset(),
 	});
@@ -72,7 +70,7 @@ const closeModal = () => {
 
 						<div class="grid gap-2">
 							<Label for="password" class="sr-only">Password</Label>
-							<Input id="password" type="password" name="password" v-model="form.password" placeholder="Password" />
+							<PasswordInput id="password" ref="passwordInput" name="password" v-model="form.password" placeholder="Password" />
 							<InputError :message="form.errors.password" />
 						</div>
 
