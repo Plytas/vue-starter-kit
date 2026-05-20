@@ -1873,12 +1873,14 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/308"
         },
         "310": {
-            "status": "pending",
+            "status": "backported",
             "title": "Align app variant API across Vue, Svelte, and React",
             "upstreamMergedAt": "2026-03-09T12:25:27Z",
-            "adaptationNotes": "Standardizes API patterns across framework variants. Review for consistency improvements.",
-            "confidence": "medium",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/310"
+            "adaptationNotes": "Backported Vue parts only (Chunk 5 bundle): withDefaults variant:'sidebar' on AppShell/AppContent, AppHeaderLayout passes variant=header explicitly. AppShellVariant->AppVariant type rename is no-op in fork (type inlined; no types/ui.ts)",
+            "confidence": "high",
+            "url": "https://github.com/laravel/vue-starter-kit/pull/310",
+            "backportedAt": "2026-05-20T07:20:10+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/18"
         },
         "311": {
             "status": "skipped",
@@ -1888,12 +1890,14 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/311"
         },
         "312": {
-            "status": "pending",
+            "status": "backported",
             "title": "Add password visibility toggle to all starter kits",
             "upstreamMergedAt": "2026-03-09T16:07:21Z",
-            "adaptationNotes": "IMPORTANT: Adds PasswordInput component with show/hide toggle. Great UX improvement for all password fields.",
+            "adaptationNotes": "Backported with adaptation: useForm + v-model preserved (fork invariant #2), PasswordInput exposes focus() consumed by settings/Password ref + DeleteUser ref",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/312"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/312",
+            "backportedAt": "2026-05-20T07:20:09+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/18"
         },
         "313": {
             "status": "skipped",
