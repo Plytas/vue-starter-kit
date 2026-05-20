@@ -19,7 +19,7 @@ class AuthenticatedSessionController
 	{
 		return Inertia::render('auth/Login', new LoginProps(
 			canResetPassword: Route::has('password.request'),
-			canRegister: Features::enabled(Features::registration()),
+			canRegister: (bool) config('auth.registration_enabled'),
 			status: $request->session()->get('status'),
 			passkeyStatus: $request->session()->get('authenticatePasskey::message'),
 		));
