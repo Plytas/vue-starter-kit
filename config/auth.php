@@ -114,4 +114,17 @@ return [
 
 	'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+	/*
+	|--------------------------------------------------------------------------
+	| Registration Enabled
+	|--------------------------------------------------------------------------
+	|
+	| Toggle whether new users may register. Routes (`register`, `register.store`)
+	| remain registered so Wayfinder can emit them; the EnsureRegistrationIsEnabled
+	| middleware returns 404 at request time when disabled.
+	|
+	*/
+
+	'registration_enabled' => env('AUTH_REGISTRATION_ENABLED', true),
+
 ];
