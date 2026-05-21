@@ -12,9 +12,7 @@ test('two factor columns are hidden from array serialization', function (): void
 });
 
 test('two factor settings page can be rendered', function (): void {
-	if (! Features::canManageTwoFactorAuthentication()) {
-		$this->markTestSkipped('Two-factor authentication is not enabled.');
-	}
+	$this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 
 	Features::twoFactorAuthentication([
 		'confirm' => true,
@@ -34,9 +32,7 @@ test('two factor settings page can be rendered', function (): void {
 });
 
 test('two factor settings page requires password confirmation when enabled', function (): void {
-	if (! Features::canManageTwoFactorAuthentication()) {
-		$this->markTestSkipped('Two-factor authentication is not enabled.');
-	}
+	$this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 
 	$user = User::factory()->create()->fresh();
 
@@ -51,9 +47,7 @@ test('two factor settings page requires password confirmation when enabled', fun
 });
 
 test('two factor settings page does not require password confirmation when disabled', function (): void {
-	if (! Features::canManageTwoFactorAuthentication()) {
-		$this->markTestSkipped('Two-factor authentication is not enabled.');
-	}
+	$this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 
 	Features::twoFactorAuthentication([
 		'confirm' => true,
@@ -71,9 +65,7 @@ test('two factor settings page does not require password confirmation when disab
 });
 
 test('two factor settings page returns forbidden when two factor is disabled', function (): void {
-	if (! Features::canManageTwoFactorAuthentication()) {
-		$this->markTestSkipped('Two-factor authentication is not enabled.');
-	}
+	$this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 
 	config(['fortify.features' => []]);
 

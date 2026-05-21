@@ -3,6 +3,11 @@
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
+use Laravel\Fortify\Features;
+
+beforeEach(function (): void {
+	$this->skipUnlessFortifyFeature(Features::resetPasswords());
+});
 
 test('reset password link screen can be rendered', function (): void {
 	$response = $this->get(route('password.request'));

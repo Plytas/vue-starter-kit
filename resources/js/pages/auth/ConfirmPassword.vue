@@ -43,7 +43,7 @@ const submit = () => {
 				</div>
 
 				<div class="flex items-center">
-					<Button class="w-full" :disabled="form.processing">
+					<Button class="w-full" :disabled="form.processing" data-test="confirm-password-button">
 						<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
 						Confirm Password
 					</Button>

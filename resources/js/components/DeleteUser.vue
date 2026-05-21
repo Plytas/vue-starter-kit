@@ -56,7 +56,7 @@ const closeModal = () => {
 			</div>
 			<Dialog>
 				<DialogTrigger as-child>
-					<Button variant="destructive">Delete account</Button>
+					<Button variant="destructive" data-test="delete-user-button">Delete account</Button>
 				</DialogTrigger>
 				<DialogContent>
 					<form class="space-y-6" @submit="deleteUser">
@@ -79,7 +79,9 @@ const closeModal = () => {
 								<Button variant="secondary" @click="closeModal"> Cancel </Button>
 							</DialogClose>
 
-							<Button type="submit" variant="destructive" :disabled="form.processing"> Delete account </Button>
+							<Button type="submit" variant="destructive" :disabled="form.processing" data-test="confirm-delete-user-button">
+								Delete account
+							</Button>
 						</DialogFooter>
 					</form>
 				</DialogContent>
