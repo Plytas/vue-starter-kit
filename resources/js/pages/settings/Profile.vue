@@ -43,7 +43,7 @@ const submit = () => {
 
 		<SettingsLayout>
 			<div class="flex flex-col space-y-6">
-				<HeadingSmall title="Profile information" description="Update your name and email address" />
+				<HeadingSmall title="Profile" description="Update your name and email address" />
 
 				<form @submit.prevent="submit" class="space-y-6">
 					<div class="grid gap-2">
@@ -75,7 +75,7 @@ const submit = () => {
 								as="button"
 								class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
 							>
-								Click here to resend the verification email.
+                        Click here to re-send the verification email.
 							</Link>
 						</p>
 
