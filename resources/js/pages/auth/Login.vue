@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
 					</Label>
 				</div>
 
-				<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="loginForm.processing" data-test="login-button">
+				<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="loginForm.processing">
 					<LoaderCircle v-if="loginForm.processing" class="h-4 w-4 animate-spin" />
 					Log in
 				</Button>
