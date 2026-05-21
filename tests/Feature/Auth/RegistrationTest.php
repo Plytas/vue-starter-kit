@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Testing\AssertableInertia as Assert;
+use Laravel\Fortify\Features;
+
+beforeEach(function (): void {
+	$this->skipUnlessFortifyFeature(Features::registration());
+});
 
 test('registration screen can be rendered', function (): void {
 	$response = $this->get(route('register'));

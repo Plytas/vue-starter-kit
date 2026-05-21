@@ -3,6 +3,11 @@
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
+use Laravel\Fortify\Features;
+
+beforeEach(function (): void {
+	$this->skipUnlessFortifyFeature(Features::emailVerification());
+});
 
 test('sends verification notification', function (): void {
 	Notification::fake();
