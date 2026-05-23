@@ -695,11 +695,51 @@
             }
         },
         "187": {
-            "status": "pending",
+            "status": "backported",
             "title": "Integrate PestPHP 4 Browser Tests",
             "upstreamMergedAt": "2025-09-12T15:11:36Z",
             "reason": "browser-tests \u2014 adds Pest browser testing, defer decision until user wants browser tests",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/187"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/187",
+            "backportedAt": "2026-05-21T08:01:33+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/20",
+            "adaptationNotes": "Selectors only; CI workflow + .gitattributes skipped (bun fork incompatible with npm + laravel-labs/starter-kit-browser-tests)",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 19,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/19",
+                    "propagatedAt": "2026-05-23T08:38:50+00:00",
+                    "mergedAt": "2026-05-23T08:38:50+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 19,
+                    "url": "https://github.com/Plytas/joy/pull/19",
+                    "propagatedAt": "2026-05-23T08:38:50+00:00",
+                    "mergedAt": "2026-05-23T08:38:50+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 9,
+                    "url": "https://github.com/Plytas/joymobile/pull/9",
+                    "propagatedAt": "2026-05-23T08:38:50+00:00",
+                    "mergedAt": "2026-05-23T08:38:50+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 303,
+                    "url": "https://github.com/Plytas/katsch/pull/303",
+                    "propagatedAt": "2026-05-23T08:38:50+00:00",
+                    "mergedAt": "2026-05-23T08:38:50+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 257,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/257",
+                    "propagatedAt": "2026-05-23T08:38:50+00:00",
+                    "mergedAt": "2026-05-23T08:38:50+00:00"
+                }
+            }
         },
         "188": {
             "status": "pending",
@@ -800,11 +840,50 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/197"
         },
         "199": {
-            "status": "pending",
+            "status": "backported",
             "title": "Add data-test attribute to sidebar menu button for testing",
             "upstreamMergedAt": "2025-09-24T14:13:19Z",
             "reason": "testing \u2014 adds data-test attributes for browser tests, covered by #187 if needed",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/199"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/199",
+            "backportedAt": "2026-05-21T08:01:33+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/20",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 19,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/19",
+                    "propagatedAt": "2026-05-23T08:38:51+00:00",
+                    "mergedAt": "2026-05-23T08:38:51+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 19,
+                    "url": "https://github.com/Plytas/joy/pull/19",
+                    "propagatedAt": "2026-05-23T08:38:51+00:00",
+                    "mergedAt": "2026-05-23T08:38:51+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 9,
+                    "url": "https://github.com/Plytas/joymobile/pull/9",
+                    "propagatedAt": "2026-05-23T08:38:51+00:00",
+                    "mergedAt": "2026-05-23T08:38:51+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 303,
+                    "url": "https://github.com/Plytas/katsch/pull/303",
+                    "propagatedAt": "2026-05-23T08:38:51+00:00",
+                    "mergedAt": "2026-05-23T08:38:51+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 257,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/257",
+                    "propagatedAt": "2026-05-23T08:38:51+00:00",
+                    "mergedAt": "2026-05-23T08:38:51+00:00"
+                }
+            }
         },
         "200": {
             "status": "pending",
@@ -1981,12 +2060,51 @@
             "url": "https://github.com/laravel/vue-starter-kit/pull/313"
         },
         "314": {
-            "status": "pending",
+            "status": "backported",
             "title": "Browser tests & Fortify feature-aware skip guards",
             "upstreamMergedAt": "2026-03-10T16:35:58Z",
             "adaptationNotes": "Adds skipUnlessFortifyFeature() helpers for tests. Backport after Fortify is integrated.",
             "confidence": "high",
-            "url": "https://github.com/laravel/vue-starter-kit/pull/314"
+            "url": "https://github.com/laravel/vue-starter-kit/pull/314",
+            "backportedAt": "2026-05-21T08:01:34+00:00",
+            "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/20",
+            "downstreamPrs": {
+                "idle-rpg": {
+                    "status": "merged",
+                    "number": 19,
+                    "url": "https://github.com/Plytas/idle-rpg/pull/19",
+                    "propagatedAt": "2026-05-23T08:38:51+00:00",
+                    "mergedAt": "2026-05-23T08:38:51+00:00"
+                },
+                "joy": {
+                    "status": "merged",
+                    "number": 19,
+                    "url": "https://github.com/Plytas/joy/pull/19",
+                    "propagatedAt": "2026-05-23T08:38:52+00:00",
+                    "mergedAt": "2026-05-23T08:38:52+00:00"
+                },
+                "joymobile": {
+                    "status": "merged",
+                    "number": 9,
+                    "url": "https://github.com/Plytas/joymobile/pull/9",
+                    "propagatedAt": "2026-05-23T08:38:52+00:00",
+                    "mergedAt": "2026-05-23T08:38:52+00:00"
+                },
+                "katsch": {
+                    "status": "merged",
+                    "number": 303,
+                    "url": "https://github.com/Plytas/katsch/pull/303",
+                    "propagatedAt": "2026-05-23T08:38:52+00:00",
+                    "mergedAt": "2026-05-23T08:38:52+00:00"
+                },
+                "katsch-gw2": {
+                    "status": "merged",
+                    "number": 257,
+                    "url": "https://github.com/Plytas/katsch-gw2/pull/257",
+                    "propagatedAt": "2026-05-23T08:38:52+00:00",
+                    "mergedAt": "2026-05-23T08:38:52+00:00"
+                }
+            }
         },
         "316": {
             "status": "in-progress",
