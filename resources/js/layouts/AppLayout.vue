@@ -2,7 +2,6 @@
 import { Toaster } from '@/components/ui/sonner';
 import AppLayout from '@/layouts/app/AppSidebarLayout.vue';
 import type { BreadcrumbItem } from '@/types';
-import 'vue-sonner/style.css';
 
 interface Props {
 	breadcrumbs?: BreadcrumbItem[];
