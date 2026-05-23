@@ -1,3 +1,4 @@
+import { initializeFlashToast } from '@/lib/flashToast';
 import { resolveTitle } from '@/lib/utils';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { createPinia } from 'pinia';
@@ -17,3 +18,6 @@ createInertiaApp({
 
 // This will set light / dark mode on page load...
 initializeTheme();
+
+// This will listen for flash toast data from the server...
+initializeFlashToast();

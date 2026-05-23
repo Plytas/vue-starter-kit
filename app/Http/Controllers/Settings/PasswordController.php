@@ -22,6 +22,8 @@ class PasswordController
 			'password' => Hash::make($request->password),
 		]);
 
+		Inertia::flash('toast', ['type' => 'success', 'message' => __('Password updated.')]);
+
 		return back();
 	}
 }

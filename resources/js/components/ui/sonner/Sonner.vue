@@ -1,18 +1,20 @@
-<script lang="ts" setup>
-import { Toaster as Sonner, type ToasterProps } from 'vue-sonner'
+<script setup lang="ts">
+import { useAppearance } from '@/composables/useAppearance';
+import { Toaster as SonnerPrimitive } from 'vue-sonner';
+import 'vue-sonner/style.css';
 
-const props = defineProps<ToasterProps>()
+const { appearance } = useAppearance();
 </script>
 
 <template>
-  <Sonner
-    class="toaster group"
-    v-bind="props"
-    :style="{
-      '--normal-bg': 'var(--popover)',
-      '--normal-text': 'var(--popover-foreground)',
-      '--normal-border': 'var(--border)',
-
-    }"
-  />
+	<SonnerPrimitive
+		:theme="appearance"
+		class="toaster group"
+		position="bottom-right"
+		:style="{
+			'--normal-bg': 'var(--popover)',
+			'--normal-text': 'var(--popover-foreground)',
+			'--normal-border': 'var(--border)',
+		}"
+	/>
 </template>
