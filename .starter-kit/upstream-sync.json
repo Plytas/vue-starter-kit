@@ -7,8 +7,8 @@
             "lastCheckedSha": null
         },
         "teams": {
-            "lastCheckedAt": null,
-            "lastCheckedSha": null
+            "lastCheckedAt": "2026-05-24T13:34:35+00:00",
+            "lastCheckedSha": "f00b434"
         }
     },
     "downstreamRepos": [
@@ -3949,6 +3949,480 @@
                             "mergedAt": "2026-05-24T08:48:03+00:00"
                         }
                     }
+                }
+            }
+        },
+        "commit:10f0b91": {
+            "title": "feat: Teams support",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/10f0b91",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "10f0b91",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/10f0b91",
+                    "mergedAt": "2026-03-27T11:33:41Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:dbbff0d": {
+            "title": "Fix Teams email verification redirect",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/dbbff0d",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "dbbff0d",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/dbbff0d",
+                    "mergedAt": "2026-05-20T14:22:09Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:34b303b": {
+            "title": "Update Vue 2fa challenge page",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/34b303b",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "34b303b",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/34b303b",
+                    "mergedAt": "2026-05-20T12:45:28Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:c1e23aa": {
+            "title": "Fix install features output",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/c1e23aa",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "c1e23aa",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/c1e23aa",
+                    "mergedAt": "2026-05-19T01:17:18Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:3b0f9b8": {
+            "title": "Remove unnecessary null-safe operator from member role label",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/3b0f9b8",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "3b0f9b8",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/3b0f9b8",
+                    "mergedAt": "2026-05-18T10:37:45Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:6db71a4": {
+            "title": "Use Fortify config for Teams auth redirects instead of hardcoded routes",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/6db71a4",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "6db71a4",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/6db71a4",
+                    "mergedAt": "2026-04-16T15:01:10Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:07c7e6e": {
+            "title": "Add multilanguage support for Team name reserved validation message",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/07c7e6e",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "07c7e6e",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/07c7e6e",
+                    "mergedAt": "2026-04-07T09:36:42Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:8691359": {
+            "title": "Add multilanguage support for Delete team validation message",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/8691359",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "8691359",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/8691359",
+                    "mergedAt": "2026-04-03T13:29:18Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:e35fa56": {
+            "title": "Add translation support to team invitation notification mail",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/e35fa56",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "e35fa56",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/e35fa56",
+                    "mergedAt": "2026-04-01T10:01:05Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:a3ca5ee": {
+            "title": "Add TeamPermission enum for type-safe permissions",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/a3ca5ee",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "a3ca5ee",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/a3ca5ee",
+                    "mergedAt": "2026-03-31T16:28:40Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:f00b434": {
+            "title": "Align Inertia UI copy with existing Livewire translations",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/f00b434",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "f00b434",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/f00b434",
+                    "mergedAt": "2026-05-21T13:16:17Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:0f30f40": {
+            "title": "fix: Update tailwindcss v4 syntax for custom property",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/0f30f40",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "0f30f40",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/0f30f40",
+                    "mergedAt": "2026-05-21T12:24:15Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "pending"
+                }
+            }
+        },
+        "commit:e86668f": {
+            "title": "feat: Add passkeys with chisel",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/e86668f",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "e86668f",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/e86668f",
+                    "mergedAt": "2026-05-18T17:02:55Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start (Chunk 4 Fortify migration completion)"
+                }
+            }
+        },
+        "commit:9a7ff08": {
+            "title": "Update jobs migration",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/9a7ff08",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "9a7ff08",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/9a7ff08",
+                    "mergedAt": "2026-05-19T01:10:47Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start"
+                }
+            }
+        },
+        "commit:57a2144": {
+            "title": "Update push-kit-changes.yml",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/57a2144",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "57a2144",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/57a2144",
+                    "mergedAt": "2026-05-14T18:55:51Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Upstream CI workflow; fork has its own CI"
+                }
+            }
+        },
+        "commit:a9be832": {
+            "title": "Standardize test method signatures and factory usage",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/a9be832",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "a9be832",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/a9be832",
+                    "mergedAt": "2026-05-14T18:29:20Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline test refactor; will absorb via 8b graft conflict resolution"
+                }
+            }
+        },
+        "commit:5a12393": {
+            "title": "Add passwordrules attribute to new-password inputs",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/5a12393",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "5a12393",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/5a12393",
+                    "mergedAt": "2026-05-13T18:31:46Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start"
+                }
+            }
+        },
+        "commit:a2aae47": {
+            "title": "Add missing autofocus to 2FA input field",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/a2aae47",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "a2aae47",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/a2aae47",
+                    "mergedAt": "2026-04-30T09:41:50Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start"
+                }
+            }
+        },
+        "commit:643cc11": {
+            "title": "Catch migrations up to Skeleton",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/643cc11",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "643cc11",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/643cc11",
+                    "mergedAt": "2026-04-30T09:26:31Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start (Chunk 1 skeleton drifts)"
+                }
+            }
+        },
+        "commit:5922406": {
+            "title": "Use the Vite font plugin in starter kits",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/5922406",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "5922406",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/5922406",
+                    "mergedAt": "2026-04-29T17:10:24Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start (Chunk 3 Vite 8)"
+                }
+            }
+        },
+        "commit:0e64fd6": {
+            "title": "[main] Moves to pao under laravel",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/0e64fd6",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "0e64fd6",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/0e64fd6",
+                    "mergedAt": "2026-04-28T12:29:01Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline (explicit [main] prefix); on start (Chunk 6 PAO)"
+                }
+            }
+        },
+        "commit:08321a9": {
+            "title": "Adds pao by default",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/08321a9",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "08321a9",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/08321a9",
+                    "mergedAt": "2026-04-20T15:01:03Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start (Chunk 6 PAO)"
+                }
+            }
+        },
+        "commit:d8ed6d6": {
+            "title": "Replace deprecated Rule with ValidationRule",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/d8ed6d6",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "d8ed6d6",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/d8ed6d6",
+                    "mergedAt": "2026-04-13T10:29:37Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start"
+                }
+            }
+        },
+        "commit:3a10ae2": {
+            "title": "Add toast notifications across all starter kits",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/3a10ae2",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "3a10ae2",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/3a10ae2",
+                    "mergedAt": "2026-04-08T10:09:59Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline equivalent on start (Chunk 7 toast notifications)"
+                }
+            }
+        },
+        "commit:47baf4c": {
+            "title": "Move Inertia pnpm hoist config to workspace file",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/47baf4c",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "47baf4c",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/47baf4c",
+                    "mergedAt": "2026-04-08T09:41:24Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "N/A — fork uses bun, not pnpm"
+                }
+            }
+        },
+        "commit:6f5f862": {
+            "title": "Update contributing docs to point to Maestro",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/6f5f862",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "6f5f862",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/6f5f862",
+                    "mergedAt": "2026-04-02T15:56:43Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Mainline docs; fork has its own contributing flow"
+                }
+            }
+        },
+        "commit:f8b4a17": {
+            "title": "Remove unused axios and enable ignore-scripts for all kits",
+            "url": "https://github.com/laravel/vue-starter-kit/commit/f8b4a17",
+            "sourceRefs": {
+                "teams": {
+                    "type": "commit",
+                    "id": "f8b4a17",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/f8b4a17",
+                    "mergedAt": "2026-03-31T14:08:22Z"
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "skipped",
+                    "reason": "Fork already has bunfig.toml + trustedDependencies: [] (Step 0 bun hardening)"
                 }
             }
         }
