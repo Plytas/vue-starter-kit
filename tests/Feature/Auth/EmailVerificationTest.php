@@ -22,6 +22,8 @@ test('email can be verified', function (): void {
 	$user = User::factory()->unverified()->create();
 	$team = $user->personalTeam();
 
+	Event::fake();
+
 	$verificationUrl = URL::temporarySignedRoute(
 		'verification.verify',
 		now()->addMinutes(60),

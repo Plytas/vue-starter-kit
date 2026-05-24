@@ -25,10 +25,13 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip';
+import AppLayout from '@/layouts/AppLayout.vue';
+import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { useInitials } from '@/composables/useInitials';
 import { edit, index, update } from '@/routes/teams';
 import { update as updateMember } from '@/routes/teams/members';
 import type {
+    BreadcrumbItem,
     RoleOption,
     Team,
     TeamInvitation,
@@ -46,20 +49,16 @@ type Props = {
 
 const props = defineProps<Props>();
 
-defineOptions({
-    layout: (props: { team: Team }) => ({
-        breadcrumbs: [
-            {
-                title: 'Teams',
-                href: index(),
-            },
-            {
-                title: props.team.name,
-                href: edit(props.team.slug),
-            },
-        ],
-    }),
-});
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
+    {
+        title: 'Teams',
+        href: index.url(),
+    },
+    {
+        title: props.team.name,
+        href: edit.url(props.team.slug),
+    },
+]);
 
 const { getInitials } = useInitials();
 
@@ -95,8 +94,10 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
 </script>
 
 <template>
-    <Head :title="pageTitle" />
+    <AppLayout :breadcrumbs="breadcrumbs">
+        <Head :title="pageTitle" />
 
+        <SettingsLayout>
     <h1 class="sr-only">{{ pageTitle }}</h1>
 
     <div class="flex flex-col space-y-10">
@@ -379,4 +380,6 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
         :open="deleteDialogOpen"
         @update:open="deleteDialogOpen = $event"
     />
+        </SettingsLayout>
+    </AppLayout>
 </template>
