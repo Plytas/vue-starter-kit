@@ -442,33 +442,38 @@ function resolveNext(array &$state, bool $execute, array $targets, ?string $only
         }
     }
 
-    // 2. Propagation needed — iterates SUPPORTED_TARGETS order (start first).
-    foreach (iterateTargets($state, $onlyTarget) as [$entryId, $target, $ts, $entry]) {
-        if (($ts['status'] ?? null) !== 'backported') continue;
-        $missing = missingDownstreamRepos($state, $entryId, $target);
-        if (!$missing) continue;
+    // 2. Propagation needed — targets outer (SUPPORTED_TARGETS order), entries inner.
+    // This ensures start is fully exhausted before start-teams on --target=all.
+    foreach ($targets as $target) {
+        foreach (iterateTargets($state, $target) as [$entryId, , $ts, $entry]) {
+            if (($ts['status'] ?? null) !== 'backported') continue;
+            $missing = missingDownstreamRepos($state, $entryId, $target);
+            if (!$missing) continue;
 
-        $forkPR = $ts['forkPR'] ?? null;
-        if ($forkPR) {
-            $forkMerged = ghIsPrMerged($forkPR);
-            if ($forkMerged === false) continue;
+            $forkPR = $ts['forkPR'] ?? null;
+            if ($forkPR) {
+                $forkMerged = ghIsPrMerged($forkPR);
+                if ($forkMerged === false) continue;
+            }
+
+            $targetFlag = ($target !== 'start') ? " --target={$target}" : '';
+            return [
+                'summary' => "Propagate #{$entryId} [{$target}] to: " . implode(', ', $missing),
+                'detail'  => "Fork PR: " . ($forkPR ?? '(none)') . "\nTitle: {$entry['title']}",
+                'hint'    => "/us-propagate{$targetFlag} {$entryId} " . implode(' ', $missing),
+            ];
         }
-
-        $targetFlag = ($target !== 'start') ? " --target={$target}" : '';
-        return [
-            'summary' => "Propagate #{$entryId} [{$target}] to: " . implode(', ', $missing),
-            'detail'  => "Fork PR: " . ($forkPR ?? '(none)') . "\nTitle: {$entry['title']}",
-            'hint'    => "/us-propagate{$targetFlag} {$entryId} " . implode(' ', $missing),
-        ];
     }
 
-    // 3. Anything waiting?
+    // 3. Anything waiting? — targets outer for consistent ordering.
     $waiting = [];
-    foreach (iterateTargets($state, $onlyTarget) as [$entryId, $target, $ts, $entry]) {
-        if (($ts['status'] ?? null) !== 'backported') continue;
-        $opens = openDownstreamPrs($entry, $target);
-        if ($opens) {
-            $waiting[] = "#{$entryId} [{$target}]: open downstream PRs in " . implode(', ', array_keys($opens));
+    foreach ($targets as $target) {
+        foreach (iterateTargets($state, $target) as [$entryId, , $ts, $entry]) {
+            if (($ts['status'] ?? null) !== 'backported') continue;
+            $opens = openDownstreamPrs($entry, $target);
+            if ($opens) {
+                $waiting[] = "#{$entryId} [{$target}]: open downstream PRs in " . implode(', ', array_keys($opens));
+            }
         }
     }
 
