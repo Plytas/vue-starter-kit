@@ -34,7 +34,7 @@ class PasskeyController
 
 		$options = $generatePassKeyOptionsAction->execute(Auth::user());
 
-		if (! is_string($options)) {
+		if (!is_string($options)) {
 			throw ValidationException::withMessages([
 				'name' => __('passkeys::passkeys.error_something_went_wrong_generating_the_passkey'),
 			]);

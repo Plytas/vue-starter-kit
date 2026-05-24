@@ -13,7 +13,7 @@ class EnsureRegistrationIsEnabled
 	 */
 	public function handle(Request $request, Closure $next): Response
 	{
-		if ($request->route()?->named('register', 'register.store') && ! config('auth.registration_enabled')) {
+		if ($request->route()?->named('register', 'register.store') && !config('auth.registration_enabled')) {
 			abort(404);
 		}
 

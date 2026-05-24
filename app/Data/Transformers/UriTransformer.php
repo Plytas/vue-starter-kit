@@ -11,7 +11,7 @@ class UriTransformer implements Transformer
 {
 	public function transform(DataProperty $property, mixed $value, TransformationContext $context): mixed
 	{
-		if (! is_a($value, Uri::class)) {
+		if (!is_a($value, Uri::class)) {
 			return $value;
 		}
 

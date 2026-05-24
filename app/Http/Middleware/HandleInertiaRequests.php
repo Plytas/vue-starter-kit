@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware
 			auth: new SharedAuthProps(
 				user: User::fromUser($request->user()),
 			),
-			sidebarOpen: ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+			sidebarOpen: !$request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
 		)->toArray();
 	}
 }
