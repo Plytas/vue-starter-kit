@@ -1,155 +1,84 @@
 # Upstream Sync Scripts
 
-This directory contains executable PHP scripts for managing the upstream sync state.
+This directory contains PHP scripts for managing the upstream sync state (schema v2).
 
 ## Primary entry point: `sync.php`
 
-`sync.php` is the unified CLI for state-file mutations and the `/us-next` resolver. Prefer it over the older single-purpose scripts below.
+`sync.php` is the unified CLI for all state mutations and the `/us-next` resolver.
 
 ```bash
-php sync.php next [--execute]              # Resolve next workflow step
-php sync.php status                        # Summary of pending/backported/awaiting
-php sync.php poll-downstream [--pr=N]      # Update merged downstream PRs from GitHub
-php sync.php downstream-set <pr> <repo>... --status=merged [--number=N --url=URL]
-php sync.php downstream-set <pr> <repo> --status=skipped --reason="..."
-php sync.php pr-set <pr> [--status=...] [--fork-pr=URL] [--confidence=...] [--notes=...]
-php sync.php touch-checked                 # Set lastCheckedAt = now
-php sync.php lock acquire --operation=NAME # Acquire lock (auto-detects stale >30m)
-php sync.php lock release
+php sync.php --help   # Full command reference with defaults
 ```
 
-Run `php sync.php --help` for the full reference.
+### Command surface (schema v2)
+
+| Command | Key flags | Defaults |
+|---|---|---|
+| `migrate [--dry-run]` | — | — |
+| `next [--execute]` | `[--target=start\|start-teams\|all]` | `--target=all` |
+| `status` | `[--target=start\|start-teams\|all]` | `--target=all` |
+| `poll-downstream` | `[--pr=ID] [--target=...]` | `--target=all` |
+| `pr-set <entry>` | `[--target=BRANCH] [--status=...] [--fork-pr=URL] [--confidence=...] [--notes=...] [--reason=...]` | `--target=start` |
+| `downstream-set <entry> <repo>...` | `[--target=BRANCH] --status=... [--number=N] [--url=URL] [--reason=...]` | `--target=start` |
+| `touch-checked` | `[--upstream-branch=main\|teams] [--sha=SHA]` | `--upstream-branch=main` |
+| `lock acquire\|release` | `--operation=NAME [--force]` | — |
+
+**Flag concepts:**
+- `--target=BRANCH` — fork-side branch scope (`start`, `start-teams`, or `all` on query commands).
+  Mutating commands (`pr-set`, `downstream-set`) reject `all`.
+- `--upstream-branch=NAME` — upstream tracking branch (`main` or `teams`).
+  Only `touch-checked` accepts this flag.
+
+**Env override:** `SYNC_STATE_FILE=/path/to/file.json php sync.php <cmd>` uses that file instead of `upstream-sync.json`. Useful for smoke testing without touching production state.
 
 ### `next` resolver (drives `/us-next`)
 
-Walks `upstream-sync.json` and picks the highest-priority action in this order:
+Walks `upstream-sync.json` and picks the highest-priority action:
 
-1. With `--execute`: auto-marks any merged downstream PRs.
-2. Propagate any backported PR (fork PR merged) missing downstream coverage.
-3. Report PRs awaiting fork-PR or downstream merges.
-4. Backport the lowest-numbered pending PR.
-5. Trigger triage when the queue is empty.
+1. With `--execute`: auto-marks any merged downstream PRs (GitHub poll).
+2. Propagate any backported entry whose fork PR is merged but downstream coverage is missing.
+3. Report entries awaiting fork-PR or downstream-PR merges.
+4. Backport the lowest-numbered pending entry (`start` before `start-teams`).
+5. Triage the upstream branch with the oldest `lastCheckedAt` watermark.
 
-The output ends with a `Next step:` line naming the slash command to run.
-
----
-
-## Legacy single-purpose scripts
-
-### `add-downstream-repo`
-
-Add a new downstream repository to track.
-
-**Usage:**
-```bash
-./add-downstream-repo <repo-id> <path>
-```
-
-**Example:**
-```bash
-./add-downstream-repo my-project /Users/me/Code/my-project
-```
-
-**What it does:**
-- Validates the path exists and is a git repository
-- Adds the repository to `downstreamRepos` in `upstream-sync.json`
-- Sorts repositories by ID for consistency
+Output ends with a `Next step:` line naming the slash command to run.
 
 ---
 
-### `record-propagation`
-
-Record that a backported PR has been propagated to a downstream repository.
-
-**Usage:**
-```bash
-./record-propagation <upstream-pr-number> <downstream-repo-id> <downstream-pr-number> [status]
-```
-
-**Example:**
-```bash
-./record-propagation 158 my-project 42 open
-```
-
-**Status values:**
-- `open` (default) - PR is open
-- `merged` - PR has been merged
-
-**What it does:**
-- Validates the upstream PR and downstream repo exist in the state file
-- Automatically detects the GitHub PR URL from the repo's remote
-- Records the propagation in `downstreamPrs` with timestamp
-- Updates the state file
-
----
-
-### `list-downstream-repos`
-
-Display all downstream repositories and their propagation status.
-
-**Usage:**
-```bash
-./list-downstream-repos
-```
-
-**What it shows:**
-- Repository ID, path, and status
-- Total number of propagations
-- Count of open vs merged downstream PRs
-- List of currently open PRs with links
-
----
-
-## Workflow Example
-
-1. **Add a downstream repository:**
-   ```bash
-   ./add-downstream-repo my-app /path/to/my-app
-   ```
-
-2. **Backport an upstream PR to the fork** (using `/us-backport`)
-
-3. **Propagate to downstream:**
-   - Manually apply the change in the downstream repo
-   - Create a PR in the downstream repo
-   - Record the propagation:
-     ```bash
-     ./record-propagation 158 my-app 42 open
-     ```
-
-4. **View status:**
-   ```bash
-   ./list-downstream-repos
-   ```
-
-5. **Update when PR is merged:**
-   ```bash
-   ./record-propagation 158 my-app 42 merged
-   ```
-
----
-
-## State File Schema
-
-The scripts manage `upstream-sync.json` which has this structure for downstream repos:
+## Schema v2 structure
 
 ```json
 {
+  "version": 2,
+  "upstream": "laravel/vue-starter-kit",
+  "upstreamWatermarks": {
+    "main":  { "lastCheckedAt": "2026-05-18T00:00:00Z", "lastCheckedSha": null },
+    "teams": { "lastCheckedAt": null,                   "lastCheckedSha": null }
+  },
   "downstreamRepos": [
-    {
-      "id": "my-app",
-      "path": "/Users/me/Code/my-app",
-      "status": "active"
-    }
+    { "id": "idle-rpg", "path": "/path", "status": "active", "tracksBranch": "start" }
   ],
   "prs": {
     "158": {
-      "downstreamPrs": {
-        "my-app": {
-          "number": 42,
-          "status": "open",
-          "propagatedAt": "2026-03-15T16:49:35+00:00",
-          "url": "https://github.com/owner/my-app/pull/42"
+      "title": "...",
+      "url": "https://github.com/laravel/vue-starter-kit/pull/158",
+      "sourceRefs": {
+        "main":  { "type": "pr",     "id": "158",    "url": "...", "mergedAt": "..." },
+        "teams": { "type": "commit", "id": "abc123", "url": "...", "mergedAt": null }
+      },
+      "targets": {
+        "start": {
+          "status": "backported",
+          "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/1",
+          "backportedAt": "...",
+          "confidence": "high",
+          "adaptationNotes": "...",
+          "downstreamPrs": {
+            "idle-rpg": { "number": 1, "status": "merged", "url": "...", "propagatedAt": "...", "mergedAt": "..." }
+          }
+        },
+        "start-teams": {
+          "status": "pending"
         }
       }
     }
@@ -157,12 +86,105 @@ The scripts manage `upstream-sync.json` which has this structure for downstream 
 }
 ```
 
+**Key invariants enforced by `validateState`:**
+- `downstreamRepos[*].tracksBranch ∈ {start, start-teams}`
+- `prs[*].targets[*].status ∈ {pending, in-progress, backported, skipped}`
+- `prs[*].sourceRefs` keys ⊆ `{main, teams}`; at least one required
+- `upstreamWatermarks` keys ⊆ `{main, teams}`; `main` required
+- No legacy v1 fields (`status`, `forkPr`, `downstreamPrs`, `downstreams`, etc.) at top level of each entry
+
 ---
 
-## Future Enhancements
+## Legacy single-purpose scripts
 
-Potential improvements:
-- `update-propagation-status` - Update PR status (open/merged) without re-recording
-- `remove-downstream-repo` - Remove a downstream repo (with confirmation)
-- `propagation-summary` - Show which PRs have been propagated to which repos
-- Integration with the main upstream-sync skill for automated propagation
+These scripts wrap `sync.php` functionality and require **schema v2**.
+
+### `add-downstream-repo`
+
+Add a new downstream repository to track.
+
+```bash
+./add-downstream-repo <repo-id> <path> [--target=start|start-teams]
+```
+
+Example:
+```bash
+./add-downstream-repo my-project /Users/me/Code/my-project
+./add-downstream-repo teams-app /Users/me/Code/teams-app --target=start-teams
+```
+
+Sets `tracksBranch` from `--target` (default: `start`).
+
+---
+
+### `record-propagation`
+
+Record that a backported entry has been propagated to a downstream repository.
+
+```bash
+./record-propagation <entry-id> <downstream-repo-id> <downstream-pr-number> [status] [--target=BRANCH]
+```
+
+Example:
+```bash
+./record-propagation 158 my-app 42 open
+./record-propagation 158 teams-app 7 open --target=start-teams
+```
+
+Validates that `downstreamRepos[repo].tracksBranch === target`. Writes into `prs[entry].targets[target].downstreamPrs[repo]`.
+
+---
+
+### `list-downstream-repos`
+
+Display all downstream repositories and their propagation status.
+
+```bash
+./list-downstream-repos [--target=start|start-teams|all]
+```
+
+Shows `tracksBranch`, propagation counts, and open PR links.
+
+---
+
+### `latest-backport` / `next-backport` (deprecated)
+
+These scripts are **fail-fast stubs** in schema v2. Use instead:
+
+```bash
+php sync.php status --target=start   # replaces latest-backport
+php sync.php next --target=start     # replaces next-backport
+```
+
+---
+
+## Workflow Example
+
+1. **Backport an upstream PR to the fork** (using `/us-backport`)
+
+2. **Propagate to downstream:**
+   - Apply the change in the downstream repo, open a PR
+   - Record the propagation:
+     ```bash
+     ./record-propagation 158 my-app 42 open
+     # or via sync.php:
+     php sync.php downstream-set 158 my-app --status=open --number=42
+     ```
+
+3. **Add a new downstream repo:**
+   ```bash
+   ./add-downstream-repo my-app /path/to/my-app
+   # for a teams-variant project:
+   ./add-downstream-repo teams-app /path/to/teams-app --target=start-teams
+   ```
+
+4. **View status:**
+   ```bash
+   php sync.php status
+   ./list-downstream-repos
+   ```
+
+5. **Update when PR is merged:**
+   ```bash
+   php sync.php downstream-set 158 my-app --status=merged
+   ```

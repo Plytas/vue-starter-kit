@@ -288,3 +288,52 @@ When adapting an upstream change, verify each of these:
 - [ ] Vue components import types from `@/types/generated`?
 - [ ] No manual TypeScript interfaces duplicating generated types?
 - [ ] Auth-related changes checked for passkey compatibility?
+
+---
+
+## Multi-branch Fork (start / start-teams)
+
+This fork tracks two upstream branches simultaneously:
+
+| Fork branch   | Tracks upstream | Use case                          |
+|---|---|---|
+| `start`       | `upstream/main` | Standard Laravel starter kit fork |
+| `start-teams` | `upstream/teams`| Teams variant (future)            |
+
+### Key invariants
+
+- **`start`** is the primary branch. All existing 154 backport entries live under `targets.start`.
+- **`start-teams`** is seeded in Chunk 8b. Until then, `targets.start-teams` is empty on all entries.
+- **`downstreamRepos[*].tracksBranch`** is single-valued (`start` or `start-teams`). Existing downstream projects (idle-rpg, joy, joymobile, katsch, katsch-gw2) all track `start`.
+- **Retargeting** `start-teams` to a different upstream branch requires a code change in `sync.php` (`TARGET_UPSTREAM_BRANCH` constant) — this is intentional (forces review).
+
+### Sync tooling commands for multi-branch
+
+```bash
+# Per-target status
+php sync.php status --target=start
+php sync.php status --target=start-teams   # empty until Chunk 8b
+
+# Backport next item for a specific branch
+php sync.php next --target=start
+php sync.php next --target=start-teams
+
+# Set status on a specific target
+php sync.php pr-set <entry> --target=start --status=backported --fork-pr=URL
+php sync.php pr-set <entry> --target=start-teams --status=pending   # seed a slot
+
+# Record downstream propagation (respects tracksBranch)
+php sync.php downstream-set <entry> idle-rpg --target=start --status=merged --number=N
+
+# Update upstream watermarks
+php sync.php touch-checked --upstream-branch=main
+php sync.php touch-checked --upstream-branch=teams
+```
+
+### Downstream projects and Teams variant
+
+- Future Teams-variant projects clone `Plytas/vue-starter-kit` and track `dev-start-teams`.
+- When adding a Teams downstream, use `--target=start-teams`:
+  ```bash
+  ./add-downstream-repo teams-app /path/to/teams-app --target=start-teams
+  ```

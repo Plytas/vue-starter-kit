@@ -2,22 +2,36 @@
 <?php
 
 /**
- * Add a downstream repository to upstream-sync.json
+ * Add a downstream repository to upstream-sync.json (schema v2)
  *
- * Usage: ./add-downstream-repo <repo-id> <path>
+ * Usage: ./add-downstream-repo <repo-id> <path> [--target=start|start-teams]
  * Example: ./add-downstream-repo idle-rpg /Users/vytas/Code/idle-rpg
+ * Example: ./add-downstream-repo teams-app /path/to/app --target=start-teams
  */
 
+const SUPPORTED_TARGETS = ['start', 'start-teams'];
+
 if ($argc < 3) {
-    echo "Usage: {$argv[0]} <repo-id> <path>\n";
+    echo "Usage: {$argv[0]} <repo-id> <path> [--target=start|start-teams]\n";
     echo "Example: {$argv[0]} idle-rpg /Users/vytas/Code/idle-rpg\n";
     exit(1);
 }
 
-$repoId = $argv[1];
+$repoId   = $argv[1];
 $repoPath = $argv[2];
+$target   = 'start';
 
-// Validate path exists and is a git repo
+foreach (array_slice($argv, 3) as $arg) {
+    if (str_starts_with($arg, '--target=')) {
+        $target = substr($arg, 9);
+    }
+}
+
+if (!in_array($target, SUPPORTED_TARGETS, true)) {
+    echo "Error: Invalid --target '{$target}'. Valid: " . implode(', ', SUPPORTED_TARGETS) . "\n";
+    exit(1);
+}
+
 if (!is_dir($repoPath)) {
     echo "Error: Path does not exist: {$repoPath}\n";
     exit(1);
@@ -29,8 +43,7 @@ if (strpos($gitDir, '.git') === false) {
     exit(1);
 }
 
-// Load state file
-$stateFile = __DIR__ . '/../upstream-sync.json';
+$stateFile = getenv('SYNC_STATE_FILE') ?: __DIR__ . '/../upstream-sync.json';
 if (!file_exists($stateFile)) {
     echo "Error: State file not found: {$stateFile}\n";
     exit(1);
@@ -42,7 +55,11 @@ if (!$state) {
     exit(1);
 }
 
-// Check if repo already exists
+if (($state['version'] ?? 0) !== 2) {
+    echo "Error: State file is schema v" . ($state['version'] ?? 0) . "; expected v2. Run: php sync.php migrate\n";
+    exit(2);
+}
+
 foreach ($state['downstreamRepos'] as $repo) {
     if ($repo['id'] === $repoId) {
         echo "Error: Downstream repo '{$repoId}' already exists\n";
@@ -50,18 +67,18 @@ foreach ($state['downstreamRepos'] as $repo) {
     }
 }
 
-// Add the new downstream repo
 $state['downstreamRepos'][] = [
-    'id' => $repoId,
-    'path' => $repoPath,
-    'status' => 'active'
+    'id'           => $repoId,
+    'path'         => $repoPath,
+    'status'       => 'active',
+    'tracksBranch' => $target,
 ];
 
-// Sort by ID for consistency
 usort($state['downstreamRepos'], fn($a, $b) => strcmp($a['id'], $b['id']));
 
-// Save state file
-file_put_contents($stateFile, json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
+$tmp = $stateFile . '.tmp';
+file_put_contents($tmp, json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");
+rename($tmp, $stateFile);
 
-echo "✓ Added downstream repo '{$repoId}' at {$repoPath}\n";
+echo "✓ Added downstream repo '{$repoId}' at {$repoPath} (tracksBranch: {$target})\n";
 echo "✓ State file updated: {$stateFile}\n";
