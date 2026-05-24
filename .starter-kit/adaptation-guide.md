@@ -298,12 +298,12 @@ This fork tracks two upstream branches simultaneously:
 | Fork branch   | Tracks upstream | Use case                          |
 |---|---|---|
 | `start`       | `upstream/main` | Standard Laravel starter kit fork |
-| `start-teams` | `upstream/teams`| Teams variant (future)            |
+| `start-teams` | `upstream/teams`| Teams variant                     |
 
 ### Key invariants
 
 - **`start`** is the primary branch. All existing 154 backport entries live under `targets.start`.
-- **`start-teams`** is seeded in Chunk 8b. Until then, `targets.start-teams` is empty on all entries.
+- **`start-teams`** was seeded in Chunk 8b. All 12 upstream/teams commits are backported.
 - **`downstreamRepos[*].tracksBranch`** is single-valued (`start` or `start-teams`). Existing downstream projects (idle-rpg, joy, joymobile, katsch, katsch-gw2) all track `start`.
 - **Retargeting** `start-teams` to a different upstream branch requires a code change in `sync.php` (`TARGET_UPSTREAM_BRANCH` constant) — this is intentional (forces review).
 
@@ -312,7 +312,7 @@ This fork tracks two upstream branches simultaneously:
 ```bash
 # Per-target status
 php sync.php status --target=start
-php sync.php status --target=start-teams   # empty until Chunk 8b
+php sync.php status --target=start-teams
 
 # Backport next item for a specific branch
 php sync.php next --target=start
@@ -332,7 +332,7 @@ php sync.php touch-checked --upstream-branch=teams
 
 ### Downstream projects and Teams variant
 
-- Future Teams-variant projects clone `Plytas/vue-starter-kit` and track `dev-start-teams`.
+- Teams-variant projects clone `Plytas/vue-starter-kit` and track `start-teams` (or a `dev-start-teams` branch).
 - When adding a Teams downstream, use `--target=start-teams`:
   ```bash
   ./add-downstream-repo teams-app /path/to/teams-app --target=start-teams
