@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Teams;
 use App\Data\Teams\AcceptTeamInvitationRequest;
 use App\Data\Teams\CreateTeamInvitationRequest;
 use App\Enums\TeamRole;
-use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Models\TeamInvitation;
 use App\Notifications\Teams\TeamInvitation as TeamInvitationNotification;
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Notification;
 
-class TeamInvitationController extends Controller
+class TeamInvitationController
 {
     /**
      * Store a newly created invitation.

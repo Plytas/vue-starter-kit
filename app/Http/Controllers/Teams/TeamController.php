@@ -12,7 +12,6 @@ use App\Data\Teams\TeamInvitation as TeamInvitationData;
 use App\Data\Teams\TeamMember;
 use App\Data\Teams\TeamsIndexProps;
 use App\Enums\TeamRole;
-use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -23,7 +22,7 @@ use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class TeamController extends Controller
+class TeamController
 {
     /**
      * Display a listing of the user's teams.

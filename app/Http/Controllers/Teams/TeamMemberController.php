@@ -4,13 +4,12 @@ namespace App\Http\Controllers\Teams;
 
 use App\Data\Teams\UpdateTeamMemberRequest;
 use App\Enums\TeamRole;
-use App\Http\Controllers\Controller;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 
-class TeamMemberController extends Controller
+class TeamMemberController
 {
     /**
      * Update the specified team member's role.
