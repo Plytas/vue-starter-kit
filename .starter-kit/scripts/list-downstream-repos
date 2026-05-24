@@ -2,13 +2,26 @@
 <?php
 
 /**
- * List all downstream repositories and their propagation status
+ * List all downstream repositories and their propagation status (schema v2)
  *
- * Usage: ./list-downstream-repos
+ * Usage: ./list-downstream-repos [--target=start|start-teams|all]
  */
 
-// Load state file
-$stateFile = __DIR__ . '/../upstream-sync.json';
+const SUPPORTED_TARGETS = ['start', 'start-teams'];
+
+$target = 'all';
+foreach (array_slice($argv, 1) as $arg) {
+    if (str_starts_with($arg, '--target=')) {
+        $target = substr($arg, 9);
+    }
+}
+
+if ($target !== 'all' && !in_array($target, SUPPORTED_TARGETS, true)) {
+    echo "Error: Invalid --target '{$target}'. Valid: all, " . implode(', ', SUPPORTED_TARGETS) . "\n";
+    exit(1);
+}
+
+$stateFile = getenv('SYNC_STATE_FILE') ?: __DIR__ . '/../upstream-sync.json';
 if (!file_exists($stateFile)) {
     echo "Error: State file not found: {$stateFile}\n";
     exit(1);
@@ -20,57 +33,64 @@ if (!$state) {
     exit(1);
 }
 
+if (($state['version'] ?? 0) !== 2) {
+    echo "Error: State file is schema v" . ($state['version'] ?? 0) . "; expected v2. Run: php sync.php migrate\n";
+    exit(2);
+}
+
 if (empty($state['downstreamRepos'])) {
     echo "No downstream repositories configured.\n";
-    echo "\nAdd one with: ./add-downstream-repo <repo-id> <path>\n";
+    echo "\nAdd one with: ./add-downstream-repo <repo-id> <path> [--target=BRANCH]\n";
+    exit(0);
+}
+
+$repos = $state['downstreamRepos'];
+if ($target !== 'all') {
+    $repos = array_filter($repos, fn($r) => ($r['tracksBranch'] ?? null) === $target);
+}
+
+if (empty($repos)) {
+    echo "No downstream repositories for target '{$target}'.\n";
     exit(0);
 }
 
 echo "Downstream Repositories\n";
 echo str_repeat("=", 80) . "\n\n";
 
-foreach ($state['downstreamRepos'] as $repo) {
-    echo "ID: {$repo['id']}\n";
-    echo "Path: {$repo['path']}\n";
-    echo "Status: {$repo['status']}\n";
+foreach ($repos as $repo) {
+    $tb = $repo['tracksBranch'] ?? '(unset)';
+    echo "ID:           {$repo['id']}\n";
+    echo "Path:         {$repo['path']}\n";
+    echo "Status:       {$repo['status']}\n";
+    echo "TracksBranch: {$tb}\n";
 
-    // Count propagations to this repo
     $propagationCount = 0;
-    $openPRs = [];
+    $openPRs   = [];
     $mergedPRs = [];
 
-    foreach ($state['prs'] as $prNumber => $pr) {
-        if (isset($pr['downstreamPrs'][$repo['id']])) {
-            $propagationCount++;
-            $downstreamPr = $pr['downstreamPrs'][$repo['id']];
+    foreach ($state['prs'] as $entryId => $entry) {
+        // In v2, downstreamPrs live under targets[$tracksBranch].downstreamPrs
+        $dpList = $entry['targets'][$tb]['downstreamPrs'] ?? [];
+        if (!isset($dpList[$repo['id']])) continue;
 
-            if ($downstreamPr['status'] === 'open') {
-                $openPRs[] = [
-                    'upstream' => $prNumber,
-                    'downstream' => $downstreamPr['number'],
-                    'url' => $downstreamPr['url'] ?? null
-                ];
-            } else {
-                $mergedPRs[] = [
-                    'upstream' => $prNumber,
-                    'downstream' => $downstreamPr['number'],
-                    'url' => $downstreamPr['url'] ?? null
-                ];
-            }
+        $propagationCount++;
+        $dp = $dpList[$repo['id']];
+        $item = ['upstream' => $entryId, 'downstream' => $dp['number'] ?? null, 'url' => $dp['url'] ?? null];
+
+        if (($dp['status'] ?? null) === 'open') {
+            $openPRs[] = $item;
+        } else {
+            $mergedPRs[] = $item;
         }
     }
 
-    echo "Propagations: {$propagationCount} total\n";
-    echo "  - Open PRs: " . count($openPRs) . "\n";
-    echo "  - Merged PRs: " . count($mergedPRs) . "\n";
+    echo "Propagations: {$propagationCount} total (open: " . count($openPRs) . ", merged: " . count($mergedPRs) . ")\n";
 
     if (!empty($openPRs)) {
-        echo "\nOpen PRs:\n";
+        echo "  Open PRs:\n";
         foreach ($openPRs as $pr) {
-            echo "  - Upstream #{$pr['upstream']} → Downstream #{$pr['downstream']}";
-            if ($pr['url']) {
-                echo " ({$pr['url']})";
-            }
+            echo "    #{$pr['upstream']} → #{$pr['downstream']}";
+            if ($pr['url']) echo " ({$pr['url']})";
             echo "\n";
         }
     }

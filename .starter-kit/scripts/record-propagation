@@ -2,31 +2,48 @@
 <?php
 
 /**
- * Record a downstream propagation in upstream-sync.json
+ * Record a downstream propagation in upstream-sync.json (schema v2)
  *
- * Usage: ./record-propagation <upstream-pr-number> <downstream-repo-id> <downstream-pr-number> [status]
+ * Usage: ./record-propagation <entry-id> <downstream-repo-id> <downstream-pr-number> [status] [--target=start|start-teams]
  * Example: ./record-propagation 158 idle-rpg 1 open
+ * Example: ./record-propagation 158 teams-app 7 open --target=start-teams
+ *
+ * Equivalent to: php sync.php downstream-set <entry-id> <repo> --target=BRANCH --status=STATUS --number=N
  */
 
+const SUPPORTED_TARGETS = ['start', 'start-teams'];
+
 if ($argc < 4) {
-    echo "Usage: {$argv[0]} <upstream-pr-number> <downstream-repo-id> <downstream-pr-number> [status]\n";
+    echo "Usage: {$argv[0]} <entry-id> <downstream-repo-id> <downstream-pr-number> [status] [--target=start|start-teams]\n";
     echo "Example: {$argv[0]} 158 idle-rpg 1 open\n";
     exit(1);
 }
 
-$upstreamPrNumber = $argv[1];
+$entryId         = $argv[1];
 $downstreamRepoId = $argv[2];
 $downstreamPrNumber = (int) $argv[3];
-$status = $argv[4] ?? 'open';
+$status = 'open';
+$target = 'start';
 
-// Validate status
+foreach (array_slice($argv, 4) as $arg) {
+    if (str_starts_with($arg, '--target=')) {
+        $target = substr($arg, 9);
+    } elseif (!str_starts_with($arg, '--')) {
+        $status = $arg;
+    }
+}
+
 if (!in_array($status, ['open', 'merged'])) {
     echo "Error: Invalid status '{$status}'. Must be 'open' or 'merged'\n";
     exit(1);
 }
 
-// Load state file
-$stateFile = __DIR__ . '/../upstream-sync.json';
+if (!in_array($target, SUPPORTED_TARGETS, true)) {
+    echo "Error: Invalid --target '{$target}'. Valid: " . implode(', ', SUPPORTED_TARGETS) . "\n";
+    exit(1);
+}
+
+$stateFile = getenv('SYNC_STATE_FILE') ?: __DIR__ . '/../upstream-sync.json';
 if (!file_exists($stateFile)) {
     echo "Error: State file not found: {$stateFile}\n";
     exit(1);
@@ -38,68 +55,63 @@ if (!$state) {
     exit(1);
 }
 
-// Validate upstream PR exists
-if (!isset($state['prs'][$upstreamPrNumber])) {
-    echo "Error: Upstream PR #{$upstreamPrNumber} not found in state file\n";
+if (($state['version'] ?? 0) !== 2) {
+    echo "Error: State file is schema v" . ($state['version'] ?? 0) . "; expected v2. Run: php sync.php migrate\n";
+    exit(2);
+}
+
+if (!isset($state['prs'][$entryId])) {
+    echo "Error: Entry #{$entryId} not found in state file\n";
     exit(1);
 }
 
-// Validate downstream repo exists
-$repoExists = false;
+$repoInfo = null;
 foreach ($state['downstreamRepos'] as $repo) {
-    if ($repo['id'] === $downstreamRepoId) {
-        $repoExists = true;
-        break;
-    }
+    if ($repo['id'] === $downstreamRepoId) { $repoInfo = $repo; break; }
 }
 
-if (!$repoExists) {
+if (!$repoInfo) {
     echo "Error: Downstream repo '{$downstreamRepoId}' not found. Add it first with add-downstream-repo\n";
     exit(1);
 }
 
-// Initialize downstreamPrs if not exists
-if (!isset($state['prs'][$upstreamPrNumber]['downstreamPrs'])) {
-    $state['prs'][$upstreamPrNumber]['downstreamPrs'] = [];
+$tracksBranch = $repoInfo['tracksBranch'] ?? null;
+if ($tracksBranch !== $target) {
+    echo "Error: Repo {$downstreamRepoId} tracks branch '{$tracksBranch}' but --target={$target}. Add --target={$tracksBranch} or change tracksBranch first.\n";
+    exit(2);
 }
 
-// Try to get the PR URL from GitHub
-$repoPath = null;
-foreach ($state['downstreamRepos'] as $repo) {
-    if ($repo['id'] === $downstreamRepoId) {
-        $repoPath = $repo['path'];
-        break;
-    }
-}
-
+// Resolve PR URL from local git remote
 $prUrl = null;
+$repoPath = $repoInfo['path'] ?? null;
 if ($repoPath) {
     $remoteUrl = trim(shell_exec("git -C " . escapeshellarg($repoPath) . " remote get-url origin 2>/dev/null"));
-
-    // Parse GitHub URL (supports both SSH and HTTPS)
-    if (preg_match('#github\.com[:/]([^/]+)/([^/.]+)#', $remoteUrl, $matches)) {
-        $owner = $matches[1];
-        $repo = $matches[2];
-        $prUrl = "https://github.com/{$owner}/{$repo}/pull/{$downstreamPrNumber}";
+    if (preg_match('#github\.com[:/]([^/]+)/([^/.]+)#', $remoteUrl, $m)) {
+        $prUrl = "https://github.com/{$m[1]}/{$m[2]}/pull/{$downstreamPrNumber}";
     }
 }
 
-// Record the propagation
-$state['prs'][$upstreamPrNumber]['downstreamPrs'][$downstreamRepoId] = [
-    'number' => $downstreamPrNumber,
-    'status' => $status,
-    'propagatedAt' => date('c')
-];
-
-if ($prUrl) {
-    $state['prs'][$upstreamPrNumber]['downstreamPrs'][$downstreamRepoId]['url'] = $prUrl;
+// Write into targets[$target].downstreamPrs[$repo]
+$existing = $state['prs'][$entryId]['targets'][$target]['downstreamPrs'][$downstreamRepoId] ?? [];
+$dpEntry  = array_merge($existing, [
+    'number'       => $downstreamPrNumber,
+    'status'       => $status,
+    'propagatedAt' => $existing['propagatedAt'] ?? date('c'),
+]);
+if ($prUrl) $dpEntry['url'] = $prUrl;
+if ($status === 'merged' && !isset($dpEntry['mergedAt'])) {
+    $dpEntry['mergedAt'] = date('c');
 }
 
-// Save state file
-file_put_contents($stateFile, json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
-
-echo "✓ Recorded propagation of upstream PR #{$upstreamPrNumber} to {$downstreamRepoId} PR #{$downstreamPrNumber}\n";
-if ($prUrl) {
-    echo "✓ PR URL: {$prUrl}\n";
+if (!isset($state['prs'][$entryId]['targets'][$target])) {
+    $state['prs'][$entryId]['targets'][$target] = ['status' => 'pending'];
 }
+$state['prs'][$entryId]['targets'][$target]['downstreamPrs'][$downstreamRepoId] = $dpEntry;
+
+$tmp = $stateFile . '.tmp';
+file_put_contents($tmp, json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");
+rename($tmp, $stateFile);
+
+echo "✓ Recorded propagation of entry #{$entryId} to {$downstreamRepoId} PR #{$downstreamPrNumber} [{$target}]\n";
+if ($prUrl) echo "✓ PR URL: {$prUrl}\n";
 echo "✓ State file updated: {$stateFile}\n";
