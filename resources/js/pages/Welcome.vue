@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { Head, Link, usePage } from '@inertiajs/vue3';
+
 import { dashboard, login, register } from '@/routes';
 import { WelcomeProps } from '@/types/generated';
-import { Head, Link, usePage } from '@inertiajs/vue3';
 
 defineProps<WelcomeProps>();
 

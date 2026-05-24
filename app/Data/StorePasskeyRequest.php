@@ -9,20 +9,18 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class StorePasskeyRequest extends Data
 {
-	public function __construct(
-		public string $name,
-		public string $passkey,
-	)
-	{
-	}
+    public function __construct(
+        public string $name,
+        public string $passkey,
+    ) {}
 
-	/**
-	 * @return array<string, array<string>>
-	 */
-	public static function rules(ValidationContext $context): array
-	{
-		return [
-			'passkey' => ['required', 'json'],
-		];
-	}
+    /**
+     * @return array<string, array<string>>
+     */
+    public static function rules(ValidationContext $context): array
+    {
+        return [
+            'passkey' => ['required', 'json'],
+        ];
+    }
 }

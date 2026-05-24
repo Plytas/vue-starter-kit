@@ -1,16 +1,20 @@
 <script setup lang="ts">
+import { useForm } from '@inertiajs/vue3';
+import { useClipboard } from '@vueuse/core';
+import { Check, Copy, ScanLine } from 'lucide-vue-next';
+import { computed, ref, watch } from 'vue';
+
 import AlertError from '@/components/AlertError.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { PinInput, PinInputGroup, PinInputSlot } from '@/components/ui/pin-input';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
+import { Spinner } from '@/components/ui/spinner';
 import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
-import { useForm } from '@inertiajs/vue3';
-import { useClipboard } from '@vueuse/core';
-import { Check, Copy, Loader2, ScanLine } from 'lucide-vue-next';
-import { computed, nextTick, ref, watch } from 'vue';
+
+
 
 interface Props {
     requiresConfirmation: boolean;
@@ -25,20 +29,17 @@ const { resolvedAppearance } = useAppearance();
 const { qrCodeSvg, manualSetupKey, errors, clearSetupData, fetchSetupData } = useTwoFactorAuth();
 
 const showVerificationStep = ref(false);
-const code = ref<number[]>([]);
-const codeValue = computed<string>(() => code.value.join(''));
-
-const pinInputContainerRef = ref<HTMLElement | null>(null);
+const code = ref<string>('');
 
 const confirmForm = useForm({ code: '' });
 
 const submitConfirm = () => {
-    confirmForm.code = codeValue.value;
+    confirmForm.code = code.value;
     confirmForm.submit(confirm(), {
         errorBag: 'confirmTwoFactorAuthentication',
         onSuccess: () => { isOpen.value = false; },
-        onError: () => { code.value = []; },
-        onFinish: () => { code.value = []; confirmForm.reset('code'); },
+        onError: () => { code.value = ''; },
+        onFinish: () => { code.value = ''; confirmForm.reset('code'); },
     });
 };
 
@@ -70,10 +71,6 @@ const handleModalNextStep = () => {
     if (props.requiresConfirmation) {
         showVerificationStep.value = true;
 
-        nextTick(() => {
-            pinInputContainerRef.value?.querySelector('input')?.focus();
-        });
-
         return;
     }
 
@@ -87,7 +84,7 @@ const resetModalState = () => {
     }
 
     showVerificationStep.value = false;
-    code.value = [];
+    code.value = '';
 };
 
 watch(
@@ -136,7 +133,7 @@ watch(
                                 v-if="!qrCodeSvg"
                                 class="absolute inset-0 z-10 flex aspect-square h-auto w-full animate-pulse items-center justify-center bg-background"
                             >
-                                <Loader2 class="size-6 animate-spin" />
+                                <Spinner class="size-6" />
                             </div>
                             <div v-else class="relative z-10 overflow-hidden border p-5">
                                 <div
@@ -164,7 +161,7 @@ watch(
                     <div class="flex w-full items-center justify-center space-x-2">
                         <div class="flex w-full items-stretch overflow-hidden rounded-xl border border-border">
                             <div v-if="!manualSetupKey" class="flex h-full w-full items-center justify-center bg-muted p-3">
-                                <Loader2 class="size-4 animate-spin" />
+                                <Spinner />
                             </div>
                             <template v-else>
                                 <input type="text" readonly :value="manualSetupKey" class="h-full w-full bg-background p-3 text-foreground" />
@@ -179,13 +176,13 @@ watch(
 
                 <template v-else>
                     <form @submit.prevent="submitConfirm">
-                        <div ref="pinInputContainerRef" class="relative w-full space-y-3">
+                        <div class="relative w-full space-y-3">
                             <div class="flex w-full flex-col items-center justify-center space-y-3 py-2">
-                                <PinInput id="otp" placeholder="○" v-model="code" type="number" otp>
-                                    <PinInputGroup>
-                                        <PinInputSlot autofocus v-for="(id, index) in 6" :key="id" :index="index" :disabled="confirmForm.processing" />
-                                    </PinInputGroup>
-                                </PinInput>
+                                <InputOTP id="otp" v-model="code" :maxlength="6" :disabled="confirmForm.processing">
+                                    <InputOTPGroup>
+                                        <InputOTPSlot v-for="index in 6" :key="index" :index="index - 1" />
+                                    </InputOTPGroup>
+                                </InputOTP>
                                 <InputError :message="confirmForm.errors.code" />
                             </div>
 
@@ -199,7 +196,7 @@ watch(
                                 >
                                     Back
                                 </Button>
-                                <Button type="submit" class="w-auto flex-1" :disabled="confirmForm.processing || codeValue.length < 6"> Confirm </Button>
+                                <Button type="submit" class="w-auto flex-1" :disabled="confirmForm.processing || code.length < 6"> Confirm </Button>
                             </div>
                         </div>
                     </form>

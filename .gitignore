@@ -21,6 +21,8 @@
 Homestead.json
 Homestead.yaml
 npm-debug.log
+npm-shrinkwrap.json
+package-lock.json
 yarn-error.log
 /auth.json
 /.fleet

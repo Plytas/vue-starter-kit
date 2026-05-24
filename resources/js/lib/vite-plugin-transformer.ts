@@ -1,7 +1,8 @@
 import { exec } from 'child_process';
-import { minimatch } from 'minimatch';
 import osPath from 'path';
 import { promisify } from 'util';
+
+import { minimatch } from 'minimatch';
 import { HmrContext, Plugin, Rollup } from 'vite';
 
 const execAsync = promisify(exec);

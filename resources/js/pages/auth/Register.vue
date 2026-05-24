@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
 import { RegisterProps, RegisterRequest } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
 
 defineProps<RegisterProps>();
 
@@ -75,7 +76,7 @@ const submit = () => {
 				</div>
 
 				<Button type="submit" class="mt-2 w-full" tabindex="5" :disabled="form.processing">
-					<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+					<Spinner v-if="form.processing" />
 					Create account
 				</Button>
 			</div>

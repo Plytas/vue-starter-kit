@@ -8,9 +8,7 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class ConfirmPasswordRequest extends Data
 {
-	public function __construct(
-		public string $password,
-	)
-	{
-	}
+    public function __construct(
+        public string $password,
+    ) {}
 }

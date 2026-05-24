@@ -11,24 +11,22 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class NewPasswordRequest extends Data
 {
-	public function __construct(
-		public string $token,
-		public string $email,
-		public string $password,
-		public string $password_confirmation,
-	)
-	{
-	}
+    public function __construct(
+        public string $token,
+        public string $email,
+        public string $password,
+        public string $password_confirmation,
+    ) {}
 
-	/**
-	 * @return array<string, array<int, mixed>>
-	 */
-	public static function rules(ValidationContext $context): array
-	{
-		return [
-			'token' => ['required'],
-			'email' => ['required', Rule::email()],
-			'password' => ['required', 'confirmed', Password::defaults()],
-		];
-	}
+    /**
+     * @return array<string, array<int, mixed>>
+     */
+    public static function rules(ValidationContext $context): array
+    {
+        return [
+            'token' => ['required'],
+            'email' => ['required', Rule::email()],
+            'password' => ['required', 'confirmed', Password::defaults()],
+        ];
+    }
 }

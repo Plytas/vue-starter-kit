@@ -8,9 +8,7 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class SharedAuthProps extends Data
 {
-	public function __construct(
-		public ?User $user,
-	)
-	{
-	}
+    public function __construct(
+        public ?User $user,
+    ) {}
 }

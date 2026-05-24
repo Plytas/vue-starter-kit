@@ -5,55 +5,55 @@ use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
 
 beforeEach(function (): void {
-	$this->skipUnlessFortifyFeature(Features::registration());
+    $this->skipUnlessFortifyFeature(Features::registration());
 });
 
 test('registration screen can be rendered', function (): void {
-	$response = $this->get(route('register'));
+    $response = $this->get(route('register'));
 
-	$response->assertStatus(200);
+    $response->assertStatus(200);
 });
 
 test('new users can register', function (): void {
-	$response = $this->post(route('register.store'), [
-		'name' => 'Test User',
-		'email' => 'test@example.com',
-		'password' => 'password',
-		'password_confirmation' => 'password',
-	]);
+    $response = $this->post(route('register.store'), [
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+    ]);
 
-	$this->assertAuthenticated();
-	$response->assertRedirect(route('dashboard', absolute: false));
+    $this->assertAuthenticated();
+    $response->assertRedirect(route('dashboard', absolute: false));
 });
 
 test('registration can be disabled without removing routes', function (): void {
-	config(['auth.registration_enabled' => false]);
+    config(['auth.registration_enabled' => false]);
 
-	expect(Route::has('register'))->toBeTrue()
-		->and(Route::has('register.store'))->toBeTrue();
+    expect(Route::has('register'))->toBeTrue()
+        ->and(Route::has('register.store'))->toBeTrue();
 
-	$this->get(route('home'))
-		->assertOk()
-		->assertInertia(fn (Assert $page) => $page
-			->component('Welcome')
-			->where('canRegister', false)
-		);
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page
+            ->component('Welcome')
+            ->where('canRegister', false)
+        );
 
-	$this->get(route('login'))
-		->assertOk()
-		->assertInertia(fn (Assert $page) => $page
-			->component('auth/Login')
-			->where('canRegister', false)
-		);
+    $this->get(route('login'))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page
+            ->component('auth/Login')
+            ->where('canRegister', false)
+        );
 
-	$this->get(route('register'))->assertNotFound();
+    $this->get(route('register'))->assertNotFound();
 
-	$this->post(route('register.store'), [
-		'name' => 'Test User',
-		'email' => 'test@example.com',
-		'password' => 'password',
-		'password_confirmation' => 'password',
-	])->assertNotFound();
+    $this->post(route('register.store'), [
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+    ])->assertNotFound();
 
-	$this->assertGuest();
+    $this->assertGuest();
 });

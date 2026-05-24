@@ -8,7 +8,7 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class WelcomeProps extends Data
 {
-	public function __construct(
-		public bool $canRegister,
-	) {}
+    public function __construct(
+        public bool $canRegister,
+    ) {}
 }

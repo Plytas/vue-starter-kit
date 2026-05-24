@@ -8,15 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EnsureRegistrationIsEnabled
 {
-	/**
-	 * @param  Closure(Request): Response  $next
-	 */
-	public function handle(Request $request, Closure $next): Response
-	{
-		if ($request->route()?->named('register', 'register.store') && ! config('auth.registration_enabled')) {
-			abort(404);
-		}
+    /**
+     * @param  Closure(Request): Response  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        if ($request->route()?->named('register', 'register.store') && ! config('auth.registration_enabled')) {
+            abort(404);
+        }
 
-		return $next($request);
-	}
+        return $next($request);
+    }
 }

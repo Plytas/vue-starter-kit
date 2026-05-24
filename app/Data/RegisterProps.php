@@ -8,7 +8,7 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class RegisterProps extends Data
 {
-	public function __construct(
-		public string $passwordRules,
-	) {}
+    public function __construct(
+        public string $passwordRules,
+    ) {}
 }

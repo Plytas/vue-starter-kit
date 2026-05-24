@@ -9,19 +9,17 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class DeleteUserRequest extends Data
 {
-	public function __construct(
-		public string $password,
-	)
-	{
-	}
+    public function __construct(
+        public string $password,
+    ) {}
 
-	/**
-	 * @return array<string, array<int, mixed>>
-	 */
-	public static function rules(ValidationContext $context): array
-	{
-		return [
-			'password' => ['required', 'current_password'],
-		];
-	}
+    /**
+     * @return array<string, array<int, mixed>>
+     */
+    public static function rules(ValidationContext $context): array
+    {
+        return [
+            'password' => ['required', 'current_password'],
+        ];
+    }
 }
