@@ -26,7 +26,7 @@ const sidebarNavItems: NavItem[] = [
 	},
 	{
 		title: 'Teams',
-		href: teams(),
+		href: teams.url(),
 	},
 	{
 		title: 'Appearance',

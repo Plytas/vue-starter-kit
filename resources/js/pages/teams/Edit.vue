@@ -218,7 +218,7 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
                                     variant="outline"
                                     size="sm"
                                 >
-                                    {{ member.role_label }}
+                                    {{ member.roleLabel }}
                                     <ChevronDown
                                         class="ml-2 h-4 w-4 opacity-50"
                                     />
@@ -238,7 +238,7 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                         <Badge v-else variant="secondary">
-                            {{ member.role_label }}
+                            {{ member.roleLabel }}
                         </Badge>
 
                         <TooltipProvider
@@ -294,7 +294,7 @@ const confirmCancelInvitation = (invitation: TeamInvitation) => {
                                 {{ invitation.email }}
                             </div>
                             <div class="text-sm text-muted-foreground">
-                                {{ invitation.role_label }}
+                                {{ invitation.roleLabel }}
                             </div>
                         </div>
                     </div>

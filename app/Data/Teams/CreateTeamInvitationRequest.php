@@ -23,6 +23,7 @@ class CreateTeamInvitationRequest extends Data
 	{
 		/** @var Request $request */
 		$request = app(Request::class);
+		/** @var \App\Models\Team $team */
 		$team = $request->route('team');
 
 		return [

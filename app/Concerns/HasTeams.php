@@ -122,10 +122,18 @@ trait HasTeams
      */
     public function teamRole(Team $team): ?TeamRole
     {
-        return $this->teamMemberships()
+        $membership = $this->teamMemberships()
             ->where('team_id', $team->id)
-            ->first()
-            ?->role;
+            ->first();
+
+        if ($membership === null) {
+            return null;
+        }
+
+        /** @var TeamRole $role */
+        $role = $membership->role;
+
+        return $role;
     }
 
     /**

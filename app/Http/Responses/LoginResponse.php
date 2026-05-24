@@ -13,7 +13,7 @@ class LoginResponse implements LoginResponseContract
     public function toResponse($request): Response
     {
         $user = $request->user();
-        $team = $user?->currentTeam ?? $user?->personalTeam();
+        $team = $user !== null ? ($user->currentTeam ?? $user->personalTeam()) : null;
 
         if (! $team) {
             abort(403);

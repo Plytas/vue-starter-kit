@@ -36,6 +36,7 @@ class TeamInvitation extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         $team = $this->invitation->team;
+        /** @var \App\Models\User $inviter */
         $inviter = $this->invitation->inviter;
 
         return (new MailMessage)
@@ -54,11 +55,14 @@ class TeamInvitation extends Notification implements ShouldQueue
      */
     public function toArray(object $notifiable): array
     {
+        /** @var \App\Enums\TeamRole $role */
+        $role = $this->invitation->role;
+
         return [
             'invitation_id' => $this->invitation->id,
             'team_id' => $this->invitation->team_id,
             'team_name' => $this->invitation->team->name,
-            'role' => $this->invitation->role->value,
+            'role' => $role->value,
         ];
     }
 }

@@ -14,8 +14,10 @@ use App\Data\Teams\TeamsIndexProps;
 use App\Enums\TeamRole;
 use App\Models\Team;
 use App\Models\User;
+use App\Models\TeamInvitation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
@@ -41,7 +43,9 @@ class TeamController
      */
     public function store(SaveTeamRequest $request, CreateTeam $createTeam): RedirectResponse
     {
-        $team = $createTeam->handle($request->user(), $request->name);
+        /** @var User $user */
+        $user = Auth::user();
+        $team = $createTeam->handle($user, $request->name);
 
         return to_route('teams.edit', ['team' => $team->slug]);
     }
@@ -62,24 +66,37 @@ class TeamController
                 role: null,
                 roleLabel: null,
             ),
-            members: $team->members()->get()->map(fn ($member) => new TeamMember(
-                id: $member->id,
-                name: $member->name,
-                email: $member->email,
-                avatar: $member->avatar ?? null,
-                role: $member->pivot->role->value,
-                roleLabel: $member->pivot->role->label(),
-            ))->all(),
+            members: $team->members()->get()->map(function ($member) {
+                /** @var User $member */
+                /** @var \App\Models\Membership $pivot */
+                $pivot = $member->pivot; // @phpstan-ignore-line property.notFound
+                /** @var \App\Enums\TeamRole $role */
+                $role = $pivot->role;
+
+                return new TeamMember(
+                    id: $member->id,
+                    name: $member->name,
+                    email: $member->email,
+                    avatar: $member->avatar ?? null,
+                    role: $role->value,
+                    roleLabel: $role->label(),
+                );
+            })->all(),
             invitations: $team->invitations()
                 ->whereNull('accepted_at')
                 ->get()
-                ->map(fn ($invitation) => new TeamInvitationData(
-                    code: $invitation->code,
-                    email: $invitation->email,
-                    role: $invitation->role->value,
-                    roleLabel: $invitation->role->label(),
-                    createdAt: $invitation->created_at->toISOString(),
-                ))->all(),
+                ->map(function (TeamInvitation $invitation) {
+                    /** @var \App\Enums\TeamRole $role */
+                    $role = $invitation->role;
+
+                    return new TeamInvitationData(
+                        code: $invitation->code,
+                        email: $invitation->email,
+                        role: $role->value,
+                        roleLabel: $role->label(),
+                        createdAt: $invitation->created_at->toISOString(),
+                    );
+                })->all(),
             permissions: $user->toTeamPermissions($team),
             availableRoles: array_map(
                 fn (array $r) => new RoleOption(value: $r['value'], label: $r['label']),
@@ -123,11 +140,12 @@ class TeamController
      */
     public function destroy(DeleteTeamRequest $request, Team $team): RedirectResponse
     {
-        $user = $request->user();
+        /** @var User $user */
+        $user = Auth::user();
 
         Gate::authorize('delete', $team);
 
-        if ($request->input('name') !== $team->name) {
+        if ($request->name !== $team->name) {
             throw ValidationException::withMessages(['name' => __('The team name does not match.')]);
         }
 

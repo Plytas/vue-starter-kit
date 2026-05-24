@@ -6,5 +6,7 @@ use Spatie\LaravelData\Data;
 
 class DeleteTeamRequest extends Data
 {
-	public function __construct() {}
+	public function __construct(
+		public string $name = '',
+	) {}
 }

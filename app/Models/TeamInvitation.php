@@ -43,7 +43,7 @@ class TeamInvitation extends Model
     /**
      * Get the user who sent the invitation.
      *
-     * @return BelongsTo<Model, $this>
+     * @return BelongsTo<User, $this>
      */
     public function inviter(): BelongsTo
     {
@@ -71,7 +71,10 @@ class TeamInvitation extends Model
      */
     public function isExpired(): bool
     {
-        return $this->expires_at !== null && $this->expires_at->isPast();
+        /** @var \Carbon\Carbon|null $expiresAt */
+        $expiresAt = $this->expires_at;
+
+        return $expiresAt !== null && $expiresAt->isPast();
     }
 
     /**

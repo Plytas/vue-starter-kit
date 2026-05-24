@@ -8,8 +8,10 @@ use App\Enums\TeamRole;
 use App\Models\Team;
 use App\Models\TeamInvitation;
 use App\Notifications\Teams\TeamInvitation as TeamInvitationNotification;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Notification;
@@ -23,10 +25,13 @@ class TeamInvitationController
     {
         Gate::authorize('inviteMember', $team);
 
+        /** @var User $authUser */
+        $authUser = Auth::user();
+
         $invitation = $team->invitations()->create([
             'email' => $request->email,
             'role' => TeamRole::from($request->role),
-            'invited_by' => $request->user()->id,
+            'invited_by' => $authUser->id,
             'expires_at' => now()->addDays(3),
         ]);
 

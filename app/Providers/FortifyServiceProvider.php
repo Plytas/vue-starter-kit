@@ -11,6 +11,7 @@ use App\Data\VerifyEmailPrompts;
 use App\Http\Responses\LoginResponse;
 use App\Http\Responses\RegisterResponse;
 use App\Http\Responses\TwoFactorLoginResponse;
+use App\Http\Responses\VerifyEmailPromptResponse;
 use App\Http\Responses\VerifyEmailResponse;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -36,6 +37,7 @@ class FortifyServiceProvider extends ServiceProvider
 		$this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
 		$this->app->singleton(TwoFactorLoginResponseContract::class, TwoFactorLoginResponse::class);
 		$this->app->singleton(VerifyEmailResponseContract::class, VerifyEmailResponse::class);
+		$this->app->bind(\Laravel\Fortify\Http\Responses\RedirectAsIntended::class, VerifyEmailPromptResponse::class);
 	}
 
 	/**
