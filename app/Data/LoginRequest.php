@@ -17,7 +17,7 @@ class LoginRequest extends Data
 	public function __construct(
 		public string $email,
 		public string $password,
-		public bool $remember = false,
+		public bool   $remember = false,
 	) {}
 
 	public function validateCredentials(): UserModel
