@@ -311,6 +311,11 @@ function cmdDownstreamSet(array $args, array $flags): void
             fail("Repo {$repo} tracks branch '{$tracksBranch}' but --target={$target}. Add --target={$tracksBranch} or change tracksBranch first.", 2);
         }
 
+        // Auto-create target slot with status:pending if absent (mirrors setTargetState path)
+        if (!isset($state['prs'][$entryId]['targets'][$target])) {
+            $state['prs'][$entryId]['targets'][$target] = ['status' => 'pending'];
+        }
+
         $existing = $state['prs'][$entryId]['targets'][$target]['downstreamPrs'][$repo] ?? [];
         $dpEntry  = array_merge($existing, ['status' => $status]);
 
@@ -437,67 +442,61 @@ function resolveNext(array &$state, bool $execute, array $targets, ?string $only
         }
     }
 
-    // 2. Propagation needed.
-    foreach ($targets as $target) {
-        foreach ($state['prs'] as $entryId => $entry) {
-            $ts = $entry['targets'][$target] ?? null;
-            if (!$ts || ($ts['status'] ?? null) !== 'backported') continue;
-            $missing = missingDownstreamRepos($state, $entryId, $target);
-            if (!$missing) continue;
+    // 2. Propagation needed — iterates SUPPORTED_TARGETS order (start first).
+    foreach (iterateTargets($state, $onlyTarget) as [$entryId, $target, $ts, $entry]) {
+        if (($ts['status'] ?? null) !== 'backported') continue;
+        $missing = missingDownstreamRepos($state, $entryId, $target);
+        if (!$missing) continue;
 
-            $forkPR = $ts['forkPR'] ?? null;
-            if ($forkPR) {
-                $forkMerged = ghIsPrMerged($forkPR);
-                if ($forkMerged === false) continue;
-            }
-
-            return [
-                'summary' => "Propagate #{$entryId} [{$target}] to: " . implode(', ', $missing),
-                'detail'  => "Fork PR: " . ($forkPR ?? '(none)') . "\nTitle: {$entry['title']}",
-                'hint'    => "/us-propagate {$entryId} " . implode(' ', $missing),
-            ];
+        $forkPR = $ts['forkPR'] ?? null;
+        if ($forkPR) {
+            $forkMerged = ghIsPrMerged($forkPR);
+            if ($forkMerged === false) continue;
         }
+
+        $targetFlag = ($target !== 'start') ? " --target={$target}" : '';
+        return [
+            'summary' => "Propagate #{$entryId} [{$target}] to: " . implode(', ', $missing),
+            'detail'  => "Fork PR: " . ($forkPR ?? '(none)') . "\nTitle: {$entry['title']}",
+            'hint'    => "/us-propagate{$targetFlag} {$entryId} " . implode(' ', $missing),
+        ];
     }
 
     // 3. Anything waiting?
     $waiting = [];
-    foreach ($targets as $target) {
-        foreach ($state['prs'] as $entryId => $entry) {
-            $ts = $entry['targets'][$target] ?? null;
-            if (!$ts || ($ts['status'] ?? null) !== 'backported') continue;
-            $opens = openDownstreamPrs($entry, $target);
-            if ($opens) {
-                $waiting[] = "#{$entryId} [{$target}]: open downstream PRs in " . implode(', ', array_keys($opens));
-            }
+    foreach (iterateTargets($state, $onlyTarget) as [$entryId, $target, $ts, $entry]) {
+        if (($ts['status'] ?? null) !== 'backported') continue;
+        $opens = openDownstreamPrs($entry, $target);
+        if ($opens) {
+            $waiting[] = "#{$entryId} [{$target}]: open downstream PRs in " . implode(', ', array_keys($opens));
         }
     }
 
     // 4. Pending backports — start before start-teams, lowest number first.
+    $pendingByTarget = [];
+    foreach (iterateTargets($state, $onlyTarget) as [$entryId, $target, $ts, $entry]) {
+        if (($ts['status'] ?? null) === 'pending') {
+            $pendingByTarget[$target][$entryId] = $entry;
+        }
+    }
     foreach ($targets as $target) {
-        $pending = [];
-        foreach ($state['prs'] as $entryId => $entry) {
-            $ts = $entry['targets'][$target] ?? null;
-            if ($ts && ($ts['status'] ?? null) === 'pending') {
-                $pending[$entryId] = $entry;
-            }
-        }
-        if ($pending) {
-            ksort($pending, SORT_NUMERIC);
-            $entryId = array_key_first($pending);
-            $pr      = $pending[$entryId];
-            $pts     = $pr['targets'][$target];
-            $extra   = '';
-            if (!empty($pts['adaptationNotes'])) $extra .= "\nNotes: {$pts['adaptationNotes']}";
-            if (!empty($pts['confidence']))      $extra .= "\nConfidence: {$pts['confidence']}";
-            $waitNote = $waiting ? "\n\nMeanwhile, awaiting:\n  " . implode("\n  ", $waiting) : '';
-            $targetFlag = ($target !== 'start') ? " --target={$target}" : '';
+        if (empty($pendingByTarget[$target])) continue;
+        $pending = $pendingByTarget[$target];
+        ksort($pending, SORT_NUMERIC);
+        $entryId = array_key_first($pending);
+        $pr      = $pending[$entryId];
+        $pts     = $pr['targets'][$target];
+        $extra   = '';
+        if (!empty($pts['adaptationNotes'])) $extra .= "\nNotes: {$pts['adaptationNotes']}";
+        if (!empty($pts['confidence']))      $extra .= "\nConfidence: {$pts['confidence']}";
+        $waitNote   = $waiting ? "\n\nMeanwhile, awaiting:\n  " . implode("\n  ", $waiting) : '';
+        $targetFlag = ($target !== 'start') ? " --target={$target}" : '';
 
-            return [
-                'summary' => "Backport #{$entryId} [{$target}]: {$pr['title']}",
-                'detail'  => "URL: " . ($pr['url'] ?? '') . "{$extra}{$waitNote}",
-                'hint'    => "/us-backport {$entryId}{$targetFlag}",
-            ];
-        }
+        return [
+            'summary' => "Backport #{$entryId} [{$target}]: {$pr['title']}",
+            'detail'  => "URL: " . ($pr['url'] ?? '') . "{$extra}{$waitNote}",
+            'hint'    => "/us-backport {$entryId}{$targetFlag}",
+        ];
     }
 
     if ($waiting) {
@@ -508,19 +507,25 @@ function resolveNext(array &$state, bool $execute, array $targets, ?string $only
         ];
     }
 
-    // 5. Nothing in queue — triage the upstream branch with oldest watermark.
-    $watermarks   = $state['upstreamWatermarks'] ?? [];
-    $oldestBranch = 'main';
-    $oldestTs     = PHP_INT_MAX;
-    foreach (SUPPORTED_UPSTREAM_BRANCHES as $ub) {
-        $at = $watermarks[$ub]['lastCheckedAt'] ?? null;
-        $ts = $at ? strtotime($at) : 0; // null treated as epoch = oldest
-        if ($ts < $oldestTs) {
-            $oldestTs     = $ts;
-            $oldestBranch = $ub;
+    // 5. Nothing in queue — triage.
+    // When a specific fork target is requested, prefer its paired upstream branch.
+    // When scanning all, pick the upstream branch with the oldest lastCheckedAt.
+    $watermarks = $state['upstreamWatermarks'] ?? [];
+    if ($onlyTarget !== null) {
+        $oldestBranch = TARGET_UPSTREAM_BRANCH[$onlyTarget] ?? 'main';
+    } else {
+        $oldestBranch = 'main';
+        $oldestTs     = PHP_INT_MAX;
+        foreach (SUPPORTED_UPSTREAM_BRANCHES as $ub) {
+            $at = $watermarks[$ub]['lastCheckedAt'] ?? null;
+            $ts = $at ? strtotime($at) : 0; // null treated as epoch = oldest
+            if ($ts < $oldestTs) {
+                $oldestTs     = $ts;
+                $oldestBranch = $ub;
+            }
         }
     }
-    $wm    = $watermarks[$oldestBranch] ?? [];
+    $wm     = $watermarks[$oldestBranch] ?? [];
     $lastAt = $wm['lastCheckedAt'] ?? null;
     $upstreamBranchFlag = ($oldestBranch !== 'main') ? " --upstream-branch={$oldestBranch}" : '';
 
@@ -762,10 +767,15 @@ function validateState(array $state): void
     ];
 
     foreach ($state['prs'] ?? [] as $entryId => $entry) {
-        // Invariant 2: every entry has non-empty targets
+        // Invariant 2: every entry has non-empty targets with keys ⊆ SUPPORTED_TARGETS
         $targets = $entry['targets'] ?? [];
         if (empty($targets)) {
             fail("validateState: prs[{$entryId}] has no targets", 2);
+        }
+        foreach (array_keys($targets) as $tk) {
+            if (!in_array($tk, SUPPORTED_TARGETS, true)) {
+                fail("validateState: prs[{$entryId}].targets contains unsupported key '{$tk}' (allowed: " . implode(', ', SUPPORTED_TARGETS) . ")", 2);
+            }
         }
 
         // Invariant 3: every targets[<X>].status is valid
