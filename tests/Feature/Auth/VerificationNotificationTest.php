@@ -25,10 +25,11 @@ test('does not send verification notification if email is verified', function ()
 	Notification::fake();
 
 	$user = User::factory()->create();
+	$team = $user->personalTeam();
 
 	$this->actingAs($user)
 		->post(route('verification.send'))
-		->assertRedirect(route('dashboard', absolute: false));
+		->assertRedirect(route('dashboard', ['current_team' => $team->slug]));
 
 	Notification::assertNothingSent();
 });

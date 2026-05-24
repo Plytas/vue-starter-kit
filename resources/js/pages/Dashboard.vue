@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
+import { dashboard } from '@/routes';
 import type { BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/vue3';
+import type { Team } from '@/types/generated';
+import { Head, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
 import PlaceholderPattern from '../components/PlaceholderPattern.vue';
 
-const breadcrumbs: BreadcrumbItem[] = [
+const page = usePage();
+const currentTeam = computed(() => page.props.currentTeam as Team | null);
+
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
 	{
 		title: 'Dashboard',
-		href: '/dashboard',
+		href: currentTeam.value ? dashboard(currentTeam.value.slug).url : '/',
 	},
-];
+]);
 </script>
 
 <template>

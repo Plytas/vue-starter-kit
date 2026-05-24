@@ -3,14 +3,17 @@
 use App\Models\User;
 
 test('guests are redirected to the login page', function (): void {
-	$response = $this->get(route('dashboard'));
+	$response = $this->get(route('dashboard', ['current_team' => 'test']));
 	$response->assertRedirect(route('login'));
 });
 
 test('authenticated users can visit the dashboard', function (): void {
 	$user = User::factory()->create();
-	$this->actingAs($user);
+	$team = $user->currentTeam;
 
-	$response = $this->get(route('dashboard'));
+	$response = $this
+		->actingAs($user)
+		->get(route('dashboard', ['current_team' => $team->slug]));
+
 	$response->assertStatus(200);
 });

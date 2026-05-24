@@ -24,7 +24,7 @@ export default defineConfig({
 			],
 		}),
 		inertia(),
-		wayfinder(),
+		wayfinder({ formVariants: true }),
 		transformer(),
 		tailwindcss(),
 		vue({

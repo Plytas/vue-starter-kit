@@ -31,13 +31,17 @@ class HandleInertiaRequests extends Middleware
 	#[Override]
 	public function share(Request $request): array
 	{
+		$user = $request->user();
+
 		return new SharedProps(
 			errors: Inertia::always($this->resolveValidationErrors($request)),
 			name: config('app.name'),
 			auth: new SharedAuthProps(
-				user: User::fromUser($request->user()),
+				user: User::fromUser($user),
 			),
 			sidebarOpen: !$request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+			currentTeam: $user?->currentTeam ? $user->toUserTeam($user->currentTeam) : null,
+			teams: $user?->toUserTeams(includeCurrent: true)->all() ?? [],
 		)->toArray();
 	}
 }

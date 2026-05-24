@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
@@ -23,7 +24,8 @@ test('new users can register', function (): void {
 	]);
 
 	$this->assertAuthenticated();
-	$response->assertRedirect(route('dashboard', absolute: false));
+	$user = User::where('email', 'test@example.com')->first();
+	$response->assertRedirect(route('dashboard', ['current_team' => $user->currentTeam->slug]));
 });
 
 test('registration can be disabled without removing routes', function (): void {

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Concerns\HasTeams;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Casts\AsUri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,11 +15,13 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Spatie\LaravelPasskeys\Models\Concerns\HasPasskeys;
 use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 
+#[Fillable(['name', 'email', 'password', 'current_team_id'])]
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
 {
 	/** @use HasFactory<UserFactory> */
 	use HasFactory;
+	use HasTeams;
 	use Notifiable;
 	use InteractsWithPasskeys;
 	use TwoFactorAuthenticatable;

@@ -42,7 +42,13 @@ class AuthenticatedSessionController
 
 		Session::regenerate();
 
-		return redirect()->intended(route('dashboard', absolute: false));
+		$team = $user->currentTeam ?? $user->personalTeam();
+
+		if (! $team) {
+			abort(403);
+		}
+
+		return redirect()->intended(route('dashboard', ['current_team' => $team->slug], false));
 	}
 
 	public function destroy(Request $request): RedirectResponse

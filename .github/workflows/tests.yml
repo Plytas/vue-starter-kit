@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - start
+      - start-teams
       - main
   pull_request:
     branches:
       - start
+      - start-teams
       - main
 
 jobs:

@@ -1,5 +1,7 @@
 import type { LucideIcon } from 'lucide-vue-next';
 
+export type { RoleOption, Team, TeamInvitation, TeamMember, TeamPermissions } from '@/types/generated';
+
 export interface BreadcrumbItem {
 	title: string;
 	href: string;

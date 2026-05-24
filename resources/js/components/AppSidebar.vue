@@ -1,21 +1,29 @@
 <script setup lang="ts">
+import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
+import TeamSwitcher from '@/components/TeamSwitcher.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
-import AppLogo from './AppLogo.vue';
+import { computed } from 'vue';
 
-const mainNavItems: NavItem[] = [
+const page = usePage();
+
+const dashboardUrl = computed(() =>
+	page.props.currentTeam ? dashboard(page.props.currentTeam.slug).url : '/',
+);
+
+const mainNavItems = computed<NavItem[]>(() => [
 	{
 		title: 'Dashboard',
-		href: '/dashboard',
+		href: dashboardUrl.value,
 		icon: LayoutGrid,
 	},
-];
+]);
 
 const footerNavItems: NavItem[] = [
 	{
@@ -37,10 +45,15 @@ const footerNavItems: NavItem[] = [
 			<SidebarMenu>
 				<SidebarMenuItem>
 					<SidebarMenuButton size="lg" as-child>
-						<Link :href="dashboard()">
+						<Link :href="dashboardUrl">
 							<AppLogo />
 						</Link>
 					</SidebarMenuButton>
+				</SidebarMenuItem>
+			</SidebarMenu>
+			<SidebarMenu>
+				<SidebarMenuItem>
+					<TeamSwitcher />
 				</SidebarMenuItem>
 			</SidebarMenu>
 		</SidebarHeader>
