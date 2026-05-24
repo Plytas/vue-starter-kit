@@ -10,5 +10,7 @@ class ConfirmPasswordRequest extends Data
 {
 	public function __construct(
 		public string $password,
-	) {}
+	)
+	{
+	}
 }

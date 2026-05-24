@@ -10,5 +10,7 @@ class VerifyEmailPrompts extends Data
 {
 	public function __construct(
 		public ?string $status,
-	) {}
+	)
+	{
+	}
 }

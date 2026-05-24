@@ -9,9 +9,11 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class SharedProps extends Data
 {
 	public function __construct(
-		public object $errors,
-		public string $name,
+		public object          $errors,
+		public string          $name,
 		public SharedAuthProps $auth,
-		public bool $sidebarOpen,
-	) {}
+		public bool            $sidebarOpen,
+	)
+	{
+	}
 }

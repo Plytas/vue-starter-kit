@@ -21,6 +21,15 @@ return (new PhpCsFixer\Config())
         'no_unused_imports' => true,
         'trailing_comma_in_multiline' => true,
         'phpdoc_scalar' => true,
+        // Don't pad inside docblock tags to align names — user prefers compact `* @param X $y`.
+        'phpdoc_align' => ['align' => 'left'],
+        // Keep empty bodies on their own lines (phpcs style: `)\n\t{\n\t}\n`).
+        'single_line_empty_body' => false,
+        // Keep opening brace on its own line for multi-line method signatures
+        // (phpcs/PSR-12 style). @PER-CS2.0's default collapses `)\n{` → `) {`
+        // for multi-line signatures and there's no granular config option to
+        // override per-construct, so disable the rule entirely.
+        'braces_position' => false,
         'unary_operator_spaces' => true,
         'binary_operator_spaces' => true,
         'blank_line_before_statement' => ['statements' => ['break', 'continue', 'declare', 'return', 'throw', 'try']],

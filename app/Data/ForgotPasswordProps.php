@@ -10,5 +10,7 @@ class ForgotPasswordProps extends Data
 {
 	public function __construct(
 		public ?string $status,
-	) {}
+	)
+	{
+	}
 }

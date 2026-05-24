@@ -18,7 +18,9 @@ class LoginRequest extends Data
 		public string $email,
 		public string $password,
 		public bool   $remember = false,
-	) {}
+	)
+	{
+	}
 
 	public function validateCredentials(): UserModel
 	{

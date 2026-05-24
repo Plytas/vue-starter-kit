@@ -9,7 +9,7 @@ use Laravel\Fortify\Contracts\CreatesNewUsers;
 class CreateNewUser implements CreatesNewUsers
 {
 	/**
-	 * @param  array<string, string>  $input
+	 * @param array<string, string> $input
 	 */
 	public function create(array $input): User
 	{

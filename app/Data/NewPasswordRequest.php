@@ -16,7 +16,9 @@ class NewPasswordRequest extends Data
 		public string $email,
 		public string $password,
 		public string $password_confirmation,
-	) {}
+	)
+	{
+	}
 
 	/**
 	 * @return array<string, array<int, mixed>>

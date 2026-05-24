@@ -15,7 +15,9 @@ class ProfileUpdateRequest extends Data
 	public function __construct(
 		public string $name,
 		public string $email,
-	) {}
+	)
+	{
+	}
 
 	/**
 	 * @return array<string, array<int, mixed>>

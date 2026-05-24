@@ -12,5 +12,7 @@ class ResetPasswordProps extends Data
 		public string $email,
 		public string $token,
 		public string $passwordRules,
-	) {}
+	)
+	{
+	}
 }

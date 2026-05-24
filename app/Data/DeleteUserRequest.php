@@ -11,7 +11,9 @@ class DeleteUserRequest extends Data
 {
 	public function __construct(
 		public string $password,
-	) {}
+	)
+	{
+	}
 
 	/**
 	 * @return array<string, array<int, mixed>>

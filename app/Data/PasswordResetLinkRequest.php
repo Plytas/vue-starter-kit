@@ -12,7 +12,9 @@ class PasswordResetLinkRequest extends Data
 {
 	public function __construct(
 		public string $email,
-	) {}
+	)
+	{
+	}
 
 	/**
 	 * @return array<string, array<int, mixed>>

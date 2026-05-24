@@ -12,7 +12,9 @@ class StorePasskeyRequest extends Data
 	public function __construct(
 		public string $name,
 		public string $passkey,
-	) {}
+	)
+	{
+	}
 
 	/**
 	 * @return array<string, array<string>>

@@ -11,11 +11,13 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class PasskeyProp extends Data
 {
 	public function __construct(
-		public int $id,
-		public string $name,
+		public int              $id,
+		public string           $name,
 		public ?CarbonInterface $lastUsedAt,
-		public ?string $lastUsedAtForHumans,
-	) {}
+		public ?string          $lastUsedAtForHumans,
+	)
+	{
+	}
 
 	public static function fromPasskey(Passkey $passkey): self
 	{

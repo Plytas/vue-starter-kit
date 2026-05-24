@@ -10,5 +10,7 @@ class SharedAuthProps extends Data
 {
 	public function __construct(
 		public ?User $user,
-	) {}
+	)
+	{
+	}
 }

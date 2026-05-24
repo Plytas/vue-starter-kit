@@ -14,7 +14,9 @@ class PasswordUpdateRequest extends Data
 		public string $current_password,
 		public string $password,
 		public string $password_confirmation,
-	) {}
+	)
+	{
+	}
 
 	/**
 	 * @return array<string, array<int, mixed>>

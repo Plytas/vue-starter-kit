@@ -14,14 +14,16 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class User extends Data
 {
 	public function __construct(
-		public int $id,
-		public string $name,
-		public string $email,
+		public int              $id,
+		public string           $name,
+		public string           $email,
 		#[WithTransformer(UriTransformer::class)]
-		public ?Uri $avatar,
+		public ?Uri             $avatar,
 		public ?CarbonInterface $email_verified_at,
-		public CarbonInterface $created_at,
-	) {}
+		public CarbonInterface  $created_at,
+	)
+	{
+	}
 
 	public static function fromUser(?UserModel $user): ?self
 	{
