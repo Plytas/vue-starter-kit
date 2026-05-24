@@ -10,17 +10,17 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class PasswordResetLinkRequest extends Data
 {
-    public function __construct(
-        public string $email,
-    ) {}
+	public function __construct(
+		public string $email,
+	) {}
 
-    /**
-     * @return array<string, array<int, mixed>>
-     */
-    public static function rules(ValidationContext $context): array
-    {
-        return [
-            'email' => ['required', Rule::email()],
-        ];
-    }
+	/**
+	 * @return array<string, array<int, mixed>>
+	 */
+	public static function rules(ValidationContext $context): array
+	{
+		return [
+			'email' => ['required', Rule::email()],
+		];
+	}
 }

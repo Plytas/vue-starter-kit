@@ -30,7 +30,7 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: Lint Backend
-        run: composer lint
+        run: composer lint -- --dry-run --diff
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2

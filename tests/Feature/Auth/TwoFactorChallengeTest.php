@@ -5,36 +5,37 @@ use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
 
 beforeEach(function (): void {
-    $this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
+	$this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 });
 
 test('two factor challenge redirects to login when not authenticated', function (): void {
-    $response = $this->get(route('two-factor.login'));
+	$response = $this->get(route('two-factor.login'));
 
-    $response->assertRedirect(route('login'));
+	$response->assertRedirect(route('login'));
 });
 
 test('two factor challenge can be rendered', function (): void {
-    Features::twoFactorAuthentication([
-        'confirm' => true,
-        'confirmPassword' => true,
-    ]);
+	Features::twoFactorAuthentication([
+		'confirm' => true,
+		'confirmPassword' => true,
+	]);
 
-    $user = User::factory()->create();
-    $user->forceFill([
-        'two_factor_secret' => encrypt('test-secret'),
-        'two_factor_recovery_codes' => encrypt(json_encode(['code1', 'code2'])),
-        'two_factor_confirmed_at' => now(),
-    ])->save();
+	$user = User::factory()->create();
+	$user->forceFill([
+		'two_factor_secret' => encrypt('test-secret'),
+		'two_factor_recovery_codes' => encrypt(json_encode(['code1', 'code2'])),
+		'two_factor_confirmed_at' => now(),
+	])->save();
 
-    $this->post(route('login.store'), [
-        'email' => $user->email,
-        'password' => 'password',
-    ]);
+	$this->post(route('login.store'), [
+		'email' => $user->email,
+		'password' => 'password',
+	]);
 
-    $this->get(route('two-factor.login'))
-        ->assertOk()
-        ->assertInertia(fn (Assert $page) => $page
-            ->component('auth/TwoFactorChallenge')
-        );
+	$this->get(route('two-factor.login'))
+		->assertOk()
+		->assertInertia(
+			fn(Assert $page) => $page
+			->component('auth/TwoFactorChallenge')
+		);
 });

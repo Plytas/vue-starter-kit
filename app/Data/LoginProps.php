@@ -8,10 +8,10 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class LoginProps extends Data
 {
-    public function __construct(
-        public bool $canResetPassword,
-        public bool $canRegister,
-        public ?string $status,
-        public ?string $passkeyStatus,
-    ) {}
+	public function __construct(
+		public bool $canResetPassword,
+		public bool $canRegister,
+		public ?string $status,
+		public ?string $passkeyStatus,
+	) {}
 }

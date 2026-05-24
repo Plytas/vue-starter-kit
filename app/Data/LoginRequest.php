@@ -14,54 +14,54 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class LoginRequest extends Data
 {
-    public function __construct(
-        public string $email,
-        public string $password,
-        public bool $remember = false,
-    ) {}
+	public function __construct(
+		public string $email,
+		public string $password,
+		public bool $remember = false,
+	) {}
 
-    public function validateCredentials(): UserModel
-    {
-        $this->ensureIsNotRateLimited();
+	public function validateCredentials(): UserModel
+	{
+		$this->ensureIsNotRateLimited();
 
-        /** @var UserModel|null $user */
-        $user = Auth::getProvider()->retrieveByCredentials(['email' => $this->email, 'password' => $this->password]);
+		/** @var UserModel|null $user */
+		$user = Auth::getProvider()->retrieveByCredentials(['email' => $this->email, 'password' => $this->password]);
 
-        if (! $user || ! Auth::getProvider()->validateCredentials($user, ['password' => $this->password])) {
-            RateLimiter::hit($this->throttleKey());
+		if (! $user || ! Auth::getProvider()->validateCredentials($user, ['password' => $this->password])) {
+			RateLimiter::hit($this->throttleKey());
 
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
-        }
+			throw ValidationException::withMessages([
+				'email' => trans('auth.failed'),
+			]);
+		}
 
-        RateLimiter::clear($this->throttleKey());
+		RateLimiter::clear($this->throttleKey());
 
-        return $user;
-    }
+		return $user;
+	}
 
-    public function ensureIsNotRateLimited(): void
-    {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
-            return;
-        }
+	public function ensureIsNotRateLimited(): void
+	{
+		if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+			return;
+		}
 
-        $seconds = RateLimiter::availableIn($this->throttleKey());
+		$seconds = RateLimiter::availableIn($this->throttleKey());
 
-        throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
-        ]);
-    }
+		throw ValidationException::withMessages([
+			'email' => trans('auth.throttle', [
+				'seconds' => $seconds,
+				'minutes' => ceil($seconds / 60),
+			]),
+		]);
+	}
 
-    public function throttleKey(): string
-    {
-        return Str::of($this->email)
-            ->lower()
-            ->append('|'.Request::ip())
-            ->transliterate()
-            ->value();
-    }
+	public function throttleKey(): string
+	{
+		return Str::of($this->email)
+			->lower()
+			->append('|' . Request::ip())
+			->transliterate()
+			->value();
+	}
 }

@@ -16,24 +16,24 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
 {
-    /** @use HasFactory<UserFactory> */
-    use HasFactory;
+	/** @use HasFactory<UserFactory> */
+	use HasFactory;
 
-    use InteractsWithPasskeys;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
+	use InteractsWithPasskeys;
+	use Notifiable;
+	use TwoFactorAuthenticatable;
 
-    /**
-     * @return array{avatar: 'Illuminate\Database\Eloquent\Casts\AsUri', email_verified_at: 'immutable_datetime', password: 'hashed', created_at: 'immutable_datetime', two_factor_confirmed_at: 'immutable_datetime'}
-     */
-    protected function casts(): array
-    {
-        return [
-            'avatar' => AsUri::class,
-            'email_verified_at' => 'immutable_datetime',
-            'password' => 'hashed',
-            'created_at' => 'immutable_datetime',
-            'two_factor_confirmed_at' => 'immutable_datetime',
-        ];
-    }
+	/**
+	 * @return array{avatar: 'Illuminate\Database\Eloquent\Casts\AsUri', email_verified_at: 'immutable_datetime', password: 'hashed', created_at: 'immutable_datetime', two_factor_confirmed_at: 'immutable_datetime'}
+	 */
+	protected function casts(): array
+	{
+		return [
+			'avatar' => AsUri::class,
+			'email_verified_at' => 'immutable_datetime',
+			'password' => 'hashed',
+			'created_at' => 'immutable_datetime',
+			'two_factor_confirmed_at' => 'immutable_datetime',
+		];
+	}
 }
