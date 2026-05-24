@@ -460,7 +460,7 @@ function resolveNext(array &$state, bool $execute, array $targets, ?string $only
             return [
                 'summary' => "Propagate #{$entryId} [{$target}] to: " . implode(', ', $missing),
                 'detail'  => "Fork PR: " . ($forkPR ?? '(none)') . "\nTitle: {$entry['title']}",
-                'hint'    => "/us-propagate{$targetFlag} {$entryId} " . implode(' ', $missing),
+                'hint'    => "/us-propagate {$entryId} " . implode(' ', $missing) . $targetFlag,
             ];
         }
     }
