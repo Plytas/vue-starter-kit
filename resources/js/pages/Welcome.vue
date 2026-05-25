@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { dashboard, login, register } from '@/routes';
-import type { Team } from '@/types/generated';
-import { WelcomeProps } from '@/types/generated';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
+
+import { dashboard, login, register } from '@/routes';
+import type { Team, WelcomeProps } from '@/types/generated';
 
 defineProps<WelcomeProps>();
 

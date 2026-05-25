@@ -10,19 +10,19 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TwoFactorLoginResponse implements TwoFactorLoginResponseContract
 {
-    public function toResponse($request): Response
-    {
-        $user = $request->user();
-        $team = $user !== null ? ($user->currentTeam ?? $user->personalTeam()) : null;
+	public function toResponse($request): Response
+	{
+		$user = $request->user();
+		$team = $user !== null ? ($user->currentTeam ?? $user->personalTeam()) : null;
 
-        if (! $team) {
-            abort(403);
-        }
+		if (!$team) {
+			abort(403);
+		}
 
-        URL::defaults(['current_team' => $team->slug]);
+		URL::defaults(['current_team' => $team->slug]);
 
-        return $request->wantsJson()
-            ? new JsonResponse(['two_factor' => false], 200)
-            : redirect()->intended("/{$team->slug}".Fortify::redirects('login'));
-    }
+		return $request->wantsJson()
+			? new JsonResponse(['two_factor' => false], 200)
+			: redirect()->intended("/{$team->slug}" . Fortify::redirects('login'));
+	}
 }

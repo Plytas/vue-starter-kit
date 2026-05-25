@@ -10,12 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class VerifyEmailResponse implements VerifyEmailResponseContract
 {
-    use RedirectsToCurrentTeam;
+	use RedirectsToCurrentTeam;
 
-    public function toResponse($request): Response
-    {
-        return $request->wantsJson()
-            ? new JsonResponse('', 204)
-            : redirect()->intended($this->redirectPathForCurrentTeam($request, Fortify::redirects('email-verification')).'?verified=1');
-    }
+	public function toResponse($request): Response
+	{
+		return $request->wantsJson()
+			? new JsonResponse('', 204)
+			: redirect()->intended($this->redirectPathForCurrentTeam($request, Fortify::redirects('email-verification')) . '?verified=1');
+	}
 }

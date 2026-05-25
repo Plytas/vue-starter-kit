@@ -23,7 +23,6 @@ use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
 use Laravel\Fortify\Contracts\VerifyEmailResponse as VerifyEmailResponseContract;
-use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -48,27 +47,27 @@ class FortifyServiceProvider extends ServiceProvider
 		Fortify::createUsersUsing(CreateNewUser::class);
 		Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-		Fortify::registerView(fn () => Inertia::render('auth/Register', new RegisterProps(
+		Fortify::registerView(fn() => Inertia::render('auth/Register', new RegisterProps(
 			passwordRules: Password::defaults()->toPasswordRulesString(),
 		)));
 
-		Fortify::requestPasswordResetLinkView(fn (Request $request) => Inertia::render('auth/ForgotPassword', new ForgotPasswordProps(
+		Fortify::requestPasswordResetLinkView(fn(Request $request) => Inertia::render('auth/ForgotPassword', new ForgotPasswordProps(
 			status: $request->session()->get('status'),
 		)));
 
-		Fortify::resetPasswordView(fn (Request $request) => Inertia::render('auth/ResetPassword', new ResetPasswordProps(
+		Fortify::resetPasswordView(fn(Request $request) => Inertia::render('auth/ResetPassword', new ResetPasswordProps(
 			email: (string) $request->query('email', ''),
 			token: (string) $request->route('token'),
 			passwordRules: Password::defaults()->toPasswordRulesString(),
 		)));
 
-		Fortify::verifyEmailView(fn (Request $request) => Inertia::render('auth/VerifyEmail', new VerifyEmailPrompts(
+		Fortify::verifyEmailView(fn(Request $request) => Inertia::render('auth/VerifyEmail', new VerifyEmailPrompts(
 			status: $request->session()->get('status'),
 		)));
 
-		Fortify::twoFactorChallengeView(fn () => Inertia::render('auth/TwoFactorChallenge'));
+		Fortify::twoFactorChallengeView(fn() => Inertia::render('auth/TwoFactorChallenge'));
 
-		Fortify::confirmPasswordView(fn () => Inertia::render('auth/ConfirmPassword'));
+		Fortify::confirmPasswordView(fn() => Inertia::render('auth/ConfirmPassword'));
 
 		RateLimiter::for('two-factor', function (Request $request) {
 			return Limit::perMinute(5)->by($request->session()->get('login.id'));

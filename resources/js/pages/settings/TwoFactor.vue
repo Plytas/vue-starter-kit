@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
+import { onUnmounted, ref } from 'vue';
+
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import TwoFactorRecoveryCodes from '@/components/TwoFactorRecoveryCodes.vue';
 import TwoFactorSetupModal from '@/components/TwoFactorSetupModal.vue';
@@ -10,9 +14,6 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { disable, enable } from '@/routes/two-factor';
 import type { BreadcrumbItem } from '@/types';
 import type { TwoFactorProps } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
-import { onUnmounted, ref } from 'vue';
 
 defineProps<TwoFactorProps>();
 

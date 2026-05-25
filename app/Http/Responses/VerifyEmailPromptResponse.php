@@ -4,18 +4,17 @@ namespace App\Http\Responses;
 
 use App\Http\Responses\Concerns\RedirectsToCurrentTeam;
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
 use Symfony\Component\HttpFoundation\Response;
 
 class VerifyEmailPromptResponse implements Responsable
 {
-    use RedirectsToCurrentTeam;
+	use RedirectsToCurrentTeam;
 
-    public function __construct(public string $name) {}
+	public function __construct(public string $name) {}
 
-    public function toResponse($request): Response
-    {
-        return redirect()->intended($this->redirectPathForCurrentTeam($request, Fortify::redirects($this->name)));
-    }
+	public function toResponse($request): Response
+	{
+		return redirect()->intended($this->redirectPathForCurrentTeam($request, Fortify::redirects($this->name)));
+	}
 }

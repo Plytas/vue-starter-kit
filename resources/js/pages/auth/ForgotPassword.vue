@@ -1,15 +1,16 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+
 import InputError from '@/components/InputError.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { email } from '@/routes/password';
 import { ForgotPasswordProps, PasswordResetLinkRequest } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
 
 defineProps<ForgotPasswordProps>();
 
@@ -40,7 +41,7 @@ const submit = () => {
 
 				<div class="my-6 flex items-center justify-start">
 					<Button class="w-full" :disabled="form.processing">
-						<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+						<Spinner v-if="form.processing" />
 						Email password reset link
 					</Button>
 				</div>

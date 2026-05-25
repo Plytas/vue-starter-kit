@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+import { computed, ref } from 'vue';
+
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { PinInput, PinInputGroup, PinInputSlot } from '@/components/ui/pin-input';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
-import { Head, useForm } from '@inertiajs/vue3';
-import { computed, ref } from 'vue';
 
 interface AuthConfigContent {
     title: string;
@@ -15,7 +16,6 @@ interface AuthConfigContent {
 }
 
 const showRecoveryInput = ref<boolean>(false);
-const code = ref<number[]>([]);
 
 const authConfigContent = computed<AuthConfigContent>(() => {
     if (showRecoveryInput.value) {
@@ -38,19 +38,19 @@ const form = useForm({
     recovery_code: '',
 });
 
-const codeValue = computed<string>(() => code.value.join(''));
+const code = ref<string>('');
 
 const toggleRecoveryMode = (): void => {
     showRecoveryInput.value = !showRecoveryInput.value;
-    code.value = [];
+    code.value = '';
     form.clearErrors();
     form.reset();
 };
 
 const submit = () => {
-    form.code = codeValue.value;
+    form.code = code.value;
     form.submit(store(), {
-        onError: () => { code.value = []; },
+        onError: () => { code.value = ''; },
         onFinish: () => form.reset(),
     });
 };
@@ -65,11 +65,11 @@ const submit = () => {
                 <template v-if="!showRecoveryInput">
                     <div class="flex flex-col items-center justify-center space-y-3 text-center">
                         <div class="flex w-full items-center justify-center">
-                            <PinInput id="otp" placeholder="○" v-model="code" type="number" otp>
-                                <PinInputGroup>
-                                    <PinInputSlot v-for="(id, index) in 6" :key="id" :index="index" :disabled="form.processing" autofocus />
-                                </PinInputGroup>
-                            </PinInput>
+                            <InputOTP id="otp" v-model="code" :maxlength="6" :disabled="form.processing" autofocus>
+                                <InputOTPGroup>
+                                    <InputOTPSlot v-for="index in 6" :key="index" :index="index - 1" />
+                                </InputOTPGroup>
+                            </InputOTP>
                         </div>
                         <InputError :message="form.errors.code" />
                     </div>

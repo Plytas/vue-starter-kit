@@ -1,6 +1,7 @@
-import { qrCode, recoveryCodes, secretKey } from '@/routes/two-factor';
 import { useHttp } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
+
+import { qrCode, recoveryCodes, secretKey } from '@/routes/two-factor';
 
 const qrCodeSvg = ref<string | null>(null);
 const manualSetupKey = ref<string | null>(null);

@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { logout } from '@/routes';
 import { send } from '@/routes/verification';
 import { VerifyEmailPrompts } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
 
 defineProps<VerifyEmailPrompts>();
 
@@ -27,7 +28,7 @@ const submit = () => {
 
 		<form @submit.prevent="submit" class="space-y-6 text-center">
 			<Button :disabled="form.processing" variant="secondary">
-				<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+				<Spinner v-if="form.processing" />
 				Resend verification email
 			</Button>
 

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+import { ref } from 'vue';
+
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
@@ -9,8 +12,6 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { update } from '@/routes/user-password';
 import type { BreadcrumbItem } from '@/types';
 import type { PasswordUpdateRequest } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { ref } from 'vue';
 
 const breadcrumbItems: BreadcrumbItem[] = [
 	{

@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/password/confirm';
 import { ConfirmPasswordRequest } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
 
 const form = useForm<ConfirmPasswordRequest>({
 	password: '',
@@ -44,7 +45,7 @@ const submit = () => {
 
 				<div class="flex items-center">
 					<Button class="w-full" :disabled="form.processing">
-						<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+						<Spinner v-if="form.processing" />
 						Confirm Password
 					</Button>
 				</div>

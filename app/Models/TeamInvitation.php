@@ -13,89 +13,89 @@ use Illuminate\Support\Str;
 #[Fillable(['team_id', 'email', 'role', 'invited_by', 'expires_at', 'accepted_at'])]
 class TeamInvitation extends Model
 {
-    /** @use HasFactory<TeamInvitationFactory> */
-    use HasFactory;
+	/** @use HasFactory<TeamInvitationFactory> */
+	use HasFactory;
 
-    /**
-     * Bootstrap the model and its traits.
-     */
-    protected static function boot(): void
-    {
-        parent::boot();
+	/**
+	 * Bootstrap the model and its traits.
+	 */
+	protected static function boot(): void
+	{
+		parent::boot();
 
-        static::creating(function (TeamInvitation $invitation) {
-            if (empty($invitation->code)) {
-                $invitation->code = Str::random(64);
-            }
-        });
-    }
+		static::creating(function (TeamInvitation $invitation) {
+			if (empty($invitation->code)) {
+				$invitation->code = Str::random(64);
+			}
+		});
+	}
 
-    /**
-     * Get the team that the invitation belongs to.
-     *
-     * @return BelongsTo<Team, $this>
-     */
-    public function team(): BelongsTo
-    {
-        return $this->belongsTo(Team::class);
-    }
+	/**
+	 * Get the team that the invitation belongs to.
+	 *
+	 * @return BelongsTo<Team, $this>
+	 */
+	public function team(): BelongsTo
+	{
+		return $this->belongsTo(Team::class);
+	}
 
-    /**
-     * Get the user who sent the invitation.
-     *
-     * @return BelongsTo<User, $this>
-     */
-    public function inviter(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'invited_by');
-    }
+	/**
+	 * Get the user who sent the invitation.
+	 *
+	 * @return BelongsTo<User, $this>
+	 */
+	public function inviter(): BelongsTo
+	{
+		return $this->belongsTo(User::class, 'invited_by');
+	}
 
-    /**
-     * Determine if the invitation has been accepted.
-     */
-    public function isAccepted(): bool
-    {
-        return $this->accepted_at !== null;
-    }
+	/**
+	 * Determine if the invitation has been accepted.
+	 */
+	public function isAccepted(): bool
+	{
+		return $this->accepted_at !== null;
+	}
 
-    /**
-     * Determine if the invitation is pending.
-     */
-    public function isPending(): bool
-    {
-        return $this->accepted_at === null && ! $this->isExpired();
-    }
+	/**
+	 * Determine if the invitation is pending.
+	 */
+	public function isPending(): bool
+	{
+		return $this->accepted_at === null && !$this->isExpired();
+	}
 
-    /**
-     * Determine if the invitation has expired.
-     */
-    public function isExpired(): bool
-    {
-        /** @var \Carbon\Carbon|null $expiresAt */
-        $expiresAt = $this->expires_at;
+	/**
+	 * Determine if the invitation has expired.
+	 */
+	public function isExpired(): bool
+	{
+		/** @var \Carbon\Carbon|null $expiresAt */
+		$expiresAt = $this->expires_at;
 
-        return $expiresAt !== null && $expiresAt->isPast();
-    }
+		return $expiresAt !== null && $expiresAt->isPast();
+	}
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'role' => TeamRole::class,
-            'expires_at' => 'datetime',
-            'accepted_at' => 'datetime',
-        ];
-    }
+	/**
+	 * Get the attributes that should be cast.
+	 *
+	 * @return array<string, string>
+	 */
+	protected function casts(): array
+	{
+		return [
+			'role' => TeamRole::class,
+			'expires_at' => 'datetime',
+			'accepted_at' => 'datetime',
+		];
+	}
 
-    /**
-     * Get the route key for the model.
-     */
-    public function getRouteKeyName(): string
-    {
-        return 'code';
-    }
+	/**
+	 * Get the route key for the model.
+	 */
+	public function getRouteKeyName(): string
+	{
+		return 'code';
+	}
 }

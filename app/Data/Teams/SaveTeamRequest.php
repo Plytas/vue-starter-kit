@@ -18,7 +18,7 @@ class SaveTeamRequest extends Data
 	public static function rules(ValidationContext $context): array
 	{
 		return [
-			'name' => ['required', 'string', 'max:255', new TeamName],
+			'name' => ['required', 'string', 'max:255', new TeamName()],
 		];
 	}
 }

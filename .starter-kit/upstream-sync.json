@@ -1263,8 +1263,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "cosmetic — gitattributes update"
+                    "status": "backported",
+                    "reason": "cosmetic — gitattributes update",
+                    "backportedAt": "2026-05-25T07:31:29+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "confidence": "high",
+                    "adaptationNotes": "no-op; fork .gitattributes never had upstream's typo'd browser-test.yml line"
                 }
             }
         },
@@ -1281,8 +1285,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "dependencies — security updates (axios, vite). Fork should run npm audit and update independently"
+                    "status": "backported",
+                    "reason": "dependencies — security updates (axios, vite). Fork should run npm audit and update independently",
+                    "backportedAt": "2026-05-25T07:31:30+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "confidence": "high",
+                    "adaptationNotes": "no-op; fork is bun + vite ^8, past vulnerable range; axios not a declared dep"
                 }
             }
         },
@@ -2029,9 +2037,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Replace Loader2/LoaderCircle with new Spinner component from shadcn-vue. UI improvement."
+                    "adaptationNotes": "Spinner component + Loader2/LoaderCircle swaps in 8 auth pages + TwoFactorSetupModal + fork-only Passkey settings",
+                    "backportedAt": "2026-05-25T07:31:30+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
                 }
             }
         },
@@ -2067,8 +2077,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "linting — minor fix"
+                    "status": "backported",
+                    "reason": "linting — minor fix",
+                    "backportedAt": "2026-05-25T07:31:30+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "confidence": "high",
+                    "adaptationNotes": "no-op; fork DeleteUser.vue uses useForm not <Form v-slot>"
                 }
             }
         },
@@ -2175,9 +2189,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "medium",
-                    "adaptationNotes": "MAJOR: Upgrades shadcn-vue to v4 (reka-ui 2.3.0→2.6.1). Updates all UI components with new patterns, adds input-otp, removes pin-input. Changes to New York style. Very large PR."
+                    "adaptationNotes": "scoped: components.json new-york-v4, reka-ui 2.3->2.6, add vue-input-otp, add ui/input-otp, delete ui/pin-input, migrate TwoFactorChallenge+TwoFactorSetupModal. Skipped upstream ui/* dir rewrites: no Dialog scoped-slot consumers; sidebar is backend-driven via SharedProps.sidebarOpen so upstream cookie-default would be redundant",
+                    "backportedAt": "2026-05-25T07:31:30+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
                 }
             }
         },
@@ -2194,9 +2210,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Security updates for npm dependencies. Review package-lock changes."
+                    "adaptationNotes": "no-op; transitive bumps refreshed via bun update",
+                    "backportedAt": "2026-05-25T07:31:30+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
                 }
             }
         },
@@ -2700,9 +2718,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "confidence": "high",
-                    "adaptationNotes": "Adds pint.json config, composer lint/test:lint scripts, and integrates linting into test workflow. Developer workflow improvement."
+                    "status": "backported",
+                    "confidence": "medium",
+                    "adaptationNotes": "adapted-with-deviation: linter wired (composer lint/test:lint, CI step, @test:lint in composer test) but tool swapped pint->php-cs-fixer because Pint hardcodes spaces and fork uses tabs. .php-cs-fixer.php uses @PER-CS2.0 base + custom rule overrides",
+                    "backportedAt": "2026-05-25T07:31:30+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
                 }
             }
         },
@@ -2792,9 +2812,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Adds eslint-plugin-import for better import ordering and organization. Developer workflow improvement."
+                    "adaptationNotes": "eslint-plugin-import merged into existing oxlint+eslint config; ignores extended for generated.d.ts; auto-fix applied to ~30 JS/Vue files",
+                    "backportedAt": "2026-05-25T07:31:31+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
                 }
             }
         },
@@ -2829,9 +2851,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Removes package-lock.json to avoid lock file conflicts in starter kit. Users generate their own locks."
+                    "adaptationNotes": "no-op; fork is bun-only, no package-lock.json. Added package-lock.json + npm-shrinkwrap.json to .gitignore as defensive guard",
+                    "backportedAt": "2026-05-25T07:31:31+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
                 }
             }
         },

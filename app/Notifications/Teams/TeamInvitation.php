@@ -10,59 +10,59 @@ use Illuminate\Notifications\Notification;
 
 class TeamInvitation extends Notification implements ShouldQueue
 {
-    use Queueable;
+	use Queueable;
 
-    /**
-     * Create a new notification instance.
-     */
-    public function __construct(public TeamInvitationModel $invitation)
-    {
-        //
-    }
+	/**
+	 * Create a new notification instance.
+	 */
+	public function __construct(public TeamInvitationModel $invitation)
+	{
+		//
+	}
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @return array<int, string>
-     */
-    public function via(object $notifiable): array
-    {
-        return ['mail'];
-    }
+	/**
+	 * Get the notification's delivery channels.
+	 *
+	 * @return array<int, string>
+	 */
+	public function via(object $notifiable): array
+	{
+		return ['mail'];
+	}
 
-    /**
-     * Get the mail representation of the notification.
-     */
-    public function toMail(object $notifiable): MailMessage
-    {
-        $team = $this->invitation->team;
-        /** @var \App\Models\User $inviter */
-        $inviter = $this->invitation->inviter;
+	/**
+	 * Get the mail representation of the notification.
+	 */
+	public function toMail(object $notifiable): MailMessage
+	{
+		$team = $this->invitation->team;
+		/** @var \App\Models\User $inviter */
+		$inviter = $this->invitation->inviter;
 
-        return (new MailMessage)
-            ->subject(__("You've been invited to join :teamName", ['teamName' => $team->name]))
-            ->line(__(':inviterName has invited you to join the :teamName team.', [
-                'inviterName' => $inviter->name,
-                'teamName' => $team->name,
-            ]))
-            ->action(__('Accept invitation'), url("/invitations/{$this->invitation->code}/accept"));
-    }
+		return (new MailMessage())
+			->subject(__("You've been invited to join :teamName", ['teamName' => $team->name]))
+			->line(__(':inviterName has invited you to join the :teamName team.', [
+				'inviterName' => $inviter->name,
+				'teamName' => $team->name,
+			]))
+			->action(__('Accept invitation'), url("/invitations/{$this->invitation->code}/accept"));
+	}
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @return array<string, mixed>
-     */
-    public function toArray(object $notifiable): array
-    {
-        /** @var \App\Enums\TeamRole $role */
-        $role = $this->invitation->role;
+	/**
+	 * Get the array representation of the notification.
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function toArray(object $notifiable): array
+	{
+		/** @var \App\Enums\TeamRole $role */
+		$role = $this->invitation->role;
 
-        return [
-            'invitation_id' => $this->invitation->id,
-            'team_id' => $this->invitation->team_id,
-            'team_name' => $this->invitation->team->name,
-            'role' => $role->value,
-        ];
-    }
+		return [
+			'invitation_id' => $this->invitation->id,
+			'team_id' => $this->invitation->team_id,
+			'team_name' => $this->invitation->team->name,
+			'role' => $role->value,
+		];
+	}
 }

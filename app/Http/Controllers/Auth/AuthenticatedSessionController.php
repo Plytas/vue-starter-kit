@@ -44,7 +44,7 @@ class AuthenticatedSessionController
 
 		$team = $user->currentTeam ?? $user->personalTeam();
 
-		if (! $team) {
+		if (!$team) {
 			abort(403);
 		}
 

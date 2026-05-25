@@ -1,18 +1,38 @@
-root = true
-
 [*]
 charset = utf-8
 end_of_line = lf
 indent_size = 4
-indent_style = tab
+indent_style = space
 insert_final_newline = true
+max_line_length = 120
+tab_width = 4
 trim_trailing_whitespace = true
 
-[*.md]
-trim_trailing_whitespace = false
-
-[*.{yml,yaml}]
+[*.feature]
 indent_size = 2
 
-[docker-compose.yml]
-indent_size = 4
+[*.less]
+indent_size = 2
+
+[*.sass]
+indent_size = 2
+
+[*.scss]
+indent_size = 2
+
+[*.vue]
+indent_size = 2
+tab_width = 2
+
+[{*.bash,*.sh,*.zsh}]
+indent_size = 2
+tab_width = 2
+
+[{*.ctp,*.hphp,*.inc,*.module,*.php,*.php4,*.php5,*.phtml}]
+indent_style = tab
+
+[{*.har,*.jsb2,*.jsb3,*.json,*.jsonc,*.postman_collection,*.postman_collection.json,*.postman_environment,*.postman_environment.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,.ws-context,composer.lock,jest.config}]
+indent_size = 2
+
+[{*.yaml,*.yml}]
+indent_size = 2

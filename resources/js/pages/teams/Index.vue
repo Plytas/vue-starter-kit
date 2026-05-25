@@ -2,6 +2,7 @@
 import { Head, Link } from '@inertiajs/vue3';
 import { Eye, Pencil, Plus } from 'lucide-vue-next';
 import { computed } from 'vue';
+
 import CreateTeamModal from '@/components/CreateTeamModal.vue';
 import Heading from '@/components/Heading.vue';
 import { Badge } from '@/components/ui/badge';
@@ -16,6 +17,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit, index } from '@/routes/teams';
 import type { BreadcrumbItem, Team } from '@/types';
+
 
 type Props = {
     teams: Team[];

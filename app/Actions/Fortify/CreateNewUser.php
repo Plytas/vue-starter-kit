@@ -24,7 +24,7 @@ class CreateNewUser implements CreatesNewUsers
 				'password' => $data->password,
 			]);
 
-			app(CreateTeam::class)->handle($user, $user->name."'s Team", isPersonal: true);
+			app(CreateTeam::class)->handle($user, $user->name . "'s Team", isPersonal: true);
 
 			return $user;
 		});

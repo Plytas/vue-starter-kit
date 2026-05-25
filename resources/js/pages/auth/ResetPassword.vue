@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { update } from '@/routes/password';
 import { NewPasswordRequest, ResetPasswordProps } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
 
 const props = defineProps<ResetPasswordProps>();
 
@@ -70,7 +71,7 @@ const submit = () => {
 				</div>
 
 				<Button type="submit" class="mt-4 w-full" :disabled="form.processing">
-					<LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
+					<Spinner v-if="form.processing" />
 					Reset password
 				</Button>
 			</div>
