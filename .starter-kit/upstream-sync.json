@@ -1268,7 +1268,39 @@
                     "backportedAt": "2026-05-25T07:31:29+00:00",
                     "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
                     "confidence": "high",
-                    "adaptationNotes": "no-op; fork .gitattributes never had upstream's typo'd browser-test.yml line"
+                    "adaptationNotes": "no-op; fork .gitattributes never had upstream's typo'd browser-test.yml line",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:05+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:05+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:05+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:05+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:05+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -1290,7 +1322,39 @@
                     "backportedAt": "2026-05-25T07:31:30+00:00",
                     "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
                     "confidence": "high",
-                    "adaptationNotes": "no-op; fork is bun + vite ^8, past vulnerable range; axios not a declared dep"
+                    "adaptationNotes": "no-op; fork is bun + vite ^8, past vulnerable range; axios not a declared dep",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2041,7 +2105,39 @@
                     "confidence": "high",
                     "adaptationNotes": "Spinner component + Loader2/LoaderCircle swaps in 8 auth pages + TwoFactorSetupModal + fork-only Passkey settings",
                     "backportedAt": "2026-05-25T07:31:30+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:06+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2082,7 +2178,39 @@
                     "backportedAt": "2026-05-25T07:31:30+00:00",
                     "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
                     "confidence": "high",
-                    "adaptationNotes": "no-op; fork DeleteUser.vue uses useForm not <Form v-slot>"
+                    "adaptationNotes": "no-op; fork DeleteUser.vue uses useForm not <Form v-slot>",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:07+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:08+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2193,7 +2321,39 @@
                     "confidence": "medium",
                     "adaptationNotes": "scoped: components.json new-york-v4, reka-ui 2.3->2.6, add vue-input-otp, add ui/input-otp, delete ui/pin-input, migrate TwoFactorChallenge+TwoFactorSetupModal. Skipped upstream ui/* dir rewrites: no Dialog scoped-slot consumers; sidebar is backend-driven via SharedProps.sidebarOpen so upstream cookie-default would be redundant",
                     "backportedAt": "2026-05-25T07:31:30+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:08+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:08+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:08+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:08+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:08+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2214,7 +2374,39 @@
                     "confidence": "high",
                     "adaptationNotes": "no-op; transitive bumps refreshed via bun update",
                     "backportedAt": "2026-05-25T07:31:30+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2722,7 +2914,39 @@
                     "confidence": "medium",
                     "adaptationNotes": "adapted-with-deviation: linter wired (composer lint/test:lint, CI step, @test:lint in composer test) but tool swapped pint->php-cs-fixer because Pint hardcodes spaces and fork uses tabs. .php-cs-fixer.php uses @PER-CS2.0 base + custom rule overrides",
                     "backportedAt": "2026-05-25T07:31:30+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:09+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2816,7 +3040,39 @@
                     "confidence": "high",
                     "adaptationNotes": "eslint-plugin-import merged into existing oxlint+eslint config; ignores extended for generated.d.ts; auto-fix applied to ~30 JS/Vue files",
                     "backportedAt": "2026-05-25T07:31:31+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:10+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:11+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2855,7 +3111,39 @@
                     "confidence": "high",
                     "adaptationNotes": "no-op; fork is bun-only, no package-lock.json. Added package-lock.json + npm-shrinkwrap.json to .gitignore as defensive guard",
                     "backportedAt": "2026-05-25T07:31:31+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/25",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:11+00:00"
+                        },
+                        "joy": {
+                            "status": "open",
+                            "number": 21,
+                            "url": "https://github.com/Plytas/joy/pull/21",
+                            "propagatedAt": "2026-05-25T08:35:11+00:00"
+                        },
+                        "joymobile": {
+                            "status": "open",
+                            "number": 11,
+                            "url": "https://github.com/Plytas/joymobile/pull/11",
+                            "propagatedAt": "2026-05-25T08:35:11+00:00"
+                        },
+                        "katsch": {
+                            "status": "open",
+                            "number": 305,
+                            "url": "https://github.com/Plytas/katsch/pull/305",
+                            "propagatedAt": "2026-05-25T08:35:11+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "open",
+                            "number": 259,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/259",
+                            "propagatedAt": "2026-05-25T08:35:11+00:00"
+                        }
+                    }
                 }
             }
         },
