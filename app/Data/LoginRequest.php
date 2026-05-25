@@ -29,7 +29,7 @@ class LoginRequest extends Data
 		/** @var UserModel|null $user */
 		$user = Auth::getProvider()->retrieveByCredentials(['email' => $this->email, 'password' => $this->password]);
 
-		if (! $user || ! Auth::getProvider()->validateCredentials($user, ['password' => $this->password])) {
+		if (!$user || !Auth::getProvider()->validateCredentials($user, ['password' => $this->password])) {
 			RateLimiter::hit($this->throttleKey());
 
 			throw ValidationException::withMessages([

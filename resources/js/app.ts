@@ -1,7 +1,9 @@
-import { initializeFlashToast } from '@/lib/flashToast';
-import { resolveTitle } from '@/lib/utils';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { createPinia } from 'pinia';
+
+import { initializeFlashToast } from '@/lib/flashToast';
+import { resolveTitle } from '@/lib/utils';
+
 import { initializeTheme } from './composables/useAppearance';
 
 const pinia = createPinia();

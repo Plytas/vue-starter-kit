@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+import { startRegistration } from '@simplewebauthn/browser';
+import { Trash2 } from 'lucide-vue-next';
+import { toast } from 'vue-sonner';
+
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
@@ -14,15 +19,14 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { destroy, registerOptions, store } from '@/routes/passkey';
 import type { BreadcrumbItem } from '@/types';
 import type { PasskeyProp, PasskeyProps, PasskeyRegistrationOptionsRequest, StorePasskeyRequest } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { startRegistration } from '@simplewebauthn/browser';
-import { LoaderCircle, Trash2 } from 'lucide-vue-next';
-import { toast } from 'vue-sonner';
+
+
 
 defineProps<PasskeyProps>();
 
@@ -117,7 +121,7 @@ const deletePasskey = (passkey: PasskeyProp) => {
 					<Dialog>
 						<DialogTrigger as-child>
 							<Button variant="destructive" :disabled="deleteForm.processing">
-								<LoaderCircle v-if="deleteForm.processing" class="mr-2 h-4 w-4 animate-spin" />
+								<Spinner v-if="deleteForm.processing" class="mr-2" />
 								<Trash2 v-else class="mr-2 h-4 w-4" />
 								Delete
 							</Button>
@@ -137,7 +141,7 @@ const deletePasskey = (passkey: PasskeyProp) => {
 									</DialogClose>
 
 									<Button type="submit" variant="destructive" :disabled="deleteForm.processing">
-										<LoaderCircle v-if="deleteForm.processing" class="mr-2 h-4 w-4 animate-spin" />
+										<Spinner v-if="deleteForm.processing" class="mr-2" />
 										<Trash2 v-else class="mr-2 h-4 w-4" />
 										Delete passkey
 									</Button>

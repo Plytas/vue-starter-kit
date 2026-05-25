@@ -18,8 +18,9 @@ class User extends Authenticatable implements HasPasskeys, MustVerifyEmail
 {
 	/** @use HasFactory<UserFactory> */
 	use HasFactory;
-	use Notifiable;
+
 	use InteractsWithPasskeys;
+	use Notifiable;
 	use TwoFactorAuthenticatable;
 
 	/**

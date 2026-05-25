@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Head, useForm } from '@inertiajs/vue3';
+import { startAuthentication, WebAuthnAbortService } from '@simplewebauthn/browser';
+import { onBeforeUnmount, onMounted } from 'vue';
+
 import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
@@ -8,15 +12,14 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
+import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { register } from '@/routes';
 import { authentication_options, login } from '@/routes/passkeys';
 import { request } from '@/routes/password';
 import { LoginProps, LoginRequest } from '@/types/generated';
-import { Head, useForm } from '@inertiajs/vue3';
-import { startAuthentication, WebAuthnAbortService } from '@simplewebauthn/browser';
-import { LoaderCircle } from 'lucide-vue-next';
-import { onBeforeUnmount, onMounted } from 'vue';
+
+
 
 defineProps<LoginProps>();
 
@@ -62,7 +65,7 @@ onBeforeUnmount(() => {
 		</div>
 
 		<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="loginForm.processing" @click="loginUsingPasskey">
-			<LoaderCircle v-if="loginForm.processing" class="h-4 w-4 animate-spin" />
+			<Spinner v-if="loginForm.processing" />
 			Sign in using passkey
 		</Button>
 
@@ -115,7 +118,7 @@ onBeforeUnmount(() => {
 				</div>
 
 				<Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="loginForm.processing">
-					<LoaderCircle v-if="loginForm.processing" class="h-4 w-4 animate-spin" />
+					<Spinner v-if="loginForm.processing" />
 					Log in
 				</Button>
 			</div>

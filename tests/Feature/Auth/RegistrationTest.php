@@ -34,14 +34,16 @@ test('registration can be disabled without removing routes', function (): void {
 
 	$this->get(route('home'))
 		->assertOk()
-		->assertInertia(fn (Assert $page) => $page
+		->assertInertia(
+			fn(Assert $page) => $page
 			->component('Welcome')
 			->where('canRegister', false)
 		);
 
 	$this->get(route('login'))
 		->assertOk()
-		->assertInertia(fn (Assert $page) => $page
+		->assertInertia(
+			fn(Assert $page) => $page
 			->component('auth/Login')
 			->where('canRegister', false)
 		);

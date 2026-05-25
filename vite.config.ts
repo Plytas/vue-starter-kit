@@ -5,8 +5,9 @@ import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import { defineConfig } from 'vite';
-import { transformer } from './resources/js/lib/vite-plugin-transformer';
 import vueDevTools from 'vite-plugin-vue-devtools';
+
+import { transformer } from './resources/js/lib/vite-plugin-transformer';
 
 export default defineConfig({
 	plugins: [

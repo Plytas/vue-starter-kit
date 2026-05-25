@@ -24,6 +24,7 @@
     "require-dev": {
         "driftingly/rector-laravel": "^2.0",
         "fakerphp/faker": "^1.24",
+        "friendsofphp/php-cs-fixer": "^3.95",
         "larastan/larastan": "^3.0",
         "laravel/pail": "^1.2.5",
         "laravel/pao": "^1.0.6",
@@ -80,8 +81,15 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"bun run dev\" --names=server,queue,logs,vite --kill-others"
         ],
+        "lint": [
+            "php-cs-fixer fix --config=.php-cs-fixer.php"
+        ],
+        "test:lint": [
+            "php-cs-fixer fix --config=.php-cs-fixer.php --dry-run --diff"
+        ],
         "test": [
             "@php artisan config:clear --ansi",
+            "@test:lint",
             "@php artisan test"
         ],
         "types": [

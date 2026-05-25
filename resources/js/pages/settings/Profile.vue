@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
+
 import DeleteUser from '@/components/DeleteUser.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
@@ -11,7 +13,6 @@ import { update } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import type { BreadcrumbItem } from '@/types';
 import type { ProfileProps, ProfileUpdateRequest } from '@/types/generated';
-import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
 defineProps<ProfileProps>();
 
