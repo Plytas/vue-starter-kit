@@ -7,7 +7,7 @@ use Laravel\Fortify\Features;
 test('login screen can be rendered', function (): void {
 	$response = $this->get(route('login'));
 
-	$response->assertStatus(200);
+	$response->assertOk();
 });
 
 test('users can authenticate using the login screen', function (): void {
@@ -58,8 +58,8 @@ test('users can logout', function (): void {
 
 	$response = $this->actingAs($user)->post(route('logout'));
 
-	$this->assertGuest();
 	$response->assertRedirect(route('home'));
+	$this->assertGuest();
 });
 
 test('users are rate limited', function (): void {

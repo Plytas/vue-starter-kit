@@ -11,7 +11,7 @@ beforeEach(function (): void {
 test('registration screen can be rendered', function (): void {
 	$response = $this->get(route('register'));
 
-	$response->assertStatus(200);
+	$response->assertOk();
 });
 
 test('new users can register', function (): void {

@@ -15,7 +15,7 @@ test('email verification screen can be rendered', function (): void {
 
 	$response = $this->actingAs($user)->get(route('verification.notice'));
 
-	$response->assertStatus(200);
+	$response->assertOk();
 });
 
 test('email can be verified', function (): void {
