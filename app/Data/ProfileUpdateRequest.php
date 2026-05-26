@@ -26,6 +26,7 @@ class ProfileUpdateRequest extends Data
 	public static function rules(ValidationContext $context): array
 	{
 		$userId = Auth::id();
+
 		return static::profileRules($userId !== null ? (int) $userId : null);
 	}
 }

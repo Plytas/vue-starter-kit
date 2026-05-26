@@ -11,7 +11,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class RegisterRequest extends Data
 {
-	use PasswordValidationRules, ProfileValidationRules;
+	use PasswordValidationRules;
+	use ProfileValidationRules;
 
 	public function __construct(
 		public string $name,
