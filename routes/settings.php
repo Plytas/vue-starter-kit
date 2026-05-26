@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function (): void {
 		Route::post('settings/passkey', [PasskeyController::class, 'store'])->name('passkey.store');
 		Route::delete('settings/passkey/{passkey}', [PasskeyController::class, 'destroy'])->name('passkey.destroy');
 
-		Route::get('settings/appearance', fn() => Inertia::render('settings/Appearance'))->name('appearance');
+		Route::get('settings/appearance', fn() => Inertia::render('settings/Appearance'))->name('appearance.edit');
 
 		Route::get('settings/two-factor', [TwoFactorAuthenticationController::class, 'show'])
 			->name('two-factor.show');

@@ -8,7 +8,7 @@ test('password update page is displayed', function (): void {
 
 	$response = $this->actingAs($user)->get(route('user-password.edit'));
 
-	$response->assertStatus(200);
+	$response->assertOk();
 });
 
 test('password can be updated', function (): void {
