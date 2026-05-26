@@ -4,7 +4,7 @@ import { startRegistration } from '@simplewebauthn/browser';
 import { Trash2 } from 'lucide-vue-next';
 import { toast } from 'vue-sonner';
 
-import HeadingSmall from '@/components/HeadingSmall.vue';
+import Heading from '@/components/Heading.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import {
@@ -25,8 +25,6 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { destroy, registerOptions, store } from '@/routes/passkey';
 import type { BreadcrumbItem } from '@/types';
 import type { PasskeyProp, PasskeyProps, PasskeyRegistrationOptionsRequest, StorePasskeyRequest } from '@/types/generated';
-
-
 
 defineProps<PasskeyProps>();
 
@@ -87,7 +85,7 @@ const deletePasskey = (passkey: PasskeyProp) => {
 
 		<SettingsLayout>
 			<div class="space-y-6">
-				<HeadingSmall title="Manage passkeys" description="Add and manage your passkeys" />
+				<Heading variant="small" title="Manage passkeys" description="Add and manage your passkeys" />
 
 				<form @submit.prevent="storePasskey" class="space-y-6">
 					<div class="grid gap-2">
@@ -111,7 +109,7 @@ const deletePasskey = (passkey: PasskeyProp) => {
 				</form>
 			</div>
 			<div v-if="passkeys.length" class="space-y-6">
-				<HeadingSmall title="Your passkeys" />
+				<Heading variant="small" title="Your passkeys" />
 
 				<div v-for="passkey in passkeys" :key="passkey.id" class="flex items-center justify-between">
 					<div class="flex flex-col">

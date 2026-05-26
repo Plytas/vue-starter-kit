@@ -2,9 +2,8 @@
 
 namespace App\Data;
 
-use App\Models\User;
+use App\Concerns\ProfileValidationRules;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
@@ -12,6 +11,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class ProfileUpdateRequest extends Data
 {
+	use ProfileValidationRules;
+
 	public function __construct(
 		public string $name,
 		public string $email,
@@ -24,16 +25,7 @@ class ProfileUpdateRequest extends Data
 	 */
 	public static function rules(ValidationContext $context): array
 	{
-		return [
-			'name' => ['required', 'string', 'max:255'],
-			'email' => [
-				'required',
-				'string',
-				'lowercase',
-				'max:255',
-				Rule::email(),
-				Rule::unique(User::class)->ignore(Auth::id()),
-			],
-		];
+		$userId = Auth::id();
+		return static::profileRules($userId !== null ? (int) $userId : null);
 	}
 }

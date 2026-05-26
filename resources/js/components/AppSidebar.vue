@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-vue-next';
 
+import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
-
-import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
 	{
@@ -21,9 +20,9 @@ const mainNavItems: NavItem[] = [
 
 const footerNavItems: NavItem[] = [
 	{
-		title: 'Github Repo',
+		title: 'Repository',
 		href: 'https://github.com/laravel/vue-starter-kit',
-		icon: Folder,
+		icon: FolderGit2,
 	},
 	{
 		title: 'Documentation',

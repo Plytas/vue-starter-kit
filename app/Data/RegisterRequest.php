@@ -2,9 +2,8 @@
 
 namespace App\Data;
 
-use App\Models\User;
-use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Password;
+use App\Concerns\PasswordValidationRules;
+use App\Concerns\ProfileValidationRules;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
@@ -12,6 +11,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class RegisterRequest extends Data
 {
+	use PasswordValidationRules, ProfileValidationRules;
+
 	public function __construct(
 		public string $name,
 		public string $email,
@@ -27,9 +28,8 @@ class RegisterRequest extends Data
 	public static function rules(ValidationContext $context): array
 	{
 		return [
-			'name' => ['required', 'string', 'max:255'],
-			'email' => ['required', 'string', 'lowercase', 'max:255', Rule::email(), Rule::unique(User::class)],
-			'password' => ['required', 'confirmed', Password::defaults()],
+			...static::profileRules(),
+			'password' => static::passwordRules(),
 		];
 	}
 }
