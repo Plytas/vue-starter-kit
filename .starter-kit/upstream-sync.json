@@ -1186,8 +1186,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "route-names — changes appearance to appearance.edit. Review if route naming matters"
+                    "status": "backported",
+                    "reason": "route-names — changes appearance to appearance.edit. Review if route naming matters",
+                    "backportedAt": "2026-05-26T18:00:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/27"
                 }
             }
         },
@@ -3004,7 +3006,7 @@
                 "start": {
                     "status": "pending",
                     "confidence": "high",
-                    "adaptationNotes": "Updates tests for PHP 8.5 compatibility (property hooks, etc.). Review and backport test changes."
+                    "adaptationNotes": "re-scoped to Chunk 12 (CI matrix bump, workflow-only)"
                 }
             }
         },
@@ -3039,9 +3041,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Test improvement: replaces assertStatus(200) with assertOk(), etc. Modern Laravel testing practice."
+                    "adaptationNotes": "Test improvement: replaces assertStatus(200) with assertOk(), etc. Modern Laravel testing practice.",
+                    "backportedAt": "2026-05-26T18:00:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/27"
                 }
             }
         },
@@ -3662,8 +3666,8 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "maestro-auto — automated sync, review individual changes in subsequent PRs"
+                    "status": "skipped",
+                    "reason": "Maestro aggregate; workflow+prettier hunks deferred to Chunk 12; Vue cosmetics covered or out of scope; FortifyServiceProvider/User-cast deletions contrary to fork invariants"
                 }
             }
         },
