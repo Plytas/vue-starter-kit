@@ -1417,9 +1417,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Adds icons to settings sidebar navigation items. Nice visual enhancement - shows icon component next to menu text."
+                    "adaptationNotes": "Adds icons to settings sidebar navigation items. Nice visual enhancement - shows icon component next to menu text.",
+                    "backportedAt": "2026-05-26T07:51:24+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -1511,8 +1513,8 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "cosmetic — preview image update"
+                    "status": "skipped",
+                    "reason": "fully absorbed via Chunks 4/6"
                 }
             }
         },
@@ -2169,9 +2171,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Vue 3.5 feature: use useTemplateRef() instead of ref name matching. Modern Vue pattern."
+                    "adaptationNotes": "Vue 3.5 feature: use useTemplateRef() instead of ref name matching. Modern Vue pattern.",
+                    "backportedAt": "2026-05-26T07:51:24+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -2581,9 +2585,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Shows different icons based on sidebar state (PanelLeftOpen when collapsed, PanelLeftClose when expanded). UI polish."
+                    "adaptationNotes": "Shows different icons based on sidebar state (PanelLeftOpen when collapsed, PanelLeftClose when expanded). UI polish.",
+                    "backportedAt": "2026-05-26T07:51:24+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -2639,9 +2645,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Adds cursor-pointer class to Settings and Logout links in user menu. UX improvement."
+                    "adaptationNotes": "Adds cursor-pointer class to Settings and Logout links in user menu. UX improvement.",
+                    "backportedAt": "2026-05-26T07:51:24+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -3052,9 +3060,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "medium",
-                    "adaptationNotes": "Adds app/Concerns for shared validation traits (PasswordValidationRules, ProfileValidationRules). Fork uses Data class rules() - evaluate if trait pattern beneficial for DRY rules."
+                    "adaptationNotes": "Adds app/Concerns for shared validation traits (PasswordValidationRules, ProfileValidationRules). Fork uses Data class rules() - evaluate if trait pattern beneficial for DRY rules.",
+                    "backportedAt": "2026-05-26T07:51:24+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -3260,9 +3270,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Consolidates HeadingSmall into Heading with variant prop, removes Icon component. Code cleanup and standardization."
+                    "adaptationNotes": "Consolidates HeadingSmall into Heading with variant prop, removes Icon component. Code cleanup and standardization.",
+                    "backportedAt": "2026-05-26T07:51:25+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -3464,9 +3476,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Adds vue-shims.d.ts for proper Vue component typing. Standard TypeScript setup."
+                    "adaptationNotes": "covered by Chunk 1 deaaa90",
+                    "backportedAt": "2026-05-26T07:51:25+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -3592,9 +3606,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Uses Vue's useId() for unique IDs instead of Math.random(). Better practice for SSR."
+                    "adaptationNotes": "Uses Vue's useId() for unique IDs instead of Math.random(). Better practice for SSR.",
+                    "backportedAt": "2026-05-26T07:51:25+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -3757,9 +3773,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Various code improvements and refinements. Review diff for specific changes."
+                    "adaptationNotes": "Various code improvements and refinements. Review diff for specific changes.",
+                    "backportedAt": "2026-05-26T07:51:25+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
@@ -4078,9 +4096,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Code style: standardizes import ordering and formatting."
+                    "adaptationNotes": "applied as part of Chunk 1 Laravel 13 skeleton drift",
+                    "backportedAt": "2026-05-26T07:51:25+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/26"
                 }
             }
         },
