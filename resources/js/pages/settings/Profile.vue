@@ -2,7 +2,7 @@
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
 import DeleteUser from '@/components/DeleteUser.vue';
-import HeadingSmall from '@/components/HeadingSmall.vue';
+import Heading from '@/components/Heading.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -44,7 +44,7 @@ const submit = () => {
 
 		<SettingsLayout>
 			<div class="flex flex-col space-y-6">
-				<HeadingSmall title="Profile" description="Update your name and email address" />
+				<Heading variant="small" title="Profile information" description="Update your name and email address" />
 
 				<form @submit.prevent="submit" class="space-y-6">
 					<div class="grid gap-2">

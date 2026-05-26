@@ -2,16 +2,19 @@
 interface Props {
 	title: string;
 	description?: string;
+	variant?: 'default' | 'small';
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+	variant: 'default',
+});
 </script>
 
 <template>
-	<div class="mb-8 space-y-0.5">
-		<h2 class="text-xl font-semibold tracking-tight">{{ title }}</h2>
+	<header :class="variant === 'default' ? 'mb-8 space-y-0.5' : ''">
+		<h2 :class="variant === 'default' ? 'text-xl font-semibold tracking-tight' : 'mb-0.5 text-base font-medium'">{{ title }}</h2>
 		<p v-if="description" class="text-sm text-muted-foreground">
 			{{ description }}
 		</p>
-	</div>
+	</header>
 </template>

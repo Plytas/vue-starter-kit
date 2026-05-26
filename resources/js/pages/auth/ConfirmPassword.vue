@@ -46,7 +46,7 @@ const submit = () => {
 				<div class="flex items-center">
 					<Button class="w-full" :disabled="form.processing">
 						<Spinner v-if="form.processing" />
-						Confirm Password
+						Confirm password
 					</Button>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 import AppLogo from '@/components/AppLogo.vue';
@@ -28,9 +28,9 @@ const mainNavItems = computed<NavItem[]>(() => [
 
 const footerNavItems: NavItem[] = [
 	{
-		title: 'Github Repo',
+		title: 'Repository',
 		href: 'https://github.com/laravel/vue-starter-kit',
-		icon: Folder,
+		icon: FolderGit2,
 	},
 	{
 		title: 'Documentation',

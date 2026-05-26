@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
 import { Eye, EyeOff, LockKeyhole, RefreshCw } from 'lucide-vue-next';
-import { nextTick, onMounted, ref } from 'vue';
+import { nextTick, onMounted, ref, useTemplateRef } from 'vue';
 
 import AlertError from '@/components/AlertError.vue';
 import { Button } from '@/components/ui/button';
@@ -11,7 +11,7 @@ import { regenerateRecoveryCodes } from '@/routes/two-factor';
 
 const { recoveryCodesList, errors, fetchRecoveryCodes } = useTwoFactorAuth();
 const isRecoveryCodesVisible = ref<boolean>(false);
-const recoveryCodeSectionRef = ref<HTMLDivElement | null>(null);
+const recoveryCodeSectionRef = useTemplateRef('recoveryCodeSectionRef');
 
 const regenerateForm = useForm({});
 
@@ -45,7 +45,7 @@ onMounted(async () => {
 <template>
     <Card>
         <CardHeader>
-            <CardTitle class="flex gap-3"> <LockKeyhole class="size-4" />2FA Recovery Codes </CardTitle>
+            <CardTitle class="flex gap-3"> <LockKeyhole class="size-4" />2FA recovery codes </CardTitle>
             <CardDescription>
                 Recovery codes let you regain access if you lose your 2FA device. Store them in a secure password manager.
             </CardDescription>
@@ -56,11 +56,11 @@ onMounted(async () => {
             <div class="flex flex-col gap-3 select-none sm:flex-row sm:items-center sm:justify-between">
                 <Button @click="toggleRecoveryCodesVisibility" class="w-fit">
                     <component :is="isRecoveryCodesVisible ? EyeOff : Eye" class="size-4" />
-                    {{ isRecoveryCodesVisible ? 'Hide' : 'View' }} Recovery Codes
+                    {{ isRecoveryCodesVisible ? 'Hide' : 'View' }} recovery codes
                 </Button>
 
                 <form @submit.prevent="regenerate" v-if="isRecoveryCodesVisible">
-                    <Button variant="secondary" type="submit" :disabled="regenerateForm.processing"> <RefreshCw /> Regenerate Codes </Button>
+                    <Button variant="secondary" type="submit" :disabled="regenerateForm.processing"> <RefreshCw /> Regenerate codes </Button>
                 </form>
             </div>
             <div :class="['relative overflow-hidden transition-all duration-300', isRecoveryCodesVisible ? 'h-auto opacity-100' : 'h-0 opacity-0']">
@@ -75,7 +75,7 @@ onMounted(async () => {
                     </div>
                     <p class="text-xs text-muted-foreground select-none">
                         Each recovery code can be used once to access your account and will be removed after use. If you need more, click
-                        <span class="font-bold">Regenerate Codes</span> above.
+                        <span class="font-bold">Regenerate codes</span> above.
                     </p>
                 </div>
             </div>

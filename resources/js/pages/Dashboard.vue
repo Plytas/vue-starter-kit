@@ -2,12 +2,11 @@
 import { Head, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
+import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard } from '@/routes';
 import type { BreadcrumbItem } from '@/types';
 import type { Team } from '@/types/generated';
-
-import PlaceholderPattern from '../components/PlaceholderPattern.vue';
 
 const page = usePage();
 const currentTeam = computed(() => page.props.currentTeam as Team | null);

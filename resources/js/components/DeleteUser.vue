@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3';
-import { nextTick, ref } from 'vue';
+import { nextTick, useTemplateRef } from 'vue';
 
 // Components
-import HeadingSmall from '@/components/HeadingSmall.vue';
+import Heading from '@/components/Heading.vue';
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import { Button } from '@/components/ui/button';
@@ -21,7 +21,7 @@ import { Label } from '@/components/ui/label';
 import { destroy } from '@/routes/profile';
 import { DeleteUserRequest } from '@/types/generated';
 
-const passwordInput = ref<{ focus: () => void } | null>(null);
+const passwordInput = useTemplateRef('passwordInput');
 
 const form = useForm<DeleteUserRequest>({
 	password: '',
@@ -48,7 +48,7 @@ const closeModal = () => {
 
 <template>
 	<div class="space-y-6">
-		<HeadingSmall title="Delete account" description="Delete your account and all of its resources" />
+		<Heading variant="small" title="Delete account" description="Delete your account and all of its resources" />
 		<div class="space-y-4 rounded-lg border border-red-100 bg-red-50 p-4 dark:border-red-200/10 dark:bg-red-700/10">
 			<div class="relative space-y-0.5 text-red-600 dark:text-red-100">
 				<p class="font-medium">Warning</p>

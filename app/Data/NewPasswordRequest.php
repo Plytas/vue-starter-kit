@@ -2,8 +2,8 @@
 
 namespace App\Data;
 
+use App\Concerns\PasswordValidationRules;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Password;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
@@ -11,6 +11,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 #[TypeScript]
 class NewPasswordRequest extends Data
 {
+	use PasswordValidationRules;
+
 	public function __construct(
 		public string $token,
 		public string $email,
@@ -28,7 +30,7 @@ class NewPasswordRequest extends Data
 		return [
 			'token' => ['required'],
 			'email' => ['required', Rule::email()],
-			'password' => ['required', 'confirmed', Password::defaults()],
+			'password' => static::passwordRules(),
 		];
 	}
 }
