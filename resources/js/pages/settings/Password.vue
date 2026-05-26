@@ -2,7 +2,7 @@
 import { Head, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
-import HeadingSmall from '@/components/HeadingSmall.vue';
+import Heading from '@/components/Heading.vue';
 import InputError from '@/components/InputError.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import { Button } from '@/components/ui/button';
@@ -54,7 +54,7 @@ const updatePassword = () => {
 
 		<SettingsLayout>
 			<div class="space-y-6">
-				<HeadingSmall title="Update password" description="Ensure your account is using a long, random password to stay secure" />
+				<Heading variant="small" title="Update password" description="Ensure your account is using a long, random password to stay secure" />
 
 				<form @submit.prevent="updatePassword" class="space-y-6">
 					<div class="grid gap-2">

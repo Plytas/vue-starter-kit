@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
+import { Fingerprint, KeyRound, Palette, ShieldCheck, User } from 'lucide-vue-next';
 
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
@@ -11,22 +12,27 @@ const sidebarNavItems: NavItem[] = [
 	{
 		title: 'Profile',
 		href: '/settings/profile',
+		icon: User,
 	},
 	{
 		title: 'Password',
 		href: '/settings/password',
+		icon: KeyRound,
 	},
 	{
-		title: 'Two-Factor Auth',
+		title: 'Two-factor auth',
 		href: '/settings/two-factor',
+		icon: ShieldCheck,
 	},
 	{
 		title: 'Passkey',
 		href: '/settings/passkey',
+		icon: Fingerprint,
 	},
 	{
 		title: 'Appearance',
 		href: '/settings/appearance',
+		icon: Palette,
 	},
 ];
 
@@ -49,7 +55,7 @@ const currentPath = page.url;
 						:class="['w-full justify-start', { 'bg-muted': urlIsActive(item.href, currentPath) }]"
 						as-child
 					>
-						<Link :href="item.href">{{ item.title }}</Link>
+						<Link :href="item.href"><component :is="item.icon" class="h-4 w-4" />{{ item.title }}</Link>
 					</Button>
 				</nav>
 			</aside>
