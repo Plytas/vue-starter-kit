@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
 
 import DeleteUser from '@/components/DeleteUser.vue';
 import Heading from '@/components/Heading.vue';
@@ -24,11 +25,11 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const page = usePage();
-const user = page.props.auth.user!;
+const user = computed(() => page.props.auth.user!);
 
 const form = useForm<ProfileUpdateRequest>({
-	name: user.name,
-	email: user.email,
+	name: user.value.name,
+	email: user.value.email,
 });
 
 const submit = () => {

@@ -11,72 +11,72 @@ const errors = ref<string[]>([]);
 const hasSetupData = computed<boolean>(() => qrCodeSvg.value !== null && manualSetupKey.value !== null);
 
 export const useTwoFactorAuth = () => {
-    const clearErrors = (): void => {
-        errors.value = [];
-    };
+	const clearErrors = (): void => {
+		errors.value = [];
+	};
 
-    const fetchQrCode = async (): Promise<void> => {
-        try {
-            const { svg } = await useHttp<Record<string, never>, { svg: string; url: string }>().submit(qrCode());
+	const fetchQrCode = async (): Promise<void> => {
+		try {
+			const { svg } = await useHttp<Record<string, never>, { svg: string; url: string }>().submit(qrCode());
 
-            qrCodeSvg.value = svg;
-        } catch {
-            errors.value.push('Failed to fetch QR code');
-        }
-    };
+			qrCodeSvg.value = svg;
+		} catch {
+			errors.value.push('Failed to fetch QR code');
+		}
+	};
 
-    const fetchSetupKey = async (): Promise<void> => {
-        try {
-            const { secretKey: key } = await useHttp<Record<string, never>, { secretKey: string }>().submit(secretKey());
+	const fetchSetupKey = async (): Promise<void> => {
+		try {
+			const { secretKey: key } = await useHttp<Record<string, never>, { secretKey: string }>().submit(secretKey());
 
-            manualSetupKey.value = key;
-        } catch {
-            errors.value.push('Failed to fetch a setup key');
-        }
-    };
+			manualSetupKey.value = key;
+		} catch {
+			errors.value.push('Failed to fetch a setup key');
+		}
+	};
 
-    const clearSetupData = (): void => {
-        manualSetupKey.value = null;
-        qrCodeSvg.value = null;
-        clearErrors();
-    };
+	const clearSetupData = (): void => {
+		manualSetupKey.value = null;
+		qrCodeSvg.value = null;
+		clearErrors();
+	};
 
-    const clearTwoFactorAuthData = (): void => {
-        clearSetupData();
+	const clearTwoFactorAuthData = (): void => {
+		clearSetupData();
 
-        recoveryCodesList.value = [];
-    };
+		recoveryCodesList.value = [];
+	};
 
-    const fetchRecoveryCodes = async (): Promise<void> => {
-        clearErrors();
+	const fetchRecoveryCodes = async (): Promise<void> => {
+		clearErrors();
 
-        try {
-            recoveryCodesList.value = await useHttp<Record<string, never>, string[]>().submit(recoveryCodes());
-        } catch {
-            errors.value.push('Failed to fetch recovery codes');
+		try {
+			recoveryCodesList.value = await useHttp<Record<string, never>, string[]>().submit(recoveryCodes());
+		} catch {
+			errors.value.push('Failed to fetch recovery codes');
 
-            recoveryCodesList.value = [];
-        }
-    };
+			recoveryCodesList.value = [];
+		}
+	};
 
-    const fetchSetupData = async (): Promise<void> => {
-        clearErrors();
+	const fetchSetupData = async (): Promise<void> => {
+		clearErrors();
 
-        await Promise.all([fetchQrCode(), fetchSetupKey()]);
-    };
+		await Promise.all([fetchQrCode(), fetchSetupKey()]);
+	};
 
-    return {
-        qrCodeSvg,
-        manualSetupKey,
-        recoveryCodesList,
-        errors,
-        hasSetupData,
-        clearSetupData,
-        clearErrors,
-        clearTwoFactorAuthData,
-        fetchQrCode,
-        fetchSetupKey,
-        fetchSetupData,
-        fetchRecoveryCodes,
-    };
+	return {
+		qrCodeSvg,
+		manualSetupKey,
+		recoveryCodesList,
+		errors,
+		hasSetupData,
+		clearSetupData,
+		clearErrors,
+		clearTwoFactorAuthData,
+		fetchQrCode,
+		fetchSetupKey,
+		fetchSetupData,
+		fetchRecoveryCodes,
+	};
 };

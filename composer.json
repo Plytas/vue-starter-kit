@@ -84,13 +84,20 @@
         "lint": [
             "php-cs-fixer fix --config=.php-cs-fixer.php"
         ],
-        "test:lint": [
+        "lint:check": [
             "php-cs-fixer fix --config=.php-cs-fixer.php --dry-run --diff"
         ],
         "test": [
             "@php artisan config:clear --ansi",
-            "@test:lint",
+            "@lint:check",
             "@php artisan test"
+        ],
+        "ci:check": [
+            "Composer\\Config::disableProcessTimeout",
+            "bun run lint:check",
+            "bun run format:check",
+            "bun run type:check",
+            "@test"
         ],
         "types": [
             "@php artisan typescript:transform"

@@ -5,7 +5,6 @@ use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Settings\TwoFactorAuthenticationController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::middleware('auth')->group(function (): void {
 	Route::redirect('settings', '/settings/profile');
@@ -31,7 +30,7 @@ Route::middleware('auth')->group(function (): void {
 		Route::post('settings/passkey', [PasskeyController::class, 'store'])->name('passkey.store');
 		Route::delete('settings/passkey/{passkey}', [PasskeyController::class, 'destroy'])->name('passkey.destroy');
 
-		Route::get('settings/appearance', fn() => Inertia::render('settings/Appearance'))->name('appearance.edit');
+		Route::inertia('settings/appearance', 'settings/Appearance')->name('appearance.edit');
 
 		Route::get('settings/two-factor', [TwoFactorAuthenticationController::class, 'show'])
 			->name('two-factor.show');

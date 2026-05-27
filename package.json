@@ -10,7 +10,9 @@
 		"format": "prettier --write resources/",
 		"format:check": "prettier --check resources/",
 		"lint": "oxlint --fix && eslint . --fix",
-		"type:check": "vue-tsc --noEmit"
+		"lint:check": "oxlint && eslint .",
+		"type:check": "vue-tsc --noEmit",
+		"types:check": "vue-tsc --noEmit"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",
@@ -26,7 +28,6 @@
 		"minimatch": "^10.2.5",
 		"oxlint": "^1.65.0",
 		"prettier": "^3.8.3",
-		"prettier-plugin-organize-imports": "^4.3.0",
 		"prettier-plugin-tailwindcss": "^0.6.14",
 		"typescript-eslint": "^8.59.3",
 		"vite-plugin-vue-devtools": "^8.1.2",

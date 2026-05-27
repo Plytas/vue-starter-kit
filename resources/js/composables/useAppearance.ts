@@ -63,8 +63,7 @@ export function initializeTheme() {
 	mediaQuery()?.addEventListener('change', handleSystemThemeChange);
 }
 
-const prefersDark = (): boolean =>
-	typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const prefersDark = (): boolean => typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 const appearance = ref<Appearance>('system');
 
