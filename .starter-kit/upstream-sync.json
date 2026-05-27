@@ -2648,7 +2648,44 @@
                     "confidence": "high",
                     "adaptationNotes": "Chunk 13: applied PHP 8.5 Pdo\\Mysql::ATTR_SSL_CA ternary in config/database.php (2 occurrences) + session.php comment fix",
                     "backportedAt": "2026-05-27T15:24:35+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:23:59+00:00",
+                            "mergedAt": "2026-05-27T18:30:24+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:23:59+00:00",
+                            "mergedAt": "2026-05-27T18:30:24+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:23:59+00:00",
+                            "mergedAt": "2026-05-27T18:30:24+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:25+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:25+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2723,7 +2760,44 @@
                     "confidence": "high",
                     "adaptationNotes": "Chunk 13: no-op — DB_SSLMODE env + filesystem rtrim already absorbed",
                     "backportedAt": "2026-05-27T15:24:35+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:26+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:26+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:27+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:27+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:28+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3863,7 +3937,44 @@
                     "confidence": "high",
                     "adaptationNotes": "Chunk 13: applied tests.yml 'Checkout code' step label only; queue --timeout=0, APP_URL default, cache index already absorbed",
                     "backportedAt": "2026-05-27T15:24:35+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:28+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:29+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:30+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4751,7 +4862,44 @@
                     "confidence": "high",
                     "adaptationNotes": "Chunk 13: no-op — phpunit (fork ahead at ^12.5.23), mail APP_NAME fallback, DB_URL all absorbed; jobs composite index net-no-op with #328",
                     "backportedAt": "2026-05-27T15:24:36+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:30+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:31+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:31+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:32+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:32+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4978,7 +5126,44 @@
                     "confidence": "high",
                     "adaptationNotes": "Chunk 13: no-op — slack APP_NAME fallback absorbed; jobs revert net-no-op with #316",
                     "backportedAt": "2026-05-27T15:24:36+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:33+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:34+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:03+00:00",
+                            "mergedAt": "2026-05-27T18:30:34+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:03+00:00",
+                            "mergedAt": "2026-05-27T18:30:35+00:00"
+                        }
+                    }
                 }
             }
         },
