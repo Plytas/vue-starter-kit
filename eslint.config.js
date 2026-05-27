@@ -34,6 +34,7 @@ export default defineConfigWithVueTs(
 						{ pattern: '@/actions/**', group: 'internal' },
 						{ pattern: '@/routes', group: 'internal' },
 						{ pattern: '@/routes/**', group: 'internal' },
+						{ pattern: '@/types/generated', group: 'internal' },
 					],
 					'newlines-between': 'always',
 					alphabetize: { order: 'asc', caseInsensitive: true },
