@@ -5250,6 +5250,74 @@
                     "reason": "Fork already has bunfig.toml + trustedDependencies: [] (Step 0 bun hardening)"
                 }
             }
+        },
+        "commit:d65a847": {
+            "title": "Fix push-kit-changes workflow permission error",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "d65a847",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/d65a847",
+                    "mergedAt": "2026-03-19T12:00:52Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Push-kit-bot noise; fork has its own CI/propagation flow"
+                }
+            }
+        },
+        "commit:3e7764a": {
+            "title": "Fix permission-only check discarding blank line changes",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "3e7764a",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/3e7764a",
+                    "mergedAt": "2026-03-25T18:41:23Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Push-kit-bot noise; not applicable to fork"
+                }
+            }
+        },
+        "commit:d07d1e7": {
+            "title": "Update contributing docs to point to Maestro",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "d07d1e7",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/d07d1e7",
+                    "mergedAt": "2026-04-02T15:56:34Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Upstream contributing docs point to Maestro; fork keeps its own flow"
+                }
+            }
+        },
+        "commit:4ac526d": {
+            "title": "Update push-kit-changes.yml",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "4ac526d",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/4ac526d",
+                    "mergedAt": "2026-05-14T18:55:43Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Upstream push-kit-changes.yml; fork uses its own propagation"
+                }
+            }
         }
     }
 }

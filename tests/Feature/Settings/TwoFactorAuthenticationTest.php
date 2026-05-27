@@ -28,7 +28,7 @@ test('two factor settings page can be rendered', function (): void {
 			fn(Assert $page) => $page
 			->component('settings/TwoFactor')
 			->where('twoFactorEnabled', false)
-			->where('requiresConfirmation', true)
+			->where('requiresConfirmation', true),
 		);
 });
 
@@ -62,7 +62,7 @@ test('two factor settings page does not require password confirmation when disab
 		->assertOk()
 		->assertInertia(
 			fn(Assert $page) => $page
-			->component('settings/TwoFactor')
+			->component('settings/TwoFactor'),
 		);
 });
 

@@ -19,8 +19,6 @@ import { authentication_options, login } from '@/routes/passkeys';
 import { request } from '@/routes/password';
 import { LoginProps, LoginRequest } from '@/types/generated';
 
-
-
 defineProps<LoginProps>();
 
 const passkeyForm = useForm('passkey', {});
