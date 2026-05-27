@@ -22,7 +22,7 @@ import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { destroy, registerOptions, store } from '@/routes/passkey';
+import { destroy, edit as editPasskey, registerOptions, store } from '@/routes/passkey';
 import type { BreadcrumbItem } from '@/types';
 import type { PasskeyProp, PasskeyProps, PasskeyRegistrationOptionsRequest, StorePasskeyRequest } from '@/types/generated';
 
@@ -31,7 +31,7 @@ defineProps<PasskeyProps>();
 const breadcrumbItems: BreadcrumbItem[] = [
 	{
 		title: 'Passkey settings',
-		href: '/settings/passkey',
+		href: editPasskey(),
 	},
 ];
 
@@ -50,6 +50,7 @@ const storePasskey = async () => {
 
 	if (response.status === 422) {
 		form.setError('name', options.errors.name[0]);
+
 		return;
 	}
 

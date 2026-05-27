@@ -9,14 +9,14 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { update } from '@/routes/user-password';
+import { edit, update } from '@/routes/user-password';
 import type { BreadcrumbItem } from '@/types';
 import type { PasswordUpdateRequest } from '@/types/generated';
 
 const breadcrumbItems: BreadcrumbItem[] = [
 	{
 		title: 'Password settings',
-		href: '/settings/password',
+		href: edit(),
 	},
 ];
 

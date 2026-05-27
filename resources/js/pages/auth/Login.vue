@@ -17,7 +17,7 @@ import AuthBase from '@/layouts/AuthLayout.vue';
 import { register } from '@/routes';
 import { authentication_options, login } from '@/routes/passkeys';
 import { request } from '@/routes/password';
-import { LoginProps, LoginRequest } from '@/types/generated';
+import type { LoginProps, LoginRequest } from '@/types/generated';
 
 defineProps<LoginProps>();
 

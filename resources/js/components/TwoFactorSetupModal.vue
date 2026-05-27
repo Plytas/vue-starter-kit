@@ -13,11 +13,12 @@ import { Spinner } from '@/components/ui/spinner';
 import { useAppearance } from '@/composables/useAppearance';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
+import type { TwoFactorConfigContent } from '@/types';
 
-interface Props {
+type Props = {
 	requiresConfirmation: boolean;
 	twoFactorEnabled: boolean;
-}
+};
 
 const props = defineProps<Props>();
 const isOpen = defineModel<boolean>('isOpen');
@@ -48,7 +49,7 @@ const submitConfirm = () => {
 	});
 };
 
-const modalConfig = computed<{ title: string; description: string; buttonText: string }>(() => {
+const modalConfig = computed<TwoFactorConfigContent>(() => {
 	if (props.twoFactorEnabled) {
 		return {
 			title: 'Two-factor authentication enabled',
@@ -97,6 +98,7 @@ watch(
 	async (isOpen) => {
 		if (!isOpen) {
 			resetModalState();
+
 			return;
 		}
 

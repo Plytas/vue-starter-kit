@@ -3,9 +3,9 @@ import { usePage } from '@inertiajs/vue3';
 
 import { SidebarProvider } from '@/components/ui/sidebar';
 
-interface Props {
+type Props = {
 	variant?: 'header' | 'sidebar';
-}
+};
 
 withDefaults(defineProps<Props>(), {
 	variant: 'sidebar',

@@ -1,9 +1,17 @@
 import { computed, onMounted, ref } from 'vue';
+import type { ComputedRef, Ref } from 'vue';
 
-export type ResolvedAppearance = 'light' | 'dark';
-type Appearance = ResolvedAppearance | 'system';
+import type { Appearance, ResolvedAppearance } from '@/types';
 
-export function updateTheme(value: Appearance) {
+export type { Appearance, ResolvedAppearance };
+
+export type UseAppearanceReturn = {
+	appearance: Ref<Appearance>;
+	resolvedAppearance: ComputedRef<ResolvedAppearance>;
+	updateAppearance: (value: Appearance) => void;
+};
+
+export function updateTheme(value: Appearance): void {
 	if (typeof window === 'undefined') {
 		return;
 	}
@@ -50,7 +58,7 @@ const handleSystemThemeChange = () => {
 	updateTheme(currentAppearance || 'system');
 };
 
-export function initializeTheme() {
+export function initializeTheme(): void {
 	if (typeof window === 'undefined') {
 		return;
 	}
@@ -67,7 +75,7 @@ const prefersDark = (): boolean => typeof window !== 'undefined' && window.match
 
 const appearance = ref<Appearance>('system');
 
-export function useAppearance() {
+export function useAppearance(): UseAppearanceReturn {
 	onMounted(() => {
 		const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
 
@@ -84,7 +92,7 @@ export function useAppearance() {
 		return prefersDark() ? 'dark' : 'light';
 	});
 
-	function updateAppearance(value: Appearance) {
+	function updateAppearance(value: Appearance): void {
 		appearance.value = value;
 
 		// Store in localStorage for client-side persistence...

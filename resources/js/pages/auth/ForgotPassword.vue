@@ -10,7 +10,7 @@ import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { email } from '@/routes/password';
-import { ForgotPasswordProps, PasswordResetLinkRequest } from '@/types/generated';
+import type { ForgotPasswordProps, PasswordResetLinkRequest } from '@/types/generated';
 
 defineProps<ForgotPasswordProps>();
 
