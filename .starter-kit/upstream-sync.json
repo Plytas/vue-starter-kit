@@ -3,7 +3,7 @@
     "upstream": "laravel/vue-starter-kit",
     "upstreamWatermarks": {
         "main": {
-            "lastCheckedAt": "2026-05-27T09:09:55+00:00",
+            "lastCheckedAt": "2026-05-27T15:24:36+00:00",
             "lastCheckedSha": "aa69794"
         },
         "teams": {
@@ -2644,9 +2644,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "PHP 8.5 compatibility for PDO::MYSQL_ATTR_SSL_CA constant. Simple config change."
+                    "adaptationNotes": "Chunk 13: applied PHP 8.5 Pdo\\Mysql::ATTR_SSL_CA ternary in config/database.php (2 occurrences) + session.php comment fix",
+                    "backportedAt": "2026-05-27T15:24:35+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
                 }
             }
         },
@@ -2717,9 +2719,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Config improvements: makes DB_SSLMODE configurable via env, fixes public disk URL trailing slash issue."
+                    "adaptationNotes": "Chunk 13: no-op — DB_SSLMODE env + filesystem rtrim already absorbed",
+                    "backportedAt": "2026-05-27T15:24:35+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
                 }
             }
         },
@@ -3855,9 +3859,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Laravel skeleton sync: GitHub Actions v6, queue --timeout=0, APP_URL default, migrations updates."
+                    "adaptationNotes": "Chunk 13: applied tests.yml 'Checkout code' step label only; queue --timeout=0, APP_URL default, cache index already absorbed",
+                    "backportedAt": "2026-05-27T15:24:35+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
                 }
             }
         },
@@ -4741,9 +4747,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Syncs changes from Laravel skeleton (drift). Review for config/dependency updates."
+                    "adaptationNotes": "Chunk 13: no-op — phpunit (fork ahead at ^12.5.23), mail APP_NAME fallback, DB_URL all absorbed; jobs composite index net-no-op with #328",
+                    "backportedAt": "2026-05-27T15:24:36+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
                 }
             }
         },
@@ -4966,9 +4974,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Skeleton v12.12.2 drift: logging username fallback to APP_NAME. Commit b634812."
+                    "adaptationNotes": "Chunk 13: no-op — slack APP_NAME fallback absorbed; jobs revert net-no-op with #316",
+                    "backportedAt": "2026-05-27T15:24:36+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29"
                 }
             }
         },
