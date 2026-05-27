@@ -1,4 +1,4 @@
-import { SharedProps } from '@/types/generated';
+import type { SharedProps } from '@/types/generated';
 
 declare module 'vite/client' {
 	interface ImportMetaEnv {
@@ -13,7 +13,9 @@ declare module 'vite/client' {
 }
 
 declare module '@inertiajs/core' {
-	interface PageProps extends InertiaPageProps, SharedProps {}
+	export interface InertiaConfig {
+		sharedPageProps: SharedProps;
+	}
 }
 
 declare module 'vue' {

@@ -13,14 +13,16 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuList, navigationMenuT
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import UserMenuContent from '@/components/UserMenuContent.vue';
+import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { getInitials } from '@/composables/useInitials';
+import { toUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import type { BreadcrumbItem, NavItem } from '@/types';
-import { User } from '@/types/generated';
+import type { User } from '@/types/generated';
 
-interface Props {
+type Props = {
 	breadcrumbs?: BreadcrumbItem[];
-}
+};
 
 const props = withDefaults(defineProps<Props>(), {
 	breadcrumbs: () => [],
@@ -29,16 +31,14 @@ const props = withDefaults(defineProps<Props>(), {
 const page = usePage();
 const user = computed(() => page.props.auth.user as User);
 
-const isCurrentRoute = computed(() => (url: string) => page.url === url);
+const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
 
-const activeItemStyles = computed(
-	() => (url: string) => (isCurrentRoute.value(url) ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100' : ''),
-);
+const activeItemStyles = 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100';
 
 const mainNavItems: NavItem[] = [
 	{
 		title: 'Dashboard',
-		href: '/dashboard',
+		href: dashboard(),
 		icon: LayoutGrid,
 	},
 ];
@@ -81,7 +81,7 @@ const rightNavItems: NavItem[] = [
 										:key="item.title"
 										:href="item.href"
 										class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
-										:class="activeItemStyles(item.href)"
+										:class="whenCurrentUrl(item.href, activeItemStyles)"
 									>
 										<component v-if="item.icon" :is="item.icon" class="h-5 w-5" />
 										{{ item.title }}
@@ -91,7 +91,7 @@ const rightNavItems: NavItem[] = [
 									<a
 										v-for="item in rightNavItems"
 										:key="item.title"
-										:href="item.href"
+										:href="toUrl(item.href)"
 										target="_blank"
 										rel="noopener noreferrer"
 										class="flex items-center space-x-2 text-sm font-medium"
@@ -116,13 +116,13 @@ const rightNavItems: NavItem[] = [
 							<NavigationMenuItem v-for="(item, index) in mainNavItems" :key="index" class="relative flex h-full items-center">
 								<Link
 									:href="item.href"
-									:class="[navigationMenuTriggerStyle(), activeItemStyles(item.href), 'h-9 cursor-pointer px-3']"
+									:class="[navigationMenuTriggerStyle(), whenCurrentUrl(item.href, activeItemStyles), 'h-9 cursor-pointer px-3']"
 								>
 									<component v-if="item.icon" :is="item.icon" class="mr-2 h-4 w-4" />
 									{{ item.title }}
 								</Link>
 								<div
-									v-if="isCurrentRoute(item.href)"
+									v-if="isCurrentUrl(item.href)"
 									class="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"
 								></div>
 							</NavigationMenuItem>
@@ -142,7 +142,7 @@ const rightNavItems: NavItem[] = [
 									<Tooltip>
 										<TooltipTrigger>
 											<Button variant="ghost" size="icon" as-child class="group h-9 w-9 cursor-pointer">
-												<a :href="item.href" target="_blank" rel="noopener noreferrer">
+												<a :href="toUrl(item.href)" target="_blank" rel="noopener noreferrer">
 													<span class="sr-only">{{ item.title }}</span>
 													<component :is="item.icon" class="size-5 opacity-80 group-hover:opacity-100" />
 												</a>

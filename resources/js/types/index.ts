@@ -1,16 +1,5 @@
-import type { LucideIcon } from 'lucide-vue-next';
-
-export interface BreadcrumbItem {
-	title: string;
-	href: string;
-}
-
-export interface NavItem {
-	title: string;
-	href: string;
-	icon?: LucideIcon;
-	isActive?: boolean;
-}
+export * from './navigation';
+export * from './ui';
 
 export interface PaginatedResult<T> {
 	data: T[];

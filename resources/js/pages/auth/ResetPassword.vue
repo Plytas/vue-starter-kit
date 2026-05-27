@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { update } from '@/routes/password';
-import { NewPasswordRequest, ResetPasswordProps } from '@/types/generated';
+import type { NewPasswordRequest, ResetPasswordProps } from '@/types/generated';
 
 const props = defineProps<ResetPasswordProps>();
 

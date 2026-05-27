@@ -2,7 +2,7 @@
 import { Head, Link, usePage } from '@inertiajs/vue3';
 
 import { dashboard, login, register } from '@/routes';
-import { WelcomeProps } from '@/types/generated';
+import type { WelcomeProps } from '@/types/generated';
 
 defineProps<WelcomeProps>();
 

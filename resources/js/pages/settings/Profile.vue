@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { update } from '@/routes/profile';
+import { edit, update } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import type { BreadcrumbItem } from '@/types';
 import type { ProfileProps, ProfileUpdateRequest } from '@/types/generated';
@@ -20,7 +20,7 @@ defineProps<ProfileProps>();
 const breadcrumbs: BreadcrumbItem[] = [
 	{
 		title: 'Profile settings',
-		href: '/settings/profile',
+		href: edit(),
 	},
 ];
 

@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { destroy } from '@/routes/profile';
-import { DeleteUserRequest } from '@/types/generated';
+import type { DeleteUserRequest } from '@/types/generated';
 
 const passwordInput = useTemplateRef('passwordInput');
 

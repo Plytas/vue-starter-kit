@@ -3,7 +3,7 @@ import osPath from 'path';
 import { promisify } from 'util';
 
 import { minimatch } from 'minimatch';
-import { HmrContext, Plugin, Rollup } from 'vite';
+import type { HmrContext, Plugin, Rollup } from 'vite';
 
 const execAsync = promisify(exec);
 
@@ -36,6 +36,7 @@ export const transformer = ({
 		buildStart() {
 			// oxlint-disable-next-line no-this-alias
 			context = this;
+
 			return runCommand();
 		},
 		async handleHotUpdate({ file, server }) {

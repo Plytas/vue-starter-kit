@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { disable, enable } from '@/routes/two-factor';
+import { disable, enable, show } from '@/routes/two-factor';
 import type { BreadcrumbItem } from '@/types';
 import type { TwoFactorProps } from '@/types/generated';
 
@@ -20,7 +20,7 @@ defineProps<TwoFactorProps>();
 const breadcrumbs: BreadcrumbItem[] = [
 	{
 		title: 'Two-Factor Authentication',
-		href: '/settings/two-factor',
+		href: show(),
 	},
 ];
 
