@@ -6406,8 +6406,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "skipped",
-                    "reason": "N/A — fork uses Spatie; full migration to Laravel passkeys is a separate workstream (see passkeys plan scratchpad)"
+                    "status": "backported",
+                    "reason": "Chunk 18 — PR #33 (Spatie → Laravel passkeys migration; data loss accepted)",
+                    "backportedAt": "2026-05-28T18:59:48+00:00"
                 }
             }
         },
