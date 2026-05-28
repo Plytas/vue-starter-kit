@@ -5454,9 +5454,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Laravel 13 upgrade: composer bumps, cache.serializable_classes, session.serialization, User #[Hidden] attribute, migrations (bigInteger expiration, smallInteger attempts). Commits 6c2db5e, 1233a92, 5723d46."
+                    "adaptationNotes": "Functional bits absorbed into Chunk 1 (deaaa90); only Welcome.vue logo backported standalone. #[Fillable] omitted (fork uses spatie/laravel-data).",
+                    "backportedAt": "2026-05-28T14:07:42+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/32"
                 }
             }
         },
@@ -5530,7 +5532,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5547,7 +5552,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5564,7 +5572,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5581,7 +5592,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5598,7 +5612,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5615,7 +5632,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5632,7 +5652,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5649,7 +5672,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5666,7 +5692,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5683,7 +5712,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5700,7 +5732,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5717,7 +5752,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
