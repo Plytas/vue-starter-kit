@@ -5340,10 +5340,46 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "duplicate — WorkOS variant",
                     "confidence": "medium",
-                    "adaptationNotes": "Contains the complete consolidation diff (12 files, +400/-477). Paired with #324 which is a 2-file subset (same deletions). Backporting #325 alone covers #324."
+                    "adaptationNotes": "Contains the complete consolidation diff (12 files, +400/-477). Paired with #324 which is a 2-file subset (same deletions). Backporting #325 alone covers #324.",
+                    "backportedAt": "2026-05-28T09:01:28+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/31",
+                    "downstreamPrs": {
+                        "joymobile": {
+                            "status": "skipped",
+                            "reason": "No kit Settings layer in this downstream — no Settings/* controllers, no resources/js/layouts/settings/, no routes/settings.php. Chunk 16 (Settings page consolidation) is a structural no-op here."
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 27,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/27",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 27,
+                            "url": "https://github.com/Plytas/joy/pull/27",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 311,
+                            "url": "https://github.com/Plytas/katsch/pull/311",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 265,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/265",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        }
+                    }
                 }
             }
         },
