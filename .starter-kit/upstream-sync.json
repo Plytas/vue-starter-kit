@@ -3,8 +3,8 @@
     "upstream": "laravel/vue-starter-kit",
     "upstreamWatermarks": {
         "main": {
-            "lastCheckedAt": "2026-05-27T15:24:36+00:00",
-            "lastCheckedSha": "aa69794"
+            "lastCheckedAt": "2026-05-28T19:16:28+00:00",
+            "lastCheckedSha": "c3f6023e419fb1ce8c18df58c8fb1e3a36e1cf57"
         },
         "teams": {
             "lastCheckedAt": "2026-05-24T13:34:35+00:00",
