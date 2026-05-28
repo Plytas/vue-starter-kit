@@ -5,6 +5,7 @@ import { onUnmounted, ref } from 'vue';
 
 import Heading from '@/components/Heading.vue';
 import InputError from '@/components/InputError.vue';
+import ManagePasskeys from '@/components/ManagePasskeys.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import TwoFactorRecoveryCodes from '@/components/TwoFactorRecoveryCodes.vue';
 import TwoFactorSetupModal from '@/components/TwoFactorSetupModal.vue';
@@ -17,18 +18,22 @@ import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit, update } from '@/routes/security';
 import { disable, enable } from '@/routes/two-factor';
 import type { BreadcrumbItem } from '@/types';
-import type { PasswordUpdateRequest } from '@/types/generated';
+import type { PasskeyView, PasswordUpdateRequest } from '@/types/generated';
 
 type Props = {
 	canManageTwoFactor?: boolean;
 	requiresConfirmation?: boolean;
 	twoFactorEnabled?: boolean;
+	canManagePasskeys?: boolean;
+	passkeys?: PasskeyView[];
 };
 
 withDefaults(defineProps<Props>(), {
 	canManageTwoFactor: false,
 	requiresConfirmation: false,
 	twoFactorEnabled: false,
+	canManagePasskeys: false,
+	passkeys: () => [],
 });
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -189,6 +194,8 @@ onUnmounted(() => {
 					:twoFactorEnabled="twoFactorEnabled"
 				/>
 			</div>
+
+			<ManagePasskeys :canManagePasskeys="canManagePasskeys" :passkeys="passkeys" />
 		</SettingsLayout>
 	</AppLayout>
 </template>

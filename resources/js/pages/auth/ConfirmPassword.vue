@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3';
 
+import { index as confirmOptions, store as confirmStore } from '@/actions/Laravel/Passkeys/Http/Controllers/PasskeyConfirmationController';
 import InputError from '@/components/InputError.vue';
+import PasskeyVerify from '@/components/PasskeyVerify.vue';
 import PasswordInput from '@/components/PasswordInput.vue';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -26,6 +28,13 @@ const submit = () => {
 <template>
 	<AuthLayout title="Confirm your password" description="This is a secure area of the application. Please confirm your password before continuing.">
 		<Head title="Confirm password" />
+
+		<PasskeyVerify
+			:routes="{ options: confirmOptions(), submit: confirmStore() }"
+			label="Confirm with passkey"
+			loading-label="Confirming..."
+			separator="Or confirm with password"
+		/>
 
 		<form @submit.prevent="submit">
 			<div class="space-y-6">

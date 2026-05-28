@@ -22,7 +22,9 @@ test('security page is displayed', function (): void {
 			fn(Assert $page) => $page
 			->component('settings/Security')
 			->where('canManageTwoFactor', true)
-			->where('twoFactorEnabled', false),
+			->where('twoFactorEnabled', false)
+			->where('canManagePasskeys', true)
+			->where('passkeys', []),
 		);
 });
 
@@ -73,7 +75,9 @@ test('security page renders without two factor when feature is disabled', functi
 			->component('settings/Security')
 			->where('canManageTwoFactor', false)
 			->missing('twoFactorEnabled')
-			->missing('requiresConfirmation'),
+			->missing('requiresConfirmation')
+			->where('canManagePasskeys', false)
+			->where('passkeys', []),
 		);
 });
 
