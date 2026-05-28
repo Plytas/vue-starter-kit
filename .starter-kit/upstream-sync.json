@@ -3744,9 +3744,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "skipped",
                     "confidence": "high",
-                    "adaptationNotes": "Adds security/safety defaults: CarbonImmutable, DB::prohibitDestructiveCommands, Password::defaults. Important production safety improvements."
+                    "adaptationNotes": "Adds security/safety defaults: CarbonImmutable, DB::prohibitDestructiveCommands, Password::defaults. Important production safety improvements.",
+                    "reason": "Covered by nunomaduro/essentials ^1.2 defaults — ImmutableDates (Date::use CarbonImmutable), ProhibitDestructiveCommands, SetDefaultPassword (Password::defaults prod-only min(12)/letters/mixedCase/numbers/symbols/uncompromised) all enabled by default. Verified vendor/nunomaduro/essentials/src/Configurables/{ImmutableDates,ProhibitDestructiveCommands,SetDefaultPassword}.php."
                 }
             }
         },
@@ -3857,9 +3858,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Renames useActiveUrl to useCurrentUrl, adds whenCurrentUrl helper. Better naming and API."
+                    "adaptationNotes": "Renames useActiveUrl to useCurrentUrl, adds whenCurrentUrl helper. Better naming and API.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:14+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:00+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:56+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:08+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3914,9 +3954,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Changes interface to type, enforces type imports, reorders imports. TypeScript best practices."
+                    "adaptationNotes": "Changes interface to type, enforces type imports, reorders imports. TypeScript best practices.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:14+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:01+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:56+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4216,9 +4295,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "medium",
-                    "adaptationNotes": "IMPORTANT: Changes Inertia type augmentation to use InertiaConfig.sharedPageProps. Adds .npmrc for hoisting. Required for modern Inertia typing."
+                    "adaptationNotes": "IMPORTANT: Changes Inertia type augmentation to use InertiaConfig.sharedPageProps. Adds .npmrc for hoisting. Required for modern Inertia typing.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:01+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4459,9 +4577,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Improves breadcrumb types and usage patterns. Better type safety."
+                    "adaptationNotes": "Improves breadcrumb types and usage patterns. Better type safety.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:02+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -5010,9 +5167,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "ESLint config and code formatting updates."
+                    "adaptationNotes": "ESLint config and code formatting updates.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:02+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -5047,10 +5243,49 @@
             },
             "targets": {
                 "start": {
-                    "status": "skipped",
+                    "status": "backported",
                     "confidence": "high",
                     "adaptationNotes": "IMPORTANT: Fixes SSR crash when useCurrentUrl accesses window. Critical for SSR.",
-                    "reason": "fork has no useCurrentUrl composable; fork-local window usage already SSR-guarded"
+                    "reason": "fork has no useCurrentUrl composable; fork-local window usage already SSR-guarded",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:02+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -5085,9 +5320,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "skipped",
                     "confidence": "medium",
-                    "adaptationNotes": "MAJOR: Merges password and 2FA into single Security page. Requires Fortify integration. Backport after #176 and related 2FA PRs."
+                    "adaptationNotes": "MAJOR: Merges password and 2FA into single Security page. Requires Fortify integration. Backport after #176 and related 2FA PRs.",
+                    "reason": "Subset of #325 (paired commit, same title, only 2 of the 12 files). #325 contains the complete implementation including the new SecurityController, Security.vue, SecurityTest, route + layout updates. Backport #325 alone."
                 }
             }
         },
@@ -5104,8 +5340,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "skipped",
-                    "reason": "duplicate — WorkOS variant"
+                    "status": "pending",
+                    "reason": "duplicate — WorkOS variant",
+                    "confidence": "medium",
+                    "adaptationNotes": "Contains the complete consolidation diff (12 files, +400/-477). Paired with #324 which is a 2-file subset (same deletions). Backporting #325 alone covers #324."
                 }
             }
         },
