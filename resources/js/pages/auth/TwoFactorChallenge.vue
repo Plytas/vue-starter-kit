@@ -10,6 +10,9 @@ import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
 import type { TwoFactorConfigContent } from '@/types';
 
+const showRecoveryInput = ref<boolean>(false);
+const code = ref<string>('');
+
 const authConfigContent = computed<TwoFactorConfigContent>(() => {
 	if (showRecoveryInput.value) {
 		return {
@@ -26,14 +29,10 @@ const authConfigContent = computed<TwoFactorConfigContent>(() => {
 	};
 });
 
-const showRecoveryInput = ref<boolean>(false);
-
 const form = useForm({
 	code: '',
 	recovery_code: '',
 });
-
-const code = ref<string>('');
 
 const toggleRecoveryMode = (): void => {
 	showRecoveryInput.value = !showRecoveryInput.value;
