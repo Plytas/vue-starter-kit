@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Settings;
 
+use App\Data\PasskeyView;
 use App\Data\PasswordUpdateRequest;
 use App\Http\Requests\Settings\TwoFactorAuthenticationRequest;
 use Illuminate\Http\RedirectResponse;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Inertia\Response;
 use Laravel\Fortify\Features;
+use Laravel\Passkeys\Passkey;
 
 class SecurityController implements HasMiddleware
 {
@@ -25,14 +27,28 @@ class SecurityController implements HasMiddleware
 
 	public function edit(TwoFactorAuthenticationRequest $request): Response
 	{
+		$user = $request->user();
+
+		$canManagePasskeys = Features::canManagePasskeys();
+
 		$props = [
 			'canManageTwoFactor' => Features::canManageTwoFactorAuthentication(),
+			'canManagePasskeys' => $canManagePasskeys,
+			'passkeys' => $canManagePasskeys
+				? $user->passkeys->map(fn(Passkey $passkey) => new PasskeyView(
+					id: $passkey->id,
+					name: $passkey->name,
+					authenticator: $passkey->authenticator,
+					created_at_diff: $passkey->created_at->diffForHumans(),
+					last_used_at_diff: $passkey->last_used_at?->diffForHumans(),
+				))->values()->toArray()
+				: [],
 		];
 
 		if (Features::canManageTwoFactorAuthentication()) {
 			$request->ensureStateIsValid();
 
-			$props['twoFactorEnabled'] = $request->user()->hasEnabledTwoFactorAuthentication();
+			$props['twoFactorEnabled'] = $user->hasEnabledTwoFactorAuthentication();
 			$props['requiresConfirmation'] = Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm');
 		}
 

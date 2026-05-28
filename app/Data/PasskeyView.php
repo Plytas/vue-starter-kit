@@ -6,11 +6,13 @@ use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 #[TypeScript]
-class PasskeyRegistrationOptionsRequest extends Data
+class PasskeyView extends Data
 {
 	public function __construct(
+		public int $id,
 		public string $name,
-	)
-	{
-	}
+		public ?string $authenticator,
+		public string $created_at_diff,
+		public ?string $last_used_at_diff,
+	) {}
 }

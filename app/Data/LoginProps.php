@@ -12,7 +12,6 @@ class LoginProps extends Data
 		public bool    $canResetPassword,
 		public bool    $canRegister,
 		public ?string $status,
-		public ?string $passkeyStatus,
 	)
 	{
 	}

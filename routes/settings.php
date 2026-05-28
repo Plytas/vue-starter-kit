@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Settings\PasskeyController;
 use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Settings\SecurityController;
 use Illuminate\Support\Facades\Route;
@@ -23,11 +22,6 @@ Route::middleware('auth')->group(function (): void {
 		Route::put('settings/password', [SecurityController::class, 'update'])
 			->middleware('throttle:6,1')
 			->name('security.update');
-
-		Route::get('settings/passkey', [PasskeyController::class, 'edit'])->name('passkey.edit');
-		Route::get('settings/passkey/register-options', [PasskeyController::class, 'generatePasskeyOptions'])->name('passkey.register-options');
-		Route::post('settings/passkey', [PasskeyController::class, 'store'])->name('passkey.store');
-		Route::delete('settings/passkey/{passkey}', [PasskeyController::class, 'destroy'])->name('passkey.destroy');
 
 		Route::inertia('settings/appearance', 'settings/Appearance')->name('appearance.edit');
 	});

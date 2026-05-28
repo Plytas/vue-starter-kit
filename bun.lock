@@ -6,7 +6,7 @@
       "dependencies": {
         "@inertiajs/vite": "^3.1.1",
         "@inertiajs/vue3": "^3.1.1",
-        "@simplewebauthn/browser": "^13.3.0",
+        "@laravel/passkeys": "^0.2.0",
         "@tailwindcss/vite": "^4.3.0",
         "@tanstack/vue-table": "^8.21.3",
         "@vitejs/plugin-vue": "^6.0.7",
@@ -176,6 +176,8 @@
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.0", "", {}, "sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ=="],
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
+
+    "@laravel/passkeys": ["@laravel/passkeys@0.2.0", "", { "dependencies": { "@simplewebauthn/browser": "^13.0.0" }, "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "svelte": "^5.0.0", "vue": "^3.0.0" }, "optionalPeers": ["react", "svelte", "vue"] }, "sha512-K+owv26weKrYaoTJutqU40UsJZpwYkqB9jdlz5Bv/C54nxj2+Py9jbVwxASWg21fLsPhn3ngPKZE5RnfakCQKg=="],
 
     "@laravel/vite-plugin-wayfinder": ["@laravel/vite-plugin-wayfinder@0.1.7", "", {}, "sha512-yZYIr1iwuCQ7LFI+GsJk9vacw1HWMp3ZlDlW0pdfz3zXyKeu4US7oH79KmQQ031L0cYaSyaUMo/Ha1D4BosKqw=="],
 

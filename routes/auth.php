@@ -9,8 +9,6 @@ Route::middleware('guest')->group(function (): void {
 
 	Route::post('login', [AuthenticatedSessionController::class, 'store'])
 		->name('login.store');
-
-	Route::passkeys();
 });
 
 Route::middleware('auth')->group(function (): void {

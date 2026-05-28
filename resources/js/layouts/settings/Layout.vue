@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { Fingerprint, Palette, ShieldCheck, User } from 'lucide-vue-next';
+import { Palette, ShieldCheck, User } from 'lucide-vue-next';
 
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { edit as editAppearance } from '@/routes/appearance';
-import { edit as editPasskey } from '@/routes/passkey';
 import { edit as editProfile } from '@/routes/profile';
 import { edit as editSecurity } from '@/routes/security';
 import type { NavItem } from '@/types';
@@ -22,11 +21,6 @@ const sidebarNavItems: NavItem[] = [
 		title: 'Security',
 		href: editSecurity(),
 		icon: ShieldCheck,
-	},
-	{
-		title: 'Passkey',
-		href: editPasskey(),
-		icon: Fingerprint,
 	},
 	{
 		title: 'Appearance',
