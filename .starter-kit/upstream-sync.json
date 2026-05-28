@@ -6096,6 +6096,392 @@
                     "reason": "Upstream push-kit-changes.yml; fork uses its own propagation"
                 }
             }
+        },
+        "commit:c3f6023": {
+            "title": "Update kits with latest Laravel skeleton changes",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "c3f6023",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/c3f6023",
+                    "mergedAt": "2026-05-27T13:38:50Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "bootstrap/app.php shouldRenderJsonWhen(api/*), config/database.php ATTR_SSL_CA ternary simplify, .editorconfig docker section"
+                }
+            }
+        },
+        "commit:f338d73": {
+            "title": "Pin starter kit actions & ensure dependabot updates them",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "f338d73",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/f338d73",
+                    "mergedAt": "2026-05-25T09:20:42Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "pin actions to SHA + dependabot + persist-credentials: false; propagate to all downstreams via /us-propagate"
+                }
+            }
+        },
+        "commit:81fe472": {
+            "title": "Align Inertia UI copy with existing Livewire translations",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "81fe472",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/81fe472",
+                    "mergedAt": "2026-05-21T13:16:13Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "7 UI copy string alignments (Forgot password?, Profile information, Save password, etc.) — pure i18n"
+                }
+            }
+        },
+        "commit:63bcd82": {
+            "title": "Update Vue 2fa challenge page",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "63bcd82",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/63bcd82",
+                    "mergedAt": "2026-05-20T12:45:39Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "const reorder in TwoFactorChallenge.vue — cosmetic"
+                }
+            }
+        },
+        "commit:8b2d597": {
+            "title": "Update jobs migration",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "8b2d597",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/8b2d597",
+                    "mergedAt": "2026-05-19T01:10:44Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "see scratchpad deferred-downstream--521 DC-1 — fresh installs only, no downstream propagation"
+                }
+            }
+        },
+        "commit:7cfbf3b": {
+            "title": "Standardize test method signatures and factory usage",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "7cfbf3b",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/7cfbf3b",
+                    "mergedAt": "2026-05-14T18:29:14Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "requires UserFactory::withTwoFactor() state addition + test refactor"
+                }
+            }
+        },
+        "commit:78fda0c": {
+            "title": "Add missing autofocus to 2FA input field",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "78fda0c",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/78fda0c",
+                    "mergedAt": "2026-04-30T09:41:48Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "1-line autofocus attr on InputOTP in TwoFactorSetupModal.vue"
+                }
+            }
+        },
+        "commit:965d050": {
+            "title": "Use the Vite font plugin in starter kits",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "965d050",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/965d050",
+                    "mergedAt": "2026-04-29T17:10:19Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 3 bundle — PR #331 backport (fork PR #16) explicitly covers this SHA"
+                }
+            }
+        },
+        "commit:2fd82f4": {
+            "title": "[main] Moves to pao under laravel",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "2fd82f4",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/2fd82f4",
+                    "mergedAt": "2026-04-28T12:29:02Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO"
+                }
+            }
+        },
+        "commit:508dd71": {
+            "title": "Adds pao by default",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "508dd71",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/508dd71",
+                    "mergedAt": "2026-04-20T15:01:07Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO"
+                }
+            }
+        },
+        "commit:38e1c72": {
+            "title": "Add toast notifications across all starter kits",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "38e1c72",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/38e1c72",
+                    "mergedAt": "2026-04-08T10:09:59Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 7 — fork PR #22 (fbffd0f) backports upstream 38e1c72"
+                }
+            }
+        },
+        "commit:41f1073": {
+            "title": "Add passwordrules attribute to new-password inputs",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "41f1073",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/41f1073",
+                    "mergedAt": "2026-05-13T18:31:58Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "absorbed pre-watermark — fork FortifyServiceProvider already exposes passwordRules; Register.vue/ResetPassword.vue already have :passwordrules binding"
+                }
+            }
+        },
+        "commit:5723d46": {
+            "title": "Catch migrations up to Skeleton",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "5723d46",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/5723d46",
+                    "mergedAt": "2026-04-30T09:26:25Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "absorbed — fork already has bigInteger(expiration) in cache/cache_locks and unsignedSmallInteger(attempts) in jobs (Chunk 13 or earlier)"
+                }
+            }
+        },
+        "commit:290aba0": {
+            "title": "Inertia 3",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "290aba0",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/290aba0",
+                    "mergedAt": "2026-03-25T17:42:41Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Inertia 3 migration absorbed pre-watermark; fork composer.json + package.json + ssr.ts removal all verified 2026-05-28"
+                }
+            }
+        },
+        "commit:35ee13a": {
+            "title": "Make imports consistent",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "35ee13a",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/35ee13a",
+                    "mergedAt": "2026-03-10T20:09:03Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "absorbed pre-watermark — fork User.php/UserFactory.php already have consistent import declarations"
+                }
+            }
+        },
+        "commit:a0315b9": {
+            "title": "Fix Teams email verification redirect",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "a0315b9",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/a0315b9",
+                    "mergedAt": "2026-05-20T14:22:10Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "chisel.php Teams-only; fork has no chisel.php and start is non-teams variant"
+                }
+            }
+        },
+        "commit:7b6ad2e": {
+            "title": "Fix install features output",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "7b6ad2e",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/7b6ad2e",
+                    "mergedAt": "2026-05-19T01:17:15Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "app/Console/Commands/InstallFeaturesCommand.php; fork has no app/Console/Commands/ directory"
+                }
+            }
+        },
+        "commit:4a32258": {
+            "title": "feat: Add passkeys with chisel",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "4a32258",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/4a32258",
+                    "mergedAt": "2026-05-18T17:02:52Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — fork uses Spatie; full migration to Laravel passkeys is a separate workstream (see passkeys plan scratchpad)"
+                }
+            }
+        },
+        "commit:1233a92": {
+            "title": "Replace deprecated Rule with ValidationRule",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "1233a92",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/1233a92",
+                    "mergedAt": "2026-04-13T10:29:34Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — fork already simplified docblocks to array<int, mixed>; deprecated Illuminate\\Contracts\\Validation\\Rule not imported"
+                }
+            }
+        },
+        "commit:c11fcf7": {
+            "title": "Move Inertia pnpm hoist config to workspace file",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "c11fcf7",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/c11fcf7",
+                    "mergedAt": "2026-04-08T09:41:27Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — fork uses bun, not pnpm; no pnpm-workspace.yaml"
+                }
+            }
+        },
+        "commit:fb849dc": {
+            "title": "Remove unused axios and enable ignore-scripts for all kits",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "fb849dc",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/fb849dc",
+                    "mergedAt": "2026-03-31T14:08:24Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — bun-based fork; bunfig.toml + trustedDependencies provides equivalent gate; noted in PR #331 notes as SKIPPED"
+                }
+            }
+        },
+        "commit:b12b2dc": {
+            "title": "feat: Teams support",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "b12b2dc",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/b12b2dc",
+                    "mergedAt": "2026-03-27T11:33:33Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "teams-only; main fork uses start (non-teams) variant"
+                },
+                "start-teams": {
+                    "status": "pending",
+                    "reason": "teams scaffolding — track separately on start-teams branch"
+                }
+            }
         }
     }
 }
