@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
 				<div class="grid gap-2">
 					<div class="flex items-center justify-between">
 						<Label for="password">Password</Label>
-						<TextLink v-if="canResetPassword" :href="request()" class="text-sm" :tabindex="5"> Forgot password? </TextLink>
+						<TextLink v-if="canResetPassword" :href="request()" class="text-sm" :tabindex="5"> Forgot your password? </TextLink>
 					</div>
 					<PasswordInput
 						id="password"

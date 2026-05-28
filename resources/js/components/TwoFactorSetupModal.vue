@@ -185,7 +185,7 @@ watch(
 					<form @submit.prevent="submitConfirm">
 						<div class="relative w-full space-y-3">
 							<div class="flex w-full flex-col items-center justify-center space-y-3 py-2">
-								<InputOTP id="otp" v-model="code" :maxlength="6" :disabled="confirmForm.processing">
+								<InputOTP id="otp" v-model="code" :maxlength="6" :disabled="confirmForm.processing" autofocus>
 									<InputOTPGroup>
 										<InputOTPSlot v-for="index in 6" :key="index" :index="index - 1" />
 									</InputOTPGroup>

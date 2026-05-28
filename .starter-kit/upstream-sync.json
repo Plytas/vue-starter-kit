@@ -5536,6 +5536,10 @@
                     "backportedAt": "2026-05-28T14:13:04+00:00",
                     "confidence": "high",
                     "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
+                },
+                "start": {
+                    "status": "skipped",
+                    "reason": "Full Teams feature commit (71 files, start-teams only) — not applicable to start; description in ledger was incorrect"
                 }
             }
         },
@@ -5576,6 +5580,10 @@
                     "backportedAt": "2026-05-28T14:13:04+00:00",
                     "confidence": "high",
                     "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
+                },
+                "start": {
+                    "status": "skipped",
+                    "reason": "Identical to commit:63bcd82 (start-teams duplicate of same change)"
                 }
             }
         },
@@ -5736,6 +5744,10 @@
                     "backportedAt": "2026-05-28T14:13:05+00:00",
                     "confidence": "high",
                     "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
+                },
+                "start": {
+                    "status": "skipped",
+                    "reason": "Identical to commit:81fe472 (start-teams duplicate of same change)"
                 }
             }
         },
@@ -6109,8 +6121,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "bootstrap/app.php shouldRenderJsonWhen(api/*), config/database.php ATTR_SSL_CA ternary simplify, .editorconfig docker section"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch",
+                    "backportedAt": "2026-05-28T18:23:22+00:00"
                 }
             }
         },
@@ -6126,8 +6139,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "pin actions to SHA + dependabot + persist-credentials: false; propagate to all downstreams via /us-propagate"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch",
+                    "backportedAt": "2026-05-28T18:23:23+00:00"
                 }
             }
         },
@@ -6143,8 +6157,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "7 UI copy string alignments (Forgot password?, Profile information, Save password, etc.) — pure i18n"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch — PasskeyVerify.vue not in fork, 6/7 strings applied",
+                    "backportedAt": "2026-05-28T18:23:23+00:00"
                 }
             }
         },
@@ -6160,8 +6175,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "const reorder in TwoFactorChallenge.vue — cosmetic"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch",
+                    "backportedAt": "2026-05-28T18:23:23+00:00"
                 }
             }
         },
@@ -6177,8 +6193,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "see scratchpad deferred-downstream--521 DC-1 — fresh installs only, no downstream propagation"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch",
+                    "backportedAt": "2026-05-28T18:23:23+00:00"
                 }
             }
         },
@@ -6194,8 +6211,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "requires UserFactory::withTwoFactor() state addition + test refactor"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch",
+                    "backportedAt": "2026-05-28T18:23:23+00:00"
                 }
             }
         },
@@ -6211,8 +6229,9 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "1-line autofocus attr on InputOTP in TwoFactorSetupModal.vue"
+                    "status": "backported",
+                    "reason": "Chunk 19 batch",
+                    "backportedAt": "2026-05-28T18:23:23+00:00"
                 }
             }
         },

@@ -139,7 +139,7 @@ onUnmounted(() => {
 					</div>
 
 					<div class="flex items-center gap-4">
-						<Button :disabled="passwordForm.processing">Save password</Button>
+						<Button :disabled="passwordForm.processing">Save</Button>
 					</div>
 				</form>
 			</div>
