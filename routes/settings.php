@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\Settings\PasskeyController;
-use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
-use App\Http\Controllers\Settings\TwoFactorAuthenticationController;
+use App\Http\Controllers\Settings\SecurityController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function (): void {
@@ -19,11 +18,11 @@ Route::middleware('auth')->group(function (): void {
 		// Profile destroy stays verified — PR #252's scope is email update only.
 		Route::delete('settings/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-		Route::get('settings/password', [PasswordController::class, 'edit'])->name('user-password.edit');
+		Route::get('settings/security', [SecurityController::class, 'edit'])->name('security.edit');
 
-		Route::put('settings/password', [PasswordController::class, 'update'])
+		Route::put('settings/password', [SecurityController::class, 'update'])
 			->middleware('throttle:6,1')
-			->name('user-password.update');
+			->name('security.update');
 
 		Route::get('settings/passkey', [PasskeyController::class, 'edit'])->name('passkey.edit');
 		Route::get('settings/passkey/register-options', [PasskeyController::class, 'generatePasskeyOptions'])->name('passkey.register-options');
@@ -31,8 +30,5 @@ Route::middleware('auth')->group(function (): void {
 		Route::delete('settings/passkey/{passkey}', [PasskeyController::class, 'destroy'])->name('passkey.destroy');
 
 		Route::inertia('settings/appearance', 'settings/Appearance')->name('appearance.edit');
-
-		Route::get('settings/two-factor', [TwoFactorAuthenticationController::class, 'show'])
-			->name('two-factor.show');
 	});
 });

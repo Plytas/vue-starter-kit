@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { Fingerprint, KeyRound, Palette, ShieldCheck, User } from 'lucide-vue-next';
+import { Fingerprint, Palette, ShieldCheck, User } from 'lucide-vue-next';
 
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
@@ -9,8 +9,7 @@ import { useCurrentUrl } from '@/composables/useCurrentUrl';
 import { edit as editAppearance } from '@/routes/appearance';
 import { edit as editPasskey } from '@/routes/passkey';
 import { edit as editProfile } from '@/routes/profile';
-import { show as showTwoFactor } from '@/routes/two-factor';
-import { edit as editPassword } from '@/routes/user-password';
+import { edit as editSecurity } from '@/routes/security';
 import type { NavItem } from '@/types';
 
 const sidebarNavItems: NavItem[] = [
@@ -20,13 +19,8 @@ const sidebarNavItems: NavItem[] = [
 		icon: User,
 	},
 	{
-		title: 'Password',
-		href: editPassword(),
-		icon: KeyRound,
-	},
-	{
-		title: 'Two-factor auth',
-		href: showTwoFactor(),
+		title: 'Security',
+		href: editSecurity(),
 		icon: ShieldCheck,
 	},
 	{
