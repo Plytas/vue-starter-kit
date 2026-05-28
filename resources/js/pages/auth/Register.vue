@@ -11,7 +11,7 @@ import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
-import { RegisterProps, RegisterRequest } from '@/types/generated';
+import type { RegisterProps, RegisterRequest } from '@/types/generated';
 
 defineProps<RegisterProps>();
 

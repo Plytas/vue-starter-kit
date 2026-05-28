@@ -6,11 +6,11 @@ import { DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSep
 import UserInfo from '@/components/UserInfo.vue';
 import { logout } from '@/routes';
 import { edit } from '@/routes/profile';
-import { User } from '@/types/generated';
+import type { User } from '@/types/generated';
 
-interface Props {
+type Props = {
 	user: User;
-}
+};
 
 const handleLogout = () => {
 	router.flushAll();

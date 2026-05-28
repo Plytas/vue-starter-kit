@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
 
 import DeleteUser from '@/components/DeleteUser.vue';
 import Heading from '@/components/Heading.vue';
@@ -9,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import { update } from '@/routes/profile';
+import { edit, update } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import type { BreadcrumbItem } from '@/types';
 import type { ProfileProps, ProfileUpdateRequest } from '@/types/generated';
@@ -19,16 +20,16 @@ defineProps<ProfileProps>();
 const breadcrumbs: BreadcrumbItem[] = [
 	{
 		title: 'Profile settings',
-		href: '/settings/profile',
+		href: edit(),
 	},
 ];
 
 const page = usePage();
-const user = page.props.auth.user!;
+const user = computed(() => page.props.auth.user!);
 
 const form = useForm<ProfileUpdateRequest>({
-	name: user.name,
-	email: user.email,
+	name: user.value.name,
+	email: user.value.email,
 });
 
 const submit = () => {

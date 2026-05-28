@@ -3,8 +3,8 @@
     "upstream": "laravel/vue-starter-kit",
     "upstreamWatermarks": {
         "main": {
-            "lastCheckedAt": "2026-05-18T00:00:00Z",
-            "lastCheckedSha": null
+            "lastCheckedAt": "2026-05-27T15:24:36+00:00",
+            "lastCheckedSha": "aa69794"
         },
         "teams": {
             "lastCheckedAt": "2026-05-24T13:34:35+00:00",
@@ -1186,8 +1186,47 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "route-names — changes appearance to appearance.edit. Review if route naming matters"
+                    "status": "backported",
+                    "reason": "route-names — changes appearance to appearance.edit. Review if route naming matters",
+                    "backportedAt": "2026-05-26T18:00:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/27",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 23,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/23",
+                            "propagatedAt": "2026-05-26T21:37:20+00:00",
+                            "mergedAt": "2026-05-26T21:37:20+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 23,
+                            "url": "https://github.com/Plytas/joy/pull/23",
+                            "propagatedAt": "2026-05-26T21:37:20+00:00",
+                            "mergedAt": "2026-05-26T21:37:20+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 13,
+                            "url": "https://github.com/Plytas/joymobile/pull/13",
+                            "propagatedAt": "2026-05-26T21:37:20+00:00",
+                            "mergedAt": "2026-05-26T21:37:20+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 307,
+                            "url": "https://github.com/Plytas/katsch/pull/307",
+                            "propagatedAt": "2026-05-26T21:37:20+00:00",
+                            "mergedAt": "2026-05-26T21:37:20+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 261,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/261",
+                            "propagatedAt": "2026-05-26T21:37:21+00:00",
+                            "mergedAt": "2026-05-26T21:37:21+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -1572,7 +1611,44 @@
                     "backportedAt": "2026-05-18T10:30:51+00:00",
                     "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/12",
                     "confidence": "medium",
-                    "adaptationNotes": "Login flow covered by fork PR #12 (upstream #176 Stage 2). Logout is Laravel default — already in place."
+                    "adaptationNotes": "Login flow covered by fork PR #12 (upstream #176 Stage 2). Logout is Laravel default — already in place.",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:18+00:00",
+                            "mergedAt": "2026-05-27T14:20:10+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:18+00:00",
+                            "mergedAt": "2026-05-27T14:20:11+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:19+00:00",
+                            "mergedAt": "2026-05-27T14:20:12+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:19+00:00",
+                            "mergedAt": "2026-05-27T14:20:12+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:19+00:00",
+                            "mergedAt": "2026-05-27T14:20:13+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -1651,7 +1727,44 @@
                     "status": "backported",
                     "backportedAt": "2026-05-17T16:47:39+00:00",
                     "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/15",
-                    "reason": "dependencies — matches laravel/laravel composer.json, fork may differ"
+                    "reason": "dependencies — matches laravel/laravel composer.json, fork may differ",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:19+00:00",
+                            "mergedAt": "2026-05-27T14:20:13+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:19+00:00",
+                            "mergedAt": "2026-05-27T14:20:14+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:19+00:00",
+                            "mergedAt": "2026-05-27T14:20:14+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:20+00:00",
+                            "mergedAt": "2026-05-27T14:20:15+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:20+00:00",
+                            "mergedAt": "2026-05-27T14:20:15+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2055,8 +2168,8 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "auto-sync — Laravel skeleton sync"
+                    "status": "skipped",
+                    "reason": "drift variant against upstream non-main branch; auto-sync noise"
                 }
             }
         },
@@ -2325,8 +2438,8 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "auto-sync — Laravel skeleton sync"
+                    "status": "skipped",
+                    "reason": "drift variant against upstream non-main branch; auto-sync noise"
                 }
             }
         },
@@ -2361,8 +2474,8 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "auto-sync — Laravel skeleton sync"
+                    "status": "skipped",
+                    "reason": "drift variant against upstream non-main branch; auto-sync noise"
                 }
             }
         },
@@ -2531,9 +2644,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "PHP 8.5 compatibility for PDO::MYSQL_ATTR_SSL_CA constant. Simple config change."
+                    "adaptationNotes": "Chunk 13: applied PHP 8.5 Pdo\\Mysql::ATTR_SSL_CA ternary in config/database.php (2 occurrences) + session.php comment fix",
+                    "backportedAt": "2026-05-27T15:24:35+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:23:59+00:00",
+                            "mergedAt": "2026-05-27T18:30:24+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:23:59+00:00",
+                            "mergedAt": "2026-05-27T18:30:24+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:23:59+00:00",
+                            "mergedAt": "2026-05-27T18:30:24+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:25+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:25+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2604,9 +2756,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Config improvements: makes DB_SSLMODE configurable via env, fixes public disk URL trailing slash issue."
+                    "adaptationNotes": "Chunk 13: no-op — DB_SSLMODE env + filesystem rtrim already absorbed",
+                    "backportedAt": "2026-05-27T15:24:35+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:26+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:26+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:27+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:00+00:00",
+                            "mergedAt": "2026-05-27T18:30:27+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:28+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -2739,7 +2930,44 @@
                     "backportedAt": "2026-05-17T16:47:40+00:00",
                     "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/15",
                     "confidence": "high",
-                    "adaptationNotes": "superseded by Inertia 3 jump (290aba0)"
+                    "adaptationNotes": "superseded by Inertia 3 jump (290aba0)",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:20+00:00",
+                            "mergedAt": "2026-05-27T14:20:16+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:20+00:00",
+                            "mergedAt": "2026-05-27T14:20:16+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:20+00:00",
+                            "mergedAt": "2026-05-27T14:20:17+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:21+00:00",
+                            "mergedAt": "2026-05-27T14:20:18+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:21+00:00",
+                            "mergedAt": "2026-05-27T14:20:18+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3002,9 +3230,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Updates tests for PHP 8.5 compatibility (property hooks, etc.). Review and backport test changes."
+                    "adaptationNotes": "re-scoped to Chunk 12 (CI matrix bump, workflow-only)",
+                    "backportedAt": "2026-05-27T09:09:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/28",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:21+00:00",
+                            "mergedAt": "2026-05-27T14:20:19+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:21+00:00",
+                            "mergedAt": "2026-05-27T14:20:19+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:21+00:00",
+                            "mergedAt": "2026-05-27T14:20:20+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:21+00:00",
+                            "mergedAt": "2026-05-27T14:20:20+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:22+00:00",
+                            "mergedAt": "2026-05-27T14:20:21+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3039,9 +3306,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Test improvement: replaces assertStatus(200) with assertOk(), etc. Modern Laravel testing practice."
+                    "adaptationNotes": "Test improvement: replaces assertStatus(200) with assertOk(), etc. Modern Laravel testing practice.",
+                    "backportedAt": "2026-05-26T18:00:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/27",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 23,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/23",
+                            "propagatedAt": "2026-05-26T21:37:19+00:00",
+                            "mergedAt": "2026-05-26T21:37:19+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 23,
+                            "url": "https://github.com/Plytas/joy/pull/23",
+                            "propagatedAt": "2026-05-26T21:37:19+00:00",
+                            "mergedAt": "2026-05-26T21:37:19+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 13,
+                            "url": "https://github.com/Plytas/joymobile/pull/13",
+                            "propagatedAt": "2026-05-26T21:37:19+00:00",
+                            "mergedAt": "2026-05-26T21:37:19+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 307,
+                            "url": "https://github.com/Plytas/katsch/pull/307",
+                            "propagatedAt": "2026-05-26T21:37:20+00:00",
+                            "mergedAt": "2026-05-26T21:37:20+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 261,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/261",
+                            "propagatedAt": "2026-05-26T21:37:20+00:00",
+                            "mergedAt": "2026-05-26T21:37:20+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3058,9 +3364,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "skipped",
                     "confidence": "high",
-                    "adaptationNotes": "Extracts inline validation to FormRequest classes. Fork uses Data classes - verify all validations are covered by Data class rules()."
+                    "adaptationNotes": "Extracts inline validation to FormRequest classes. Fork uses Data classes - verify all validations are covered by Data class rules().",
+                    "reason": "Opposite direction — fork uses spatie Data classes (adaptation-guide Pattern 1); FormRequest migration contradicts invariant"
                 }
             }
         },
@@ -3077,9 +3384,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "skipped",
                     "confidence": "high",
-                    "adaptationNotes": "Fork already uses Data classes. Review to ensure fork's Data classes cover same validation as this PR adds to FormRequests."
+                    "adaptationNotes": "Fork already uses Data classes. Review to ensure fork's Data classes cover same validation as this PR adds to FormRequests.",
+                    "reason": "Opposite direction — fork uses spatie Data classes (adaptation-guide Pattern 1); FormRequest migration contradicts invariant"
                 }
             }
         },
@@ -3436,9 +3744,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "skipped",
                     "confidence": "high",
-                    "adaptationNotes": "Adds security/safety defaults: CarbonImmutable, DB::prohibitDestructiveCommands, Password::defaults. Important production safety improvements."
+                    "adaptationNotes": "Adds security/safety defaults: CarbonImmutable, DB::prohibitDestructiveCommands, Password::defaults. Important production safety improvements.",
+                    "reason": "Covered by nunomaduro/essentials ^1.2 defaults — ImmutableDates (Date::use CarbonImmutable), ProhibitDestructiveCommands, SetDefaultPassword (Password::defaults prod-only min(12)/letters/mixedCase/numbers/symbols/uncompromised) all enabled by default. Verified vendor/nunomaduro/essentials/src/Configurables/{ImmutableDates,ProhibitDestructiveCommands,SetDefaultPassword}.php."
                 }
             }
         },
@@ -3549,9 +3858,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Renames useActiveUrl to useCurrentUrl, adds whenCurrentUrl helper. Better naming and API."
+                    "adaptationNotes": "Renames useActiveUrl to useCurrentUrl, adds whenCurrentUrl helper. Better naming and API.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:14+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:00+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:56+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:08+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3606,9 +3954,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Changes interface to type, enforces type imports, reorders imports. TypeScript best practices."
+                    "adaptationNotes": "Changes interface to type, enforces type imports, reorders imports. TypeScript best practices.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:14+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:01+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:56+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3625,9 +4012,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Laravel skeleton sync: GitHub Actions v6, queue --timeout=0, APP_URL default, migrations updates."
+                    "adaptationNotes": "Chunk 13: applied tests.yml 'Checkout code' step label only; queue --timeout=0, APP_URL default, cache index already absorbed",
+                    "backportedAt": "2026-05-27T15:24:35+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:28+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:29+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:30+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3662,8 +4088,8 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
-                    "reason": "maestro-auto — automated sync, review individual changes in subsequent PRs"
+                    "status": "skipped",
+                    "reason": "Maestro aggregate; workflow+prettier hunks deferred to Chunk 12; Vue cosmetics covered or out of scope; FortifyServiceProvider/User-cast deletions contrary to fork invariants"
                 }
             }
         },
@@ -3756,8 +4182,49 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
-                    "reason": "maestro-auto — automated sync"
+                    "status": "backported",
+                    "reason": "maestro-auto — automated sync",
+                    "backportedAt": "2026-05-27T09:09:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/28",
+                    "confidence": "high",
+                    "adaptationNotes": "No-op for vue-shims.d.ts (already in fork); folded in Maestro prettier subset: removed prettier-plugin-organize-imports from .prettierrc + package.json.",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:22+00:00",
+                            "mergedAt": "2026-05-27T14:20:21+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:22+00:00",
+                            "mergedAt": "2026-05-27T14:20:22+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:22+00:00",
+                            "mergedAt": "2026-05-27T14:20:23+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:22+00:00",
+                            "mergedAt": "2026-05-27T14:20:23+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:22+00:00",
+                            "mergedAt": "2026-05-27T14:20:24+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3828,9 +4295,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "medium",
-                    "adaptationNotes": "IMPORTANT: Changes Inertia type augmentation to use InertiaConfig.sharedPageProps. Adds .npmrc for hoisting. Required for modern Inertia typing."
+                    "adaptationNotes": "IMPORTANT: Changes Inertia type augmentation to use InertiaConfig.sharedPageProps. Adds .npmrc for hoisting. Required for modern Inertia typing.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:01+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -3995,9 +4501,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "GitHub Actions workflow improvements for concurrency handling."
+                    "adaptationNotes": "Adapted full upstream squash a82975b. Kept oxlint + FortifyServiceProvider + fork tabs. Dropped routes/web.php Route::inertia() (fork uses WelcomeProps Data class). Profile.vue computed() reactivity with ! preserved (NavUser already done; TwoFactorSetupModal kept useForm pattern). vite plugin reorder kept bare wayfinder().",
+                    "backportedAt": "2026-05-27T09:09:55+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/28",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:23+00:00",
+                            "mergedAt": "2026-05-27T14:20:24+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:23+00:00",
+                            "mergedAt": "2026-05-27T14:20:25+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:23+00:00",
+                            "mergedAt": "2026-05-27T14:20:25+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:23+00:00",
+                            "mergedAt": "2026-05-27T14:20:26+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:23+00:00",
+                            "mergedAt": "2026-05-27T14:20:26+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4032,9 +4577,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Improves breadcrumb types and usage patterns. Better type safety."
+                    "adaptationNotes": "Improves breadcrumb types and usage patterns. Better type safety.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:02+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4145,9 +4729,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Improves GitHub Actions test workflows."
+                    "adaptationNotes": "Adapted full upstream squash aa69794. composer ci:check uses bun (not npm); added types:check as alias preserving type:check; lint.yml swapped to check-mode commands. Added eslint pathGroups for gitignored @/routes, @/actions, @/types/generated.",
+                    "backportedAt": "2026-05-27T09:09:55+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/28",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:23+00:00",
+                            "mergedAt": "2026-05-27T14:20:27+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 24,
+                            "url": "https://github.com/Plytas/joy/pull/24",
+                            "propagatedAt": "2026-05-27T14:17:24+00:00",
+                            "mergedAt": "2026-05-27T14:20:27+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 14,
+                            "url": "https://github.com/Plytas/joymobile/pull/14",
+                            "propagatedAt": "2026-05-27T14:17:24+00:00",
+                            "mergedAt": "2026-05-27T14:20:28+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 308,
+                            "url": "https://github.com/Plytas/katsch/pull/308",
+                            "propagatedAt": "2026-05-27T14:17:24+00:00",
+                            "mergedAt": "2026-05-27T14:20:28+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 262,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/262",
+                            "propagatedAt": "2026-05-27T14:17:24+00:00",
+                            "mergedAt": "2026-05-27T14:20:29+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4392,9 +5015,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Syncs changes from Laravel skeleton (drift). Review for config/dependency updates."
+                    "adaptationNotes": "Chunk 13: no-op — phpunit (fork ahead at ^12.5.23), mail APP_NAME fallback, DB_URL all absorbed; jobs composite index net-no-op with #328",
+                    "backportedAt": "2026-05-27T15:24:36+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:01+00:00",
+                            "mergedAt": "2026-05-27T18:30:30+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:31+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:31+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:32+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:32+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4505,9 +5167,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "ESLint config and code formatting updates."
+                    "adaptationNotes": "ESLint config and code formatting updates.",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:02+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:29+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4542,10 +5243,49 @@
             },
             "targets": {
                 "start": {
-                    "status": "skipped",
+                    "status": "backported",
                     "confidence": "high",
                     "adaptationNotes": "IMPORTANT: Fixes SSR crash when useCurrentUrl accesses window. Critical for SSR.",
-                    "reason": "fork has no useCurrentUrl composable; fork-local window usage already SSR-guarded"
+                    "reason": "fork has no useCurrentUrl composable; fork-local window usage already SSR-guarded",
+                    "backportedAt": "2026-05-27T20:01:46+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/30",
+                    "downstreamPrs": {
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 264,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/264",
+                            "propagatedAt": "2026-05-27T20:30:15+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 16,
+                            "url": "https://github.com/Plytas/joymobile/pull/16",
+                            "propagatedAt": "2026-05-27T20:31:02+00:00",
+                            "mergedAt": "2026-05-27T20:48:32+00:00"
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/26",
+                            "propagatedAt": "2026-05-27T20:31:57+00:00",
+                            "mergedAt": "2026-05-27T20:48:30+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 310,
+                            "url": "https://github.com/Plytas/katsch/pull/310",
+                            "propagatedAt": "2026-05-27T20:32:51+00:00",
+                            "mergedAt": "2026-05-27T20:48:33+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 26,
+                            "url": "https://github.com/Plytas/joy/pull/26",
+                            "propagatedAt": "2026-05-27T20:35:09+00:00",
+                            "mergedAt": "2026-05-27T20:48:31+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4580,9 +5320,10 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "skipped",
                     "confidence": "medium",
-                    "adaptationNotes": "MAJOR: Merges password and 2FA into single Security page. Requires Fortify integration. Backport after #176 and related 2FA PRs."
+                    "adaptationNotes": "MAJOR: Merges password and 2FA into single Security page. Requires Fortify integration. Backport after #176 and related 2FA PRs.",
+                    "reason": "Subset of #325 (paired commit, same title, only 2 of the 12 files). #325 contains the complete implementation including the new SecurityController, Security.vue, SecurityTest, route + layout updates. Backport #325 alone."
                 }
             }
         },
@@ -4599,8 +5340,46 @@
             },
             "targets": {
                 "start": {
-                    "status": "skipped",
-                    "reason": "duplicate — WorkOS variant"
+                    "status": "backported",
+                    "reason": "duplicate — WorkOS variant",
+                    "confidence": "medium",
+                    "adaptationNotes": "Contains the complete consolidation diff (12 files, +400/-477). Paired with #324 which is a 2-file subset (same deletions). Backporting #325 alone covers #324.",
+                    "backportedAt": "2026-05-28T09:01:28+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/31",
+                    "downstreamPrs": {
+                        "joymobile": {
+                            "status": "skipped",
+                            "reason": "No kit Settings layer in this downstream — no Settings/* controllers, no resources/js/layouts/settings/, no routes/settings.php. Chunk 16 (Settings page consolidation) is a structural no-op here."
+                        },
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 27,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/27",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 27,
+                            "url": "https://github.com/Plytas/joy/pull/27",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 311,
+                            "url": "https://github.com/Plytas/katsch/pull/311",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 265,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/265",
+                            "propagatedAt": "2026-05-28T09:36:22+00:00",
+                            "mergedAt": "2026-05-28T09:36:22+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4617,9 +5396,48 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Skeleton v12.12.2 drift: logging username fallback to APP_NAME. Commit b634812."
+                    "adaptationNotes": "Chunk 13: no-op — slack APP_NAME fallback absorbed; jobs revert net-no-op with #316",
+                    "backportedAt": "2026-05-27T15:24:36+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/29",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:33+00:00"
+                        },
+                        "joy": {
+                            "status": "merged",
+                            "number": 25,
+                            "url": "https://github.com/Plytas/joy/pull/25",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:33+00:00"
+                        },
+                        "joymobile": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/joymobile/pull/15",
+                            "propagatedAt": "2026-05-27T18:24:02+00:00",
+                            "mergedAt": "2026-05-27T18:30:34+00:00"
+                        },
+                        "katsch": {
+                            "status": "merged",
+                            "number": 309,
+                            "url": "https://github.com/Plytas/katsch/pull/309",
+                            "propagatedAt": "2026-05-27T18:24:03+00:00",
+                            "mergedAt": "2026-05-27T18:30:34+00:00"
+                        },
+                        "katsch-gw2": {
+                            "status": "merged",
+                            "number": 263,
+                            "url": "https://github.com/Plytas/katsch-gw2/pull/263",
+                            "propagatedAt": "2026-05-27T18:24:03+00:00",
+                            "mergedAt": "2026-05-27T18:30:35+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -4636,9 +5454,11 @@
             },
             "targets": {
                 "start": {
-                    "status": "in-progress",
+                    "status": "backported",
                     "confidence": "high",
-                    "adaptationNotes": "Laravel 13 upgrade: composer bumps, cache.serializable_classes, session.serialization, User #[Hidden] attribute, migrations (bigInteger expiration, smallInteger attempts). Commits 6c2db5e, 1233a92, 5723d46."
+                    "adaptationNotes": "Functional bits absorbed into Chunk 1 (deaaa90); only Welcome.vue logo backported standalone. #[Fillable] omitted (fork uses spatie/laravel-data).",
+                    "backportedAt": "2026-05-28T14:07:42+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/32"
                 }
             }
         },
@@ -4712,7 +5532,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4729,7 +5552,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4746,7 +5572,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4763,7 +5592,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4780,7 +5612,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4797,7 +5632,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:04+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4814,7 +5652,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4831,7 +5672,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4848,7 +5692,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4865,7 +5712,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4882,7 +5732,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -4899,7 +5752,10 @@
             },
             "targets": {
                 "start-teams": {
-                    "status": "pending"
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T14:13:05+00:00",
+                    "confidence": "high",
+                    "adaptationNotes": "Grafted onto start-teams via Chunk 8b (PR #24). State reconciled after v1→v2 schema migration reset."
                 }
             }
         },
@@ -5170,6 +6026,461 @@
                 "start-teams": {
                     "status": "skipped",
                     "reason": "Fork already has bunfig.toml + trustedDependencies: [] (Step 0 bun hardening)"
+                }
+            }
+        },
+        "commit:d65a847": {
+            "title": "Fix push-kit-changes workflow permission error",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "d65a847",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/d65a847",
+                    "mergedAt": "2026-03-19T12:00:52Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Push-kit-bot noise; fork has its own CI/propagation flow"
+                }
+            }
+        },
+        "commit:3e7764a": {
+            "title": "Fix permission-only check discarding blank line changes",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "3e7764a",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/3e7764a",
+                    "mergedAt": "2026-03-25T18:41:23Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Push-kit-bot noise; not applicable to fork"
+                }
+            }
+        },
+        "commit:d07d1e7": {
+            "title": "Update contributing docs to point to Maestro",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "d07d1e7",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/d07d1e7",
+                    "mergedAt": "2026-04-02T15:56:34Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Upstream contributing docs point to Maestro; fork keeps its own flow"
+                }
+            }
+        },
+        "commit:4ac526d": {
+            "title": "Update push-kit-changes.yml",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "4ac526d",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/4ac526d",
+                    "mergedAt": "2026-05-14T18:55:43Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Upstream push-kit-changes.yml; fork uses its own propagation"
+                }
+            }
+        },
+        "commit:c3f6023": {
+            "title": "Update kits with latest Laravel skeleton changes",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "c3f6023",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/c3f6023",
+                    "mergedAt": "2026-05-27T13:38:50Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "bootstrap/app.php shouldRenderJsonWhen(api/*), config/database.php ATTR_SSL_CA ternary simplify, .editorconfig docker section"
+                }
+            }
+        },
+        "commit:f338d73": {
+            "title": "Pin starter kit actions & ensure dependabot updates them",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "f338d73",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/f338d73",
+                    "mergedAt": "2026-05-25T09:20:42Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "pin actions to SHA + dependabot + persist-credentials: false; propagate to all downstreams via /us-propagate"
+                }
+            }
+        },
+        "commit:81fe472": {
+            "title": "Align Inertia UI copy with existing Livewire translations",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "81fe472",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/81fe472",
+                    "mergedAt": "2026-05-21T13:16:13Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "7 UI copy string alignments (Forgot password?, Profile information, Save password, etc.) — pure i18n"
+                }
+            }
+        },
+        "commit:63bcd82": {
+            "title": "Update Vue 2fa challenge page",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "63bcd82",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/63bcd82",
+                    "mergedAt": "2026-05-20T12:45:39Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "const reorder in TwoFactorChallenge.vue — cosmetic"
+                }
+            }
+        },
+        "commit:8b2d597": {
+            "title": "Update jobs migration",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "8b2d597",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/8b2d597",
+                    "mergedAt": "2026-05-19T01:10:44Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "see scratchpad deferred-downstream--521 DC-1 — fresh installs only, no downstream propagation"
+                }
+            }
+        },
+        "commit:7cfbf3b": {
+            "title": "Standardize test method signatures and factory usage",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "7cfbf3b",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/7cfbf3b",
+                    "mergedAt": "2026-05-14T18:29:14Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "requires UserFactory::withTwoFactor() state addition + test refactor"
+                }
+            }
+        },
+        "commit:78fda0c": {
+            "title": "Add missing autofocus to 2FA input field",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "78fda0c",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/78fda0c",
+                    "mergedAt": "2026-04-30T09:41:48Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "1-line autofocus attr on InputOTP in TwoFactorSetupModal.vue"
+                }
+            }
+        },
+        "commit:965d050": {
+            "title": "Use the Vite font plugin in starter kits",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "965d050",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/965d050",
+                    "mergedAt": "2026-04-29T17:10:19Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 3 bundle — PR #331 backport (fork PR #16) explicitly covers this SHA"
+                }
+            }
+        },
+        "commit:2fd82f4": {
+            "title": "[main] Moves to pao under laravel",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "2fd82f4",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/2fd82f4",
+                    "mergedAt": "2026-04-28T12:29:02Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO"
+                }
+            }
+        },
+        "commit:508dd71": {
+            "title": "Adds pao by default",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "508dd71",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/508dd71",
+                    "mergedAt": "2026-04-20T15:01:07Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO"
+                }
+            }
+        },
+        "commit:38e1c72": {
+            "title": "Add toast notifications across all starter kits",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "38e1c72",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/38e1c72",
+                    "mergedAt": "2026-04-08T10:09:59Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "backportedAt": "2026-05-28T00:00:00Z",
+                    "confidence": "high",
+                    "adaptationNotes": "absorbed in Chunk 7 — fork PR #22 (fbffd0f) backports upstream 38e1c72"
+                }
+            }
+        },
+        "commit:41f1073": {
+            "title": "Add passwordrules attribute to new-password inputs",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "41f1073",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/41f1073",
+                    "mergedAt": "2026-05-13T18:31:58Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "absorbed pre-watermark — fork FortifyServiceProvider already exposes passwordRules; Register.vue/ResetPassword.vue already have :passwordrules binding"
+                }
+            }
+        },
+        "commit:5723d46": {
+            "title": "Catch migrations up to Skeleton",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "5723d46",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/5723d46",
+                    "mergedAt": "2026-04-30T09:26:25Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "absorbed — fork already has bigInteger(expiration) in cache/cache_locks and unsignedSmallInteger(attempts) in jobs (Chunk 13 or earlier)"
+                }
+            }
+        },
+        "commit:290aba0": {
+            "title": "Inertia 3",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "290aba0",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/290aba0",
+                    "mergedAt": "2026-03-25T17:42:41Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "Inertia 3 migration absorbed pre-watermark; fork composer.json + package.json + ssr.ts removal all verified 2026-05-28"
+                }
+            }
+        },
+        "commit:35ee13a": {
+            "title": "Make imports consistent",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "35ee13a",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/35ee13a",
+                    "mergedAt": "2026-03-10T20:09:03Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "absorbed pre-watermark — fork User.php/UserFactory.php already have consistent import declarations"
+                }
+            }
+        },
+        "commit:a0315b9": {
+            "title": "Fix Teams email verification redirect",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "a0315b9",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/a0315b9",
+                    "mergedAt": "2026-05-20T14:22:10Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "chisel.php Teams-only; fork has no chisel.php and start is non-teams variant"
+                }
+            }
+        },
+        "commit:7b6ad2e": {
+            "title": "Fix install features output",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "7b6ad2e",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/7b6ad2e",
+                    "mergedAt": "2026-05-19T01:17:15Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "app/Console/Commands/InstallFeaturesCommand.php; fork has no app/Console/Commands/ directory"
+                }
+            }
+        },
+        "commit:4a32258": {
+            "title": "feat: Add passkeys with chisel",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "4a32258",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/4a32258",
+                    "mergedAt": "2026-05-18T17:02:52Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "backported",
+                    "reason": "Chunk 18 — PR #33 (Spatie → Laravel passkeys migration; data loss accepted)",
+                    "backportedAt": "2026-05-28T18:59:48+00:00"
+                }
+            }
+        },
+        "commit:1233a92": {
+            "title": "Replace deprecated Rule with ValidationRule",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "1233a92",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/1233a92",
+                    "mergedAt": "2026-04-13T10:29:34Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — fork already simplified docblocks to array<int, mixed>; deprecated Illuminate\\Contracts\\Validation\\Rule not imported"
+                }
+            }
+        },
+        "commit:c11fcf7": {
+            "title": "Move Inertia pnpm hoist config to workspace file",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "c11fcf7",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/c11fcf7",
+                    "mergedAt": "2026-04-08T09:41:27Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — fork uses bun, not pnpm; no pnpm-workspace.yaml"
+                }
+            }
+        },
+        "commit:fb849dc": {
+            "title": "Remove unused axios and enable ignore-scripts for all kits",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "fb849dc",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/fb849dc",
+                    "mergedAt": "2026-03-31T14:08:24Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "N/A — bun-based fork; bunfig.toml + trustedDependencies provides equivalent gate; noted in PR #331 notes as SKIPPED"
+                }
+            }
+        },
+        "commit:b12b2dc": {
+            "title": "feat: Teams support",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "b12b2dc",
+                    "url": "https://github.com/laravel/vue-starter-kit/commit/b12b2dc",
+                    "mergedAt": "2026-03-27T11:33:33Z"
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "teams-only; main fork uses start (non-teams) variant"
+                },
+                "start-teams": {
+                    "status": "pending",
+                    "reason": "teams scaffolding — track separately on start-teams branch"
                 }
             }
         }

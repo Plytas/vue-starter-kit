@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useInitials } from '@/composables/useInitials';
-import type { Team } from '@/types/generated';
-import { User } from '@/types/generated';
+import type { Team, User } from '@/types/generated';
 
-interface Props {
+type Props = {
 	user: User;
 	showEmail?: boolean;
 	team?: Team | null;
-}
+};
 
 withDefaults(defineProps<Props>(), {
 	showEmail: false,

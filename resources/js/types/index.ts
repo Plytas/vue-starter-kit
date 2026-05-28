@@ -1,18 +1,7 @@
-import type { LucideIcon } from 'lucide-vue-next';
+export * from './navigation';
+export * from './ui';
 
 export type { RoleOption, Team, TeamInvitation, TeamMember, TeamPermissions } from '@/types/generated';
-
-export interface BreadcrumbItem {
-	title: string;
-	href: string;
-}
-
-export interface NavItem {
-	title: string;
-	href: string;
-	icon?: LucideIcon;
-	isActive?: boolean;
-}
 
 export interface PaginatedResult<T> {
 	data: T[];

@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { Link, usePage } from '@inertiajs/vue3';
-import { Fingerprint, KeyRound, Palette, ShieldCheck, User } from 'lucide-vue-next';
+import { Link } from '@inertiajs/vue3';
+import { Palette, ShieldCheck, User } from 'lucide-vue-next';
 
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { urlIsActive } from '@/lib/utils';
+import { useCurrentUrl } from '@/composables/useCurrentUrl';
+import { edit as editAppearance } from '@/routes/appearance';
+import { edit as editProfile } from '@/routes/profile';
+import { edit as editSecurity } from '@/routes/security';
 import { index as teams } from '@/routes/teams';
 import type { NavItem } from '@/types';
 
@@ -13,23 +16,13 @@ import type { NavItem } from '@/types';
 const sidebarNavItems: NavItem[] = [
 	{
 		title: 'Profile',
-		href: '/settings/profile',
+		href: editProfile(),
 		icon: User,
 	},
 	{
-		title: 'Password',
-		href: '/settings/password',
-		icon: KeyRound,
-	},
-	{
-		title: 'Two-factor auth',
-		href: '/settings/two-factor',
+		title: 'Security',
+		href: editSecurity(),
 		icon: ShieldCheck,
-	},
-	{
-		title: 'Passkey',
-		href: '/settings/passkey',
-		icon: Fingerprint,
 	},
 	{
 		title: 'Teams',
@@ -37,14 +30,12 @@ const sidebarNavItems: NavItem[] = [
 	},
 	{
 		title: 'Appearance',
-		href: '/settings/appearance',
+		href: editAppearance(),
 		icon: Palette,
 	},
 ];
 
-const page = usePage();
-
-const currentPath = page.url;
+const { isCurrentUrl } = useCurrentUrl();
 </script>
 
 <template>
@@ -56,9 +47,9 @@ const currentPath = page.url;
 				<nav class="flex flex-col space-y-1 space-x-0">
 					<Button
 						v-for="item in sidebarNavItems"
-						:key="item.href"
+						:key="item.title"
 						variant="ghost"
-						:class="['w-full justify-start', { 'bg-muted': urlIsActive(item.href, currentPath) }]"
+						:class="['w-full justify-start', { 'bg-muted': isCurrentUrl(item.href) }]"
 						as-child
 					>
 						<Link :href="item.href"><component :is="item.icon" class="h-4 w-4" />{{ item.title }}</Link>

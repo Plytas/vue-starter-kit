@@ -25,7 +25,6 @@ export default defineConfig({
 			],
 		}),
 		inertia(),
-		wayfinder({ formVariants: true }),
 		transformer(),
 		tailwindcss(),
 		vue({
@@ -36,5 +35,6 @@ export default defineConfig({
 				},
 			},
 		}),
+		wayfinder({ formVariants: true }),
 	],
 });

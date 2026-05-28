@@ -15,5 +15,5 @@ test('authenticated users can visit the dashboard', function (): void {
 		->actingAs($user)
 		->get(route('dashboard', ['current_team' => $team->slug]));
 
-	$response->assertStatus(200);
+	$response->assertOk();
 });

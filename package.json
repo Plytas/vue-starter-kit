@@ -10,10 +10,13 @@
 		"format": "prettier --write resources/",
 		"format:check": "prettier --check resources/",
 		"lint": "oxlint --fix && eslint . --fix",
-		"type:check": "vue-tsc --noEmit"
+		"lint:check": "oxlint && eslint .",
+		"type:check": "vue-tsc --noEmit",
+		"types:check": "vue-tsc --noEmit"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",
+		"@stylistic/eslint-plugin": "^5.10.0",
 		"@laravel/vite-plugin-wayfinder": "^0.1.7",
 		"@types/node": "^22.19.19",
 		"@vue/eslint-config-typescript": "^14.7.0",
@@ -26,7 +29,6 @@
 		"minimatch": "^10.2.5",
 		"oxlint": "^1.65.0",
 		"prettier": "^3.8.3",
-		"prettier-plugin-organize-imports": "^4.3.0",
 		"prettier-plugin-tailwindcss": "^0.6.14",
 		"typescript-eslint": "^8.59.3",
 		"vite-plugin-vue-devtools": "^8.1.2",
@@ -35,7 +37,7 @@
 	"dependencies": {
 		"@inertiajs/vite": "^3.1.1",
 		"@inertiajs/vue3": "^3.1.1",
-		"@simplewebauthn/browser": "^13.3.0",
+		"@laravel/passkeys": "^0.2.0",
 		"@tailwindcss/vite": "^4.3.0",
 		"@tanstack/vue-table": "^8.21.3",
 		"@vitejs/plugin-vue": "^6.0.7",

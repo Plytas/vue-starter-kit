@@ -16,69 +16,71 @@ const recoveryCodeSectionRef = useTemplateRef('recoveryCodeSectionRef');
 const regenerateForm = useForm({});
 
 const regenerate = () => {
-    regenerateForm.submit(regenerateRecoveryCodes(), {
-        preserveScroll: true,
-        onSuccess: () => { fetchRecoveryCodes(); },
-    });
+	regenerateForm.submit(regenerateRecoveryCodes(), {
+		preserveScroll: true,
+		onSuccess: () => {
+			fetchRecoveryCodes();
+		},
+	});
 };
 
 const toggleRecoveryCodesVisibility = async () => {
-    if (!isRecoveryCodesVisible.value && !recoveryCodesList.value.length) {
-        await fetchRecoveryCodes();
-    }
+	if (!isRecoveryCodesVisible.value && !recoveryCodesList.value.length) {
+		await fetchRecoveryCodes();
+	}
 
-    isRecoveryCodesVisible.value = !isRecoveryCodesVisible.value;
+	isRecoveryCodesVisible.value = !isRecoveryCodesVisible.value;
 
-    if (isRecoveryCodesVisible.value) {
-        await nextTick();
-        recoveryCodeSectionRef.value?.scrollIntoView({ behavior: 'smooth' });
-    }
+	if (isRecoveryCodesVisible.value) {
+		await nextTick();
+		recoveryCodeSectionRef.value?.scrollIntoView({ behavior: 'smooth' });
+	}
 };
 
 onMounted(async () => {
-    if (!recoveryCodesList.value.length) {
-        await fetchRecoveryCodes();
-    }
+	if (!recoveryCodesList.value.length) {
+		await fetchRecoveryCodes();
+	}
 });
 </script>
 
 <template>
-    <Card>
-        <CardHeader>
-            <CardTitle class="flex gap-3"> <LockKeyhole class="size-4" />2FA recovery codes </CardTitle>
-            <CardDescription>
-                Recovery codes let you regain access if you lose your 2FA device. Store them in a secure password manager.
-            </CardDescription>
-        </CardHeader>
-        <CardContent>
-            <AlertError :errors="errors" class="mb-3" />
+	<Card>
+		<CardHeader>
+			<CardTitle class="flex gap-3"> <LockKeyhole class="size-4" />2FA recovery codes </CardTitle>
+			<CardDescription>
+				Recovery codes let you regain access if you lose your 2FA device. Store them in a secure password manager.
+			</CardDescription>
+		</CardHeader>
+		<CardContent>
+			<AlertError :errors="errors" class="mb-3" />
 
-            <div class="flex flex-col gap-3 select-none sm:flex-row sm:items-center sm:justify-between">
-                <Button @click="toggleRecoveryCodesVisibility" class="w-fit">
-                    <component :is="isRecoveryCodesVisible ? EyeOff : Eye" class="size-4" />
-                    {{ isRecoveryCodesVisible ? 'Hide' : 'View' }} recovery codes
-                </Button>
+			<div class="flex flex-col gap-3 select-none sm:flex-row sm:items-center sm:justify-between">
+				<Button @click="toggleRecoveryCodesVisibility" class="w-fit">
+					<component :is="isRecoveryCodesVisible ? EyeOff : Eye" class="size-4" />
+					{{ isRecoveryCodesVisible ? 'Hide' : 'View' }} recovery codes
+				</Button>
 
-                <form @submit.prevent="regenerate" v-if="isRecoveryCodesVisible">
-                    <Button variant="secondary" type="submit" :disabled="regenerateForm.processing"> <RefreshCw /> Regenerate codes </Button>
-                </form>
-            </div>
-            <div :class="['relative overflow-hidden transition-all duration-300', isRecoveryCodesVisible ? 'h-auto opacity-100' : 'h-0 opacity-0']">
-                <div class="mt-3 space-y-3">
-                    <div ref="recoveryCodeSectionRef" class="grid gap-1 rounded-lg bg-muted p-4 font-mono text-sm">
-                        <div v-if="!recoveryCodesList.length" class="space-y-2">
-                            <div v-for="n in 8" :key="n" class="h-4 animate-pulse rounded bg-muted-foreground/20"></div>
-                        </div>
-                        <div v-else v-for="(code, index) in recoveryCodesList" :key="index">
-                            {{ code }}
-                        </div>
-                    </div>
-                    <p class="text-xs text-muted-foreground select-none">
-                        Each recovery code can be used once to access your account and will be removed after use. If you need more, click
-                        <span class="font-bold">Regenerate codes</span> above.
-                    </p>
-                </div>
-            </div>
-        </CardContent>
-    </Card>
+				<form @submit.prevent="regenerate" v-if="isRecoveryCodesVisible">
+					<Button variant="secondary" type="submit" :disabled="regenerateForm.processing"> <RefreshCw /> Regenerate codes </Button>
+				</form>
+			</div>
+			<div :class="['relative overflow-hidden transition-all duration-300', isRecoveryCodesVisible ? 'h-auto opacity-100' : 'h-0 opacity-0']">
+				<div class="mt-3 space-y-3">
+					<div ref="recoveryCodeSectionRef" class="grid gap-1 rounded-lg bg-muted p-4 font-mono text-sm">
+						<div v-if="!recoveryCodesList.length" class="space-y-2">
+							<div v-for="n in 8" :key="n" class="h-4 animate-pulse rounded bg-muted-foreground/20"></div>
+						</div>
+						<div v-else v-for="(code, index) in recoveryCodesList" :key="index">
+							{{ code }}
+						</div>
+					</div>
+					<p class="text-xs text-muted-foreground select-none">
+						Each recovery code can be used once to access your account and will be removed after use. If you need more, click
+						<span class="font-bold">Regenerate codes</span> above.
+					</p>
+				</div>
+			</div>
+		</CardContent>
+	</Card>
 </template>

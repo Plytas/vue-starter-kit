@@ -21,11 +21,11 @@ test('profile update is accessible to unverified users', function (): void {
 	$response->assertSessionHasNoErrors();
 });
 
-test('settings password page redirects unverified users to verification notice', function (): void {
+test('settings security page redirects unverified users to verification notice', function (): void {
 	$user = User::factory()->unverified()->withoutTwoFactor()->create();
 
 	$this->actingAs($user)
-		->get(route('user-password.edit'))
+		->get(route('security.edit'))
 		->assertRedirect(route('verification.notice'));
 });
 
@@ -37,9 +37,9 @@ test('profile destroy requires verified email', function (): void {
 		->assertRedirect(route('verification.notice'));
 });
 
-test('fortify owns password reset route and fork owns settings password route', function (): void {
+test('fortify owns password reset route and fork owns settings security update route', function (): void {
 	expect(route('password.update', absolute: false))->toBe('/reset-password');
-	expect(route('user-password.update', absolute: false))->toBe('/settings/password');
+	expect(route('security.update', absolute: false))->toBe('/settings/password');
 });
 
 test('profile page is displayed', function (): void {

@@ -3,5 +3,5 @@
 test('returns a successful response', function (): void {
 	$response = $this->get(route('home'));
 
-	$response->assertStatus(200);
+	$response->assertOk();
 });
