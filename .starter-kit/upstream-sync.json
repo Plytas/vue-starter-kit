@@ -7,8 +7,8 @@
             "lastCheckedSha": "c3f6023e419fb1ce8c18df58c8fb1e3a36e1cf57"
         },
         "teams": {
-            "lastCheckedAt": "2026-05-24T13:34:35+00:00",
-            "lastCheckedSha": "f00b434"
+            "lastCheckedAt": "2026-05-29T13:21:14+00:00",
+            "lastCheckedSha": "5f7b420dc4f475ada00a1b1efce51d918946957c"
         }
     },
     "downstreamRepos": [
@@ -6498,8 +6498,44 @@
                     "reason": "teams-only; main fork uses start (non-teams) variant"
                 },
                 "start-teams": {
-                    "status": "pending",
-                    "reason": "teams scaffolding — track separately on start-teams branch"
+                    "status": "skipped",
+                    "reason": "Fork implements Teams natively on start-teams (app/Models/Team.php, app/Data/Teams/* via spatie/laravel-data); upstream scaffolding superseded"
+                }
+            }
+        },
+        "commit:5f7b420": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "5f7b420",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "backported",
+                    "reason": "Skeleton changes; absorbed via start→start-teams merge e25b7b6 (sibling c3f6023 / Chunk 19)"
+                }
+            }
+        },
+        "commit:a7a3365": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "a7a3365",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start-teams": {
+                    "status": "backported",
+                    "reason": "Action pinning; absorbed via start→start-teams merge e25b7b6 (sibling f338d73 / Chunk 19)"
                 }
             }
         }
