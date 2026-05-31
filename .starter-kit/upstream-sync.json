@@ -5458,7 +5458,16 @@
                     "confidence": "high",
                     "adaptationNotes": "Functional bits absorbed into Chunk 1 (deaaa90); only Welcome.vue logo backported standalone. #[Fillable] omitted (fork uses spatie/laravel-data).",
                     "backportedAt": "2026-05-28T14:07:42+00:00",
-                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/32"
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/32",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 13,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/13",
+                            "propagatedAt": "2026-05-31T08:29:05+00:00",
+                            "mergedAt": "2026-05-31T08:29:05+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6123,7 +6132,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch",
-                    "backportedAt": "2026-05-28T18:23:22+00:00"
+                    "backportedAt": "2026-05-28T18:23:22+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6141,7 +6159,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch",
-                    "backportedAt": "2026-05-28T18:23:23+00:00"
+                    "backportedAt": "2026-05-28T18:23:23+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6159,7 +6186,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch — PasskeyVerify.vue not in fork, 6/7 strings applied",
-                    "backportedAt": "2026-05-28T18:23:23+00:00"
+                    "backportedAt": "2026-05-28T18:23:23+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:07+00:00",
+                            "mergedAt": "2026-05-31T08:29:07+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6177,7 +6213,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch",
-                    "backportedAt": "2026-05-28T18:23:23+00:00"
+                    "backportedAt": "2026-05-28T18:23:23+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:07+00:00",
+                            "mergedAt": "2026-05-31T08:29:07+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6195,7 +6240,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch",
-                    "backportedAt": "2026-05-28T18:23:23+00:00"
+                    "backportedAt": "2026-05-28T18:23:23+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:07+00:00",
+                            "mergedAt": "2026-05-31T08:29:07+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6213,7 +6267,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch",
-                    "backportedAt": "2026-05-28T18:23:23+00:00"
+                    "backportedAt": "2026-05-28T18:23:23+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:07+00:00",
+                            "mergedAt": "2026-05-31T08:29:07+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6231,7 +6294,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 19 batch",
-                    "backportedAt": "2026-05-28T18:23:23+00:00"
+                    "backportedAt": "2026-05-28T18:23:23+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 29,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/29",
+                            "propagatedAt": "2026-05-31T08:29:07+00:00",
+                            "mergedAt": "2026-05-31T08:29:07+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6250,7 +6322,16 @@
                     "status": "backported",
                     "backportedAt": "2026-05-28T00:00:00Z",
                     "confidence": "high",
-                    "adaptationNotes": "absorbed in Chunk 3 bundle — PR #331 backport (fork PR #16) explicitly covers this SHA"
+                    "adaptationNotes": "absorbed in Chunk 3 bundle — PR #331 backport (fork PR #16) explicitly covers this SHA",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 15,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/15",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6269,7 +6350,16 @@
                     "status": "backported",
                     "backportedAt": "2026-05-28T00:00:00Z",
                     "confidence": "high",
-                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO"
+                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 19,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/19",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6288,7 +6378,16 @@
                     "status": "backported",
                     "backportedAt": "2026-05-28T00:00:00Z",
                     "confidence": "high",
-                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO"
+                    "adaptationNotes": "absorbed in Chunk 6 — fork PR #20 (0912738) adds Laravel PAO",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 19,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/19",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6307,7 +6406,16 @@
                     "status": "backported",
                     "backportedAt": "2026-05-28T00:00:00Z",
                     "confidence": "high",
-                    "adaptationNotes": "absorbed in Chunk 7 — fork PR #22 (fbffd0f) backports upstream 38e1c72"
+                    "adaptationNotes": "absorbed in Chunk 7 — fork PR #22 (fbffd0f) backports upstream 38e1c72",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 20,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/20",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
@@ -6427,7 +6535,16 @@
                 "start": {
                     "status": "backported",
                     "reason": "Chunk 18 — PR #33 (Spatie → Laravel passkeys migration; data loss accepted)",
-                    "backportedAt": "2026-05-28T18:59:48+00:00"
+                    "backportedAt": "2026-05-28T18:59:48+00:00",
+                    "downstreamPrs": {
+                        "idle-rpg": {
+                            "status": "merged",
+                            "number": 28,
+                            "url": "https://github.com/Plytas/idle-rpg/pull/28",
+                            "propagatedAt": "2026-05-31T08:29:06+00:00",
+                            "mergedAt": "2026-05-31T08:29:06+00:00"
+                        }
+                    }
                 }
             }
         },
