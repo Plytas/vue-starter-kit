@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleAlert } from 'lucide-vue-next';
+import { CircleAlert } from '@lucide/vue';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
