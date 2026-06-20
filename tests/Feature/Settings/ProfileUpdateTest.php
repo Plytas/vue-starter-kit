@@ -21,6 +21,7 @@ test('profile update is accessible to unverified users', function (): void {
 	$response->assertSessionHasNoErrors();
 });
 
+/* @chisel-email-verification */
 test('settings security page redirects unverified users to verification notice', function (): void {
 	$user = User::factory()->unverified()->withoutTwoFactor()->create();
 
@@ -36,6 +37,7 @@ test('profile destroy requires verified email', function (): void {
 		->delete(route('profile.destroy'), ['password' => 'password'])
 		->assertRedirect(route('verification.notice'));
 });
+/* @end-chisel-email-verification */
 
 test('fortify owns password reset route and fork owns settings security update route', function (): void {
 	expect(route('password.update', absolute: false))->toBe('/reset-password');

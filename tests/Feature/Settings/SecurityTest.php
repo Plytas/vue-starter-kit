@@ -23,11 +23,14 @@ test('security page is displayed', function (): void {
 			->component('settings/Security')
 			->where('canManageTwoFactor', true)
 			->where('twoFactorEnabled', false)
+			/* @chisel-passkeys */
 			->where('canManagePasskeys', true)
 			->where('passkeys', []),
+			/* @end-chisel-passkeys */
 		);
 });
 
+/* @chisel-password-confirmation */
 test('security page requires password confirmation when enabled', function (): void {
 	$this->skipUnlessFortifyFeature(Features::twoFactorAuthentication());
 
@@ -61,7 +64,9 @@ test('security page does not require password confirmation when disabled', funct
 			->component('settings/Security'),
 		);
 });
+/* @end-chisel-password-confirmation */
 
+/* @chisel-2fa */
 test('security page renders without two factor when feature is disabled', function (): void {
 	config(['fortify.features' => []]);
 
@@ -76,10 +81,13 @@ test('security page renders without two factor when feature is disabled', functi
 			->where('canManageTwoFactor', false)
 			->missing('twoFactorEnabled')
 			->missing('requiresConfirmation')
+			/* @chisel-passkeys */
 			->where('canManagePasskeys', false)
 			->where('passkeys', []),
+			/* @end-chisel-passkeys */
 		);
 });
+/* @end-chisel-2fa */
 
 test('password can be updated', function (): void {
 	$user = User::factory()->create();

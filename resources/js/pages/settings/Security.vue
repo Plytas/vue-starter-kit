@@ -1,40 +1,68 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3';
+/* @chisel-2fa */
 import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
-import { onUnmounted, ref } from 'vue';
+/* @end-chisel-2fa */
+import { ref } from 'vue';
+/* @chisel-2fa */
+import { onUnmounted } from 'vue';
+/* @end-chisel-2fa */
 
 import Heading from '@/components/Heading.vue';
 import InputError from '@/components/InputError.vue';
+/* @chisel-passkeys */
 import ManagePasskeys from '@/components/ManagePasskeys.vue';
+/* @end-chisel-passkeys */
 import PasswordInput from '@/components/PasswordInput.vue';
+/* @chisel-2fa */
 import TwoFactorRecoveryCodes from '@/components/TwoFactorRecoveryCodes.vue';
 import TwoFactorSetupModal from '@/components/TwoFactorSetupModal.vue';
+/* @end-chisel-2fa */
+/* @chisel-2fa */
 import { Badge } from '@/components/ui/badge';
+/* @end-chisel-2fa */
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+/* @chisel-2fa */
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
+/* @end-chisel-2fa */
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit, update } from '@/routes/security';
+/* @chisel-2fa */
 import { disable, enable } from '@/routes/two-factor';
+/* @end-chisel-2fa */
 import type { BreadcrumbItem } from '@/types';
-import type { PasskeyView, PasswordUpdateRequest } from '@/types/generated';
+import type { PasswordUpdateRequest } from '@/types/generated';
+/* @chisel-passkeys */
+import type { PasskeyView } from '@/types/generated';
+/* @end-chisel-passkeys */
 
+/* @chisel-2fa-or-passkeys */
 type Props = {
+	/* @chisel-2fa */
 	canManageTwoFactor?: boolean;
 	requiresConfirmation?: boolean;
 	twoFactorEnabled?: boolean;
+	/* @end-chisel-2fa */
+	/* @chisel-passkeys */
 	canManagePasskeys?: boolean;
 	passkeys?: PasskeyView[];
+	/* @end-chisel-passkeys */
 };
 
 withDefaults(defineProps<Props>(), {
+	/* @chisel-2fa */
 	canManageTwoFactor: false,
 	requiresConfirmation: false,
 	twoFactorEnabled: false,
+	/* @end-chisel-2fa */
+	/* @chisel-passkeys */
 	canManagePasskeys: false,
 	passkeys: () => [],
+	/* @end-chisel-passkeys */
 });
+/* @end-chisel-2fa-or-passkeys */
 
 const breadcrumbs: BreadcrumbItem[] = [
 	{
@@ -70,6 +98,7 @@ const updatePassword = () => {
 	});
 };
 
+/* @chisel-2fa */
 const { hasSetupData, clearTwoFactorAuthData } = useTwoFactorAuth();
 const showSetupModal = ref<boolean>(false);
 
@@ -92,6 +121,7 @@ const disable2fa = () => {
 onUnmounted(() => {
 	clearTwoFactorAuthData();
 });
+/* @end-chisel-2fa */
 </script>
 
 <template>
@@ -149,6 +179,7 @@ onUnmounted(() => {
 				</form>
 			</div>
 
+			<!-- @chisel-2fa -->
 			<div v-if="canManageTwoFactor" class="space-y-6">
 				<Heading variant="small" title="Two-factor authentication" description="Manage your two-factor authentication settings" />
 
@@ -194,8 +225,11 @@ onUnmounted(() => {
 					:twoFactorEnabled="twoFactorEnabled"
 				/>
 			</div>
+			<!-- @end-chisel-2fa -->
 
+			<!-- @chisel-passkeys -->
 			<ManagePasskeys :canManagePasskeys="canManagePasskeys" :passkeys="passkeys" />
+			<!-- @end-chisel-passkeys -->
 		</SettingsLayout>
 	</AppLayout>
 </template>

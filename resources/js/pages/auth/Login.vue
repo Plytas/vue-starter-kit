@@ -3,7 +3,9 @@ import { Head, useForm } from '@inertiajs/vue3';
 
 import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
 import InputError from '@/components/InputError.vue';
+/* @chisel-passkeys */
 import PasskeyVerify from '@/components/PasskeyVerify.vue';
+/* @end-chisel-passkeys */
 import PasswordInput from '@/components/PasswordInput.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
@@ -12,7 +14,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
+/* @chisel-registration */
 import { register } from '@/routes';
+/* @end-chisel-registration */
 import { request } from '@/routes/password';
 import type { LoginProps, LoginRequest } from '@/types/generated';
 
@@ -39,7 +43,9 @@ const submit = () => {
 			{{ status }}
 		</div>
 
+		<!-- @chisel-passkeys -->
 		<PasskeyVerify />
+		<!-- @end-chisel-passkeys -->
 
 		<form @submit.prevent="submit" class="flex flex-col gap-6">
 			<div class="grid gap-6">
@@ -87,10 +93,12 @@ const submit = () => {
 				</Button>
 			</div>
 
+			<!-- @chisel-registration -->
 			<div v-if="canRegister" class="text-center text-sm text-muted-foreground">
 				Don't have an account?
 				<TextLink :href="register()" :tabindex="5">Sign up</TextLink>
 			</div>
+			<!-- @end-chisel-registration -->
 		</form>
 	</AuthBase>
 </template>

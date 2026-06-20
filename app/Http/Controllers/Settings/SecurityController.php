@@ -29,10 +29,15 @@ class SecurityController implements HasMiddleware
 	{
 		$user = $request->user();
 
+		/* @chisel-passkeys */
 		$canManagePasskeys = Features::canManagePasskeys();
+		/* @end-chisel-passkeys */
 
 		$props = [
+			/* @chisel-2fa */
 			'canManageTwoFactor' => Features::canManageTwoFactorAuthentication(),
+			/* @end-chisel-2fa */
+			/* @chisel-passkeys */
 			'canManagePasskeys' => $canManagePasskeys,
 			'passkeys' => $canManagePasskeys
 				? $user->passkeys->map(fn(Passkey $passkey) => new PasskeyView(
@@ -43,14 +48,17 @@ class SecurityController implements HasMiddleware
 					last_used_at_diff: $passkey->last_used_at?->diffForHumans(),
 				))->values()->toArray()
 				: [],
+			/* @end-chisel-passkeys */
 		];
 
+		/* @chisel-2fa */
 		if (Features::canManageTwoFactorAuthentication()) {
 			$request->ensureStateIsValid();
 
 			$props['twoFactorEnabled'] = $user->hasEnabledTwoFactorAuthentication();
 			$props['requiresConfirmation'] = Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm');
 		}
+		/* @end-chisel-2fa */
 
 		return Inertia::render('settings/Security', $props);
 	}

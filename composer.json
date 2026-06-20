@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.4",
         "inertiajs/inertia-laravel": "^3.0",
+        "laravel/chisel": "^0.1.0",
         "laravel/fortify": "^1.37.2",
         "laravel/framework": "^13.7",
         "laravel/octane": "^2.17",
@@ -58,6 +59,7 @@
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ],
         "post-update-cmd": [
+            "@php artisan install:features --ansi",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
@@ -104,7 +106,12 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [],
+            "installer": {
+                "post-create-project": [
+                    "@php artisan install:features --ansi"
+                ]
+            }
         }
     },
     "config": {

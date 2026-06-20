@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
+import { Head, useForm, usePage } from '@inertiajs/vue3';
+/* @chisel-email-verification */
+import { Link } from '@inertiajs/vue3';
+/* @end-chisel-email-verification */
 import { computed } from 'vue';
 
 import DeleteUser from '@/components/DeleteUser.vue';
@@ -11,7 +14,9 @@ import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit, update } from '@/routes/profile';
+/* @chisel-email-verification */
 import { send } from '@/routes/verification';
+/* @end-chisel-email-verification */
 import type { BreadcrumbItem } from '@/types';
 import type { ProfileProps, ProfileUpdateRequest } from '@/types/generated';
 
@@ -68,6 +73,7 @@ const submit = () => {
 						<InputError class="mt-2" :message="form.errors.email" />
 					</div>
 
+					<!-- @chisel-email-verification -->
 					<div v-if="mustVerifyEmail && !user.email_verified_at">
 						<p class="-mt-4 text-sm text-muted-foreground">
 							Your email address is unverified.
@@ -85,6 +91,7 @@ const submit = () => {
 							A new verification link has been sent to your email address.
 						</div>
 					</div>
+					<!-- @end-chisel-email-verification -->
 
 					<div class="flex items-center gap-4">
 						<Button :disabled="form.processing">Save</Button>
