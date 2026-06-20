@@ -3,8 +3,8 @@
     "upstream": "laravel/vue-starter-kit",
     "upstreamWatermarks": {
         "main": {
-            "lastCheckedAt": "2026-05-28T19:16:28+00:00",
-            "lastCheckedSha": "c3f6023e419fb1ce8c18df58c8fb1e3a36e1cf57"
+            "lastCheckedAt": "2026-06-20T21:29:19+00:00",
+            "lastCheckedSha": "7d899161a5e1d5bc31c9a04c555b076dbc14066f"
         },
         "teams": {
             "lastCheckedAt": "2026-05-24T13:34:35+00:00",
@@ -39,6 +39,12 @@
         {
             "id": "katsch-gw2",
             "path": "/Users/vytas/Code/katsch-gw2",
+            "status": "active",
+            "tracksBranch": "start"
+        },
+        {
+            "id": "wingman",
+            "path": "/Users/vytas/Code/Plytas/wingman",
             "status": "active",
             "tracksBranch": "start"
         }
@@ -394,6 +400,10 @@
                         "joymobile": {
                             "status": "skipped",
                             "reason": "no LoginRequest::throttleKey() — joymobile uses QR-based auth, not email/password login"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "test"
                         }
                     }
                 }
@@ -445,6 +455,10 @@
                         "joymobile": {
                             "status": "skipped",
                             "reason": "no password confirmation/update routes — joymobile uses QR-based auth"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -498,6 +512,10 @@
                             "status": "merged",
                             "propagatedAt": "2026-03-19T00:00:00Z",
                             "url": "https://github.com/Plytas/katsch-gw2/pull/243"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -635,6 +653,10 @@
                             "status": "merged",
                             "propagatedAt": "2026-03-27T00:00:00Z",
                             "url": "https://github.com/Plytas/katsch-gw2/pull/245"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -681,6 +703,10 @@
                         "katsch-gw2": {
                             "status": "skipped",
                             "reason": "already on ^2.1.11, newer than ^2.1.0"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -757,6 +783,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:57+00:00",
                             "mergedAt": "2026-05-19T21:40:25+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -844,6 +874,10 @@
                             "status": "merged",
                             "propagatedAt": "2026-03-27T00:00:00Z",
                             "url": "https://github.com/Plytas/katsch-gw2/pull/244"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -896,6 +930,10 @@
                         "katsch-gw2": {
                             "status": "skipped",
                             "reason": "no auth tests directory — only has settings tests"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -948,6 +986,10 @@
                         "katsch-gw2": {
                             "status": "skipped",
                             "reason": "no auth pages using @/actions/... imports"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1003,6 +1045,10 @@
                             "propagatedAt": "2026-03-28T00:00:00Z",
                             "url": "https://github.com/Plytas/katsch-gw2/pull/247",
                             "mergedAt": "2026-03-28T00:00:00Z"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1058,6 +1104,10 @@
                             "propagatedAt": "2026-03-29T00:00:00Z",
                             "mergedAt": "2026-05-04T00:00:00Z",
                             "url": "https://github.com/Plytas/katsch-gw2/pull/248"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1110,6 +1160,10 @@
                         "katsch-gw2": {
                             "status": "skipped",
                             "reason": "no auth tests directory"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1168,6 +1222,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/257",
                             "propagatedAt": "2026-05-23T08:38:50+00:00",
                             "mergedAt": "2026-05-23T08:38:50+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1225,6 +1283,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/261",
                             "propagatedAt": "2026-05-26T21:37:21+00:00",
                             "mergedAt": "2026-05-26T21:37:21+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1284,6 +1346,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:57+00:00",
                             "mergedAt": "2026-05-19T21:40:27+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1343,6 +1409,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:05+00:00",
                             "mergedAt": "2026-05-25T08:48:39+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1402,6 +1472,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:06+00:00",
                             "mergedAt": "2026-05-25T08:48:41+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1496,6 +1570,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:20+00:00",
                             "mergedAt": "2026-05-26T09:28:20+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1571,6 +1649,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/257",
                             "propagatedAt": "2026-05-23T08:38:51+00:00",
                             "mergedAt": "2026-05-23T08:38:51+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1647,6 +1729,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:19+00:00",
                             "mergedAt": "2026-05-27T14:20:13+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1706,6 +1792,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:56+00:00",
                             "mergedAt": "2026-05-19T21:40:29+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1763,6 +1853,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:20+00:00",
                             "mergedAt": "2026-05-27T14:20:15+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1839,6 +1933,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:55+00:00",
                             "mergedAt": "2026-05-19T21:40:31+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1897,6 +1995,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:56+00:00",
                             "mergedAt": "2026-05-19T21:40:33+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -1955,6 +2057,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:55+00:00",
                             "mergedAt": "2026-05-19T21:40:35+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2014,6 +2120,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:55+00:00",
                             "mergedAt": "2026-05-19T21:40:37+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2092,6 +2202,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:56+00:00",
                             "mergedAt": "2026-05-19T21:40:39+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2150,6 +2264,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:56+00:00",
                             "mergedAt": "2026-05-19T21:40:41+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2245,6 +2363,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:57+00:00",
                             "mergedAt": "2026-05-19T21:40:43+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2303,6 +2425,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:07+00:00",
                             "mergedAt": "2026-05-25T08:48:43+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2361,6 +2487,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:23+00:00",
                             "mergedAt": "2026-05-26T09:28:23+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2420,6 +2550,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:08+00:00",
                             "mergedAt": "2026-05-25T08:48:45+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2568,6 +2702,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:08+00:00",
                             "mergedAt": "2026-05-25T08:48:47+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2626,6 +2764,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:09+00:00",
                             "mergedAt": "2026-05-25T08:48:49+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2684,6 +2826,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/263",
                             "propagatedAt": "2026-05-27T18:24:00+00:00",
                             "mergedAt": "2026-05-27T18:30:25+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2796,6 +2942,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/263",
                             "propagatedAt": "2026-05-27T18:24:01+00:00",
                             "mergedAt": "2026-05-27T18:30:28+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2890,6 +3040,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:26+00:00",
                             "mergedAt": "2026-05-26T09:28:26+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -2966,6 +3120,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:21+00:00",
                             "mergedAt": "2026-05-27T14:20:18+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3024,6 +3182,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:29+00:00",
                             "mergedAt": "2026-05-26T09:28:29+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3136,6 +3298,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:56+00:00",
                             "mergedAt": "2026-05-19T21:40:45+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3212,6 +3378,10 @@
                             "url": "https://github.com/Plytas/joy/pull/16",
                             "propagatedAt": "2026-05-19T21:23:56+00:00",
                             "mergedAt": "2026-05-19T21:40:47+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3270,6 +3440,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:22+00:00",
                             "mergedAt": "2026-05-27T14:20:21+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3346,6 +3520,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/261",
                             "propagatedAt": "2026-05-26T21:37:20+00:00",
                             "mergedAt": "2026-05-26T21:37:20+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3444,6 +3622,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:10+00:00",
                             "mergedAt": "2026-05-25T08:48:51+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3556,6 +3738,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:30+00:00",
                             "mergedAt": "2026-05-26T09:28:30+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3614,6 +3800,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:11+00:00",
                             "mergedAt": "2026-05-25T08:48:53+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3690,6 +3880,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/259",
                             "propagatedAt": "2026-05-25T08:35:11+00:00",
                             "mergedAt": "2026-05-25T08:48:56+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3804,6 +3998,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:31+00:00",
                             "mergedAt": "2026-05-26T09:28:31+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3898,6 +4096,10 @@
                             "url": "https://github.com/Plytas/joy/pull/26",
                             "propagatedAt": "2026-05-27T20:35:08+00:00",
                             "mergedAt": "2026-05-27T20:48:30+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -3994,6 +4196,10 @@
                             "url": "https://github.com/Plytas/joy/pull/26",
                             "propagatedAt": "2026-05-27T20:35:09+00:00",
                             "mergedAt": "2026-05-27T20:48:30+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4052,6 +4258,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/263",
                             "propagatedAt": "2026-05-27T18:24:01+00:00",
                             "mergedAt": "2026-05-27T18:30:30+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4164,6 +4374,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:33+00:00",
                             "mergedAt": "2026-05-26T09:28:33+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4223,6 +4437,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:22+00:00",
                             "mergedAt": "2026-05-27T14:20:24+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4335,6 +4553,10 @@
                             "url": "https://github.com/Plytas/joy/pull/26",
                             "propagatedAt": "2026-05-27T20:35:09+00:00",
                             "mergedAt": "2026-05-27T20:48:30+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4411,6 +4633,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:35+00:00",
                             "mergedAt": "2026-05-26T09:28:35+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4541,6 +4767,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:23+00:00",
                             "mergedAt": "2026-05-27T14:20:26+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4617,6 +4847,10 @@
                             "url": "https://github.com/Plytas/joy/pull/26",
                             "propagatedAt": "2026-05-27T20:35:09+00:00",
                             "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4693,6 +4927,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:38+00:00",
                             "mergedAt": "2026-05-26T09:28:38+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4769,6 +5007,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/262",
                             "propagatedAt": "2026-05-27T14:17:24+00:00",
                             "mergedAt": "2026-05-27T14:20:29+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4845,6 +5087,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/255",
                             "propagatedAt": "2026-05-20T09:57:28+00:00",
                             "mergedAt": "2026-05-20T09:57:28+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4921,6 +5167,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/255",
                             "propagatedAt": "2026-05-20T09:57:27+00:00",
                             "mergedAt": "2026-05-20T09:57:27+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -4997,6 +5247,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/257",
                             "propagatedAt": "2026-05-23T08:38:52+00:00",
                             "mergedAt": "2026-05-23T08:38:52+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5055,6 +5309,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/263",
                             "propagatedAt": "2026-05-27T18:24:02+00:00",
                             "mergedAt": "2026-05-27T18:30:32+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5131,6 +5389,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/260",
                             "propagatedAt": "2026-05-26T09:28:40+00:00",
                             "mergedAt": "2026-05-26T09:28:40+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5207,6 +5469,10 @@
                             "url": "https://github.com/Plytas/joy/pull/26",
                             "propagatedAt": "2026-05-27T20:35:09+00:00",
                             "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5284,6 +5550,10 @@
                             "url": "https://github.com/Plytas/joy/pull/26",
                             "propagatedAt": "2026-05-27T20:35:09+00:00",
                             "mergedAt": "2026-05-27T20:48:31+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5378,6 +5648,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/265",
                             "propagatedAt": "2026-05-28T09:36:22+00:00",
                             "mergedAt": "2026-05-28T09:36:22+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5436,6 +5710,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/263",
                             "propagatedAt": "2026-05-27T18:24:03+00:00",
                             "mergedAt": "2026-05-27T18:30:35+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5494,6 +5772,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/251",
                             "propagatedAt": "2026-05-31T08:35:54+00:00",
                             "mergedAt": "2026-05-31T08:35:54+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -5551,6 +5833,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/253",
                             "propagatedAt": "2026-05-24T08:47:39+00:00",
                             "mergedAt": "2026-05-24T08:48:03+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6196,6 +6482,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:06+00:00",
                             "mergedAt": "2026-05-31T08:36:06+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6251,6 +6541,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:06+00:00",
                             "mergedAt": "2026-05-31T08:36:06+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6306,6 +6600,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:06+00:00",
                             "mergedAt": "2026-05-31T08:36:06+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6358,6 +6656,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:06+00:00",
                             "mergedAt": "2026-05-31T08:36:06+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6413,6 +6715,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:06+00:00",
                             "mergedAt": "2026-05-31T08:36:06+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6468,6 +6774,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:06+00:00",
                             "mergedAt": "2026-05-31T08:36:06+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6520,6 +6830,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/267",
                             "propagatedAt": "2026-05-31T08:36:07+00:00",
                             "mergedAt": "2026-05-31T08:36:07+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6576,6 +6890,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/253",
                             "propagatedAt": "2026-05-31T08:35:54+00:00",
                             "mergedAt": "2026-05-31T08:35:54+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6632,6 +6950,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/257",
                             "propagatedAt": "2026-05-31T08:35:54+00:00",
                             "mergedAt": "2026-05-31T08:35:54+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6688,6 +7010,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/257",
                             "propagatedAt": "2026-05-31T08:35:54+00:00",
                             "mergedAt": "2026-05-31T08:35:54+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6744,6 +7070,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/258",
                             "propagatedAt": "2026-05-31T08:35:54+00:00",
                             "mergedAt": "2026-05-31T08:35:54+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6898,6 +7228,10 @@
                             "url": "https://github.com/Plytas/katsch-gw2/pull/266",
                             "propagatedAt": "2026-05-31T08:35:55+00:00",
                             "mergedAt": "2026-05-31T08:35:55+00:00"
+                        },
+                        "wingman": {
+                            "status": "skipped",
+                            "reason": "present at scaffold - wingman branched from start on 2026-06-06, after this backport merged"
                         }
                     }
                 }
@@ -6972,6 +7306,174 @@
                 "start-teams": {
                     "status": "pending",
                     "reason": "teams scaffolding — track separately on start-teams branch"
+                }
+            }
+        },
+        "commit:319c0804": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "319c0804",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "Migrate deprecated lucide-vue-next -> @lucide/vue across components; bumps reka-ui ^2.6.1->^2.9.8",
+                    "confidence": "high"
+                }
+            }
+        },
+        "commit:7d899161": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "7d899161",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "Add .well-known/passkey-endpoints route; keep routes/settings.php hunk only, drop chisel.php hunk (fork has no chisel.php)",
+                    "confidence": "high"
+                }
+            }
+        },
+        "commit:5971e15d": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "5971e15d",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "GH Actions hardening: add 'permissions: contents: read' to tests.yml; dependabot hunk handled by c6803cf entry",
+                    "confidence": "high"
+                }
+            }
+        },
+        "commit:a7677d16": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "a7677d16",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "Bump actions/checkout pinned SHA v6 in lint.yml + tests.yml",
+                    "confidence": "high"
+                }
+            }
+        },
+        "commit:c888f03e": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "c888f03e",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "already-covered: adds (string) cast to config/filesystems.php url, immediately reverted by fcde47c9; fork already matches final no-cast state"
+                }
+            }
+        },
+        "commit:fcde47c9": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "fcde47c9",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "net no-op: reverts c888f03e's (string) cast; fork already at rtrim(env('APP_URL'...)) final state"
+                }
+            }
+        },
+        "commit:d898db7f": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "d898db7f",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "skipped",
+                    "reason": "already-covered: fork ships larastan/larastan ^3.0 + phpstan.neon; remaining hunks touch InstallFeaturesCommand (tracked via 188fe3d) and fork-divergent User.php"
+                }
+            }
+        },
+        "commit:c6803cf0": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "c6803cf0",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "Dependabot cooldown config — requires creating .github/dependabot.yml first (fork has none); user wants dependabot setup",
+                    "confidence": "low"
+                }
+            }
+        },
+        "commit:188fe3d7": {
+            "title": "",
+            "url": "",
+            "sourceRefs": {
+                "main": {
+                    "type": "commit",
+                    "id": "188fe3d7",
+                    "url": "",
+                    "mergedAt": null
+                }
+            },
+            "targets": {
+                "start": {
+                    "status": "pending",
+                    "reason": "Read deferred installer hooks from superglobals — requires introducing InstallFeaturesCommand first (fork lacks it); user wants the command",
+                    "confidence": "low"
                 }
             }
         }
