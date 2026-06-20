@@ -7483,9 +7483,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "Read deferred installer hooks from superglobals — requires introducing InstallFeaturesCommand first (fork lacks it); user wants the command",
-                    "confidence": "low"
+                    "confidence": "high",
+                    "backportedAt": "2026-06-20T23:15:05+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/39",
+                    "adaptationNotes": "Folded into full Chisel re-adoption (PR #39): laravel/chisel dep + chisel.php/chisel-paths.php + InstallFeaturesCommand w/ superglobal defer-hook + section markers. Validated across 4 feature combos."
                 }
             }
         }
