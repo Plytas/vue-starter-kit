@@ -7322,9 +7322,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "Migrate deprecated lucide-vue-next -> @lucide/vue across components; bumps reka-ui ^2.6.1->^2.9.8",
-                    "confidence": "high"
+                    "confidence": "high",
+                    "backportedAt": "2026-06-20T21:40:54+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/37",
+                    "adaptationNotes": "Import-source rename across 28 components; reka-ui bump; fork ui/ internals left to shadcn-vue tracking"
                 }
             }
         },
