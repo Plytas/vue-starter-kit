@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { Head, Link, usePage } from '@inertiajs/vue3';
 
-import { dashboard, login, register } from '@/routes';
+import { dashboard, login } from '@/routes';
+/* @chisel-registration */
+import { register } from '@/routes';
+/* @end-chisel-registration */
 import type { WelcomeProps } from '@/types/generated';
 
 defineProps<WelcomeProps>();
@@ -31,6 +34,7 @@ const page = usePage();
 					>
 						Log in
 					</Link>
+					<!-- @chisel-registration -->
 					<Link
 						v-if="canRegister"
 						:href="register()"
@@ -38,6 +42,7 @@ const page = usePage();
 					>
 						Register
 					</Link>
+					<!-- @end-chisel-registration -->
 				</template>
 			</nav>
 		</header>

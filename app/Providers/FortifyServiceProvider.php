@@ -31,12 +31,16 @@ class FortifyServiceProvider extends ServiceProvider
 	 */
 	public function boot(): void
 	{
+		/* @chisel-registration */
 		Fortify::createUsersUsing(CreateNewUser::class);
+		/* @end-chisel-registration */
 		Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
+		/* @chisel-registration */
 		Fortify::registerView(fn() => Inertia::render('auth/Register', new RegisterProps(
 			passwordRules: Password::defaults()->toPasswordRulesString(),
 		)));
+		/* @end-chisel-registration */
 
 		Fortify::requestPasswordResetLinkView(fn(Request $request) => Inertia::render('auth/ForgotPassword', new ForgotPasswordProps(
 			status: $request->session()->get('status'),
@@ -48,22 +52,32 @@ class FortifyServiceProvider extends ServiceProvider
 			passwordRules: Password::defaults()->toPasswordRulesString(),
 		)));
 
+		/* @chisel-email-verification */
 		Fortify::verifyEmailView(fn(Request $request) => Inertia::render('auth/VerifyEmail', new VerifyEmailPrompts(
 			status: $request->session()->get('status'),
 		)));
+		/* @end-chisel-email-verification */
 
+		/* @chisel-2fa */
 		Fortify::twoFactorChallengeView(fn() => Inertia::render('auth/TwoFactorChallenge'));
+		/* @end-chisel-2fa */
 
+		/* @chisel-password-confirmation */
 		Fortify::confirmPasswordView(fn() => Inertia::render('auth/ConfirmPassword'));
+		/* @end-chisel-password-confirmation */
 
+		/* @chisel-2fa */
 		RateLimiter::for('two-factor', function (Request $request) {
 			return Limit::perMinute(5)->by($request->session()->get('login.id'));
 		});
+		/* @end-chisel-2fa */
 
+		/* @chisel-passkeys */
 		RateLimiter::for('passkeys', function (Request $request) {
 			return Limit::perMinute(10)->by(
 				$request->session()->getId() . '|' . $request->ip(),
 			);
 		});
+		/* @end-chisel-passkeys */
 	}
 }

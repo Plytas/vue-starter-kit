@@ -20,8 +20,12 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
 	use HasFactory;
 
 	use Notifiable;
+	/* @chisel-passkeys */
 	use PasskeyAuthenticatable;
+	/* @end-chisel-passkeys */
+	/* @chisel-2fa */
 	use TwoFactorAuthenticatable;
+	/* @end-chisel-2fa */
 
 	/**
 	 * @return array{avatar: 'Illuminate\Database\Eloquent\Casts\AsUri', email_verified_at: 'immutable_datetime', password: 'hashed', created_at: 'immutable_datetime', two_factor_confirmed_at: 'immutable_datetime'}

@@ -28,6 +28,7 @@ class AuthenticatedSessionController
 	{
 		$user = $request->validateCredentials();
 
+		/* @chisel-2fa */
 		if (Features::enabled(Features::twoFactorAuthentication()) && $user->hasEnabledTwoFactorAuthentication()) {
 			Session::put([
 				'login.id' => $user->getKey(),
@@ -36,6 +37,7 @@ class AuthenticatedSessionController
 
 			return to_route('two-factor.login');
 		}
+		/* @end-chisel-2fa */
 
 		Auth::login($user, $request->remember);
 
