@@ -7363,9 +7363,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "GH Actions hardening: add 'permissions: contents: read' to tests.yml; dependabot hunk handled by c6803cf entry",
-                    "confidence": "high"
+                    "confidence": "high",
+                    "backportedAt": "2026-06-20T21:42:03+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/38",
+                    "adaptationNotes": "tests.yml permissions block + dependabot.yml creation; bundled in CI/infra PR #38"
                 }
             }
         },
@@ -7382,9 +7385,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "Bump actions/checkout pinned SHA v6 in lint.yml + tests.yml",
-                    "confidence": "high"
+                    "confidence": "high",
+                    "backportedAt": "2026-06-20T21:42:04+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/38",
+                    "adaptationNotes": "actions/checkout SHA bump in tests.yml + lint.yml; bundled in CI/infra PR #38"
                 }
             }
         },
@@ -7455,9 +7461,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "Dependabot cooldown config — requires creating .github/dependabot.yml first (fork has none); user wants dependabot setup",
-                    "confidence": "low"
+                    "confidence": "high",
+                    "backportedAt": "2026-06-20T21:42:04+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/38",
+                    "adaptationNotes": "dependabot cooldown (5 days); replicated upstream HEAD dependabot.yml; bundled in CI/infra PR #38"
                 }
             }
         },
@@ -7474,9 +7483,12 @@
             },
             "targets": {
                 "start": {
-                    "status": "pending",
+                    "status": "backported",
                     "reason": "Read deferred installer hooks from superglobals — requires introducing InstallFeaturesCommand first (fork lacks it); user wants the command",
-                    "confidence": "low"
+                    "confidence": "high",
+                    "backportedAt": "2026-06-20T23:15:05+00:00",
+                    "forkPR": "https://github.com/Plytas/vue-starter-kit/pull/39",
+                    "adaptationNotes": "Folded into full Chisel re-adoption (PR #39): laravel/chisel dep + chisel.php/chisel-paths.php + InstallFeaturesCommand w/ superglobal defer-hook + section markers. Validated across 4 feature combos."
                 }
             }
         }
