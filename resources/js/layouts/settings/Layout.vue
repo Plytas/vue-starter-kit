@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { Palette, ShieldCheck, User } from 'lucide-vue-next';
+import { Palette, ShieldCheck, User } from '@lucide/vue';
 
 import Heading from '@/components/Heading.vue';
 import { Button } from '@/components/ui/button';

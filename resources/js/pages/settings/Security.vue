@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3';
 /* @chisel-2fa */
-import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
+import { ShieldBan, ShieldCheck } from '@lucide/vue';
 /* @end-chisel-2fa */
 import { ref } from 'vue';
 /* @chisel-2fa */
